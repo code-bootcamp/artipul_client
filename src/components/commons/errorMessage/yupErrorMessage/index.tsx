@@ -5,7 +5,7 @@ const WarningDiv = styled.div`
 `
 
 interface IErrorMessageProps {
-  spy?: any
+  spy: any
   message: string
 }
 

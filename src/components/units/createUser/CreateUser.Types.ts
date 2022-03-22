@@ -24,6 +24,9 @@ export interface ICreateUserProps {
   onClickNicknameAuth: (event: MouseEvent<HTMLButtonElement>) => void
   checkPhoneAuth: boolean
   nicknameAuth: boolean
+  warningPhone: string
+  warningNickname: string
+  isCheckPhoneNum: boolean
 }
 export interface ICreateUserDataProps {
   name: string

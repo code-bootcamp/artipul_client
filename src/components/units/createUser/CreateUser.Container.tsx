@@ -21,8 +21,11 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
   const [phoneNum, setPhoneNum] = useState('')
   const [token, setToken] = useState('')
   const [checkPhoneAuth, setCheckPhoneAuth] = useState(false)
+  const [isCheckPhoneNum, setIsCheckPhoneNum] = useState(false)
   const [nickname, setNickname] = useState('')
   const [nicknameAuth, setNicknameAuth] = useState(false)
+  const [warningPhone, setWarningPhone] = useState('')
+  const [warningNickname, setWarningNickname] = useState('')
   const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema)
@@ -59,7 +62,7 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
 
   const onClickPhoneNum = async () => {
     if (!/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/.test(phoneNum)) {
-      alert('휴대전화 형식이 아닙니다')
+      setWarningPhone('휴대전화 형식이 아닙니다')
       return
     }
 
@@ -69,6 +72,7 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
           phoneNum
         }
       })
+      setIsCheckPhoneNum(true)
     } catch (e) {
       alert(e.message)
     }
@@ -83,6 +87,7 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       })
       if (result.data?.phoneAuth) {
         setCheckPhoneAuth(result.data?.phoneAuth)
+        setWarningPhone('')
         alert('인증에 성공하셨습니다.')
       }
     } catch (e) {
@@ -91,6 +96,10 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
   }
 
   const onClickNicknameAuth = async () => {
+    if (nickname.length < 2) {
+      setWarningNickname('최소 두글자 이상입력해주세요')
+      return
+    }
     try {
       const result = await checkNickname({
         variables: {
@@ -99,6 +108,7 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       })
       if (result.data?.checkNickname) {
         setNicknameAuth(result.data?.checkNickname)
+        setWarningNickname('')
         alert('사용가능한 닉네임입니다.')
       }
     } catch (e) {
@@ -121,6 +131,9 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       checkPhoneAuth={checkPhoneAuth}
       onClickNicknameAuth={onClickNicknameAuth}
       nicknameAuth={nicknameAuth}
+      warningPhone={warningPhone}
+      warningNickname={warningNickname}
+      isCheckPhoneNum={isCheckPhoneNum}
     />
   )
 }
