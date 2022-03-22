@@ -14,6 +14,10 @@ export default function CreateUserPresenter(props: ICreateUserProps) {
         <div>
           <input type="text" onChange={props.onChangePhoneNum} />
         </div>
+        <YupErrorMessage
+          spy={props.warningPhone}
+          message={props.warningPhone}
+        />
         <div>
           <AuthButtons onClick={props.onClickPhoneNum} title="인증번호보내기" />
         </div>
@@ -21,7 +25,11 @@ export default function CreateUserPresenter(props: ICreateUserProps) {
         <input type="text" onChange={props.onChangeToken} />
       </div>
       <div>
-        <button onClick={props.onClickPhoneAuth}>인증번호 확인</button>
+        <AuthButtons
+          disabled={!props.isCheckPhoneNum}
+          onClick={props.onClickPhoneAuth}
+          title="인증번호 확인"
+        />
       </div>
       <div>
         <CreateUserSmallTitle title="닉네임" />
@@ -29,14 +37,14 @@ export default function CreateUserPresenter(props: ICreateUserProps) {
           <div>
             <input type="text" onChange={props.onChangeNickName} />
           </div>
+          <YupErrorMessage
+            spy={props.warningNickname}
+            message={props.warningNickname}
+          />
         </div>
         <div>
           <AuthButtons onClick={props.onClickNicknameAuth} title="중복확인" />
         </div>
-        <YupErrorMessage
-          spy={props.formState.errors.nickname}
-          message={props.formState.errors.nickname?.message}
-        />
       </div>
       <form onSubmit={props.handleSubmit(props.onClickCreateUser)}>
         <div>
