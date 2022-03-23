@@ -27,6 +27,9 @@ export interface ICreateUserProps {
   warningPhone: string
   warningNickname: string
   isCheckPhoneNum: boolean
+  minSec: boolean
+  min: number
+  sec: number
 }
 export interface ICreateUserDataProps {
   name: string
