@@ -30,6 +30,12 @@ export default function CreateUserPresenter(props: ICreateUserProps) {
           onClick={props.onClickPhoneAuth}
           title="인증번호 확인"
         />
+        {props.minSec && (
+          <span>
+            {String(props.min).padStart(2, '0')} :{' '}
+            {String(props.sec).padStart(2, '0')}
+          </span>
+        )}
       </div>
       <div>
         <CreateUserSmallTitle title="닉네임" />

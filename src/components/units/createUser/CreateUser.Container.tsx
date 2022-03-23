@@ -10,7 +10,7 @@ import {
   SEND_PHONE_TOKEN
 } from './CreateUser.Queries'
 import { ICreateIsArtist, ICreateUserDataProps } from './CreateUser.Types'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
 
 export default function CreateUserContainer(props: ICreateIsArtist) {
   const [createUser] = useMutation(CREATE_USER)
@@ -30,6 +30,11 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
     mode: 'onChange',
     resolver: yupResolver(schema)
   })
+  const [minSec, setMinSec] = useState(false)
+  const [min, setMin] = useState(3)
+  const [sec, setSec] = useState(0)
+  const time = useRef(179)
+  const timerId = useRef(null)
 
   const onChangePhoneNum = (event: ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(event.target.value)
@@ -66,13 +71,21 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       return
     }
 
+    timerId.current = setInterval(() => {
+      setMin(Math.floor(time.current / 60))
+      setSec(time.current % 60)
+      time.current -= 1
+    }, 1000)
+
     try {
       await sendPhoneToken({
         variables: {
           phoneNum
         }
       })
+      setMinSec(true)
       setIsCheckPhoneNum(true)
+      setWarningPhone('')
     } catch (e) {
       alert(e.message)
     }
@@ -88,7 +101,11 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       if (result.data?.phoneAuth) {
         setCheckPhoneAuth(result.data?.phoneAuth)
         setWarningPhone('')
+        setIsCheckPhoneNum(false)
+        setMinSec(false)
         alert('인증에 성공하셨습니다.')
+      } else {
+        alert('인증번호를 다시 확인해주세요')
       }
     } catch (e) {
       alert(e.message)
@@ -116,6 +133,13 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
     }
   }
 
+  useEffect(() => {
+    if (time.current <= 0) {
+      setIsCheckPhoneNum(false)
+      clearInterval(timerId.current)
+    }
+  }, [sec])
+
   return (
     <CreateUserPresenter
       handleSubmit={handleSubmit}
@@ -134,6 +158,9 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       warningPhone={warningPhone}
       warningNickname={warningNickname}
       isCheckPhoneNum={isCheckPhoneNum}
+      min={min}
+      sec={sec}
+      minSec={minSec}
     />
   )
 }

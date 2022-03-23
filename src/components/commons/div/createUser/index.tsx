@@ -1,12 +1,11 @@
 import styled from '@emotion/styled'
 
-const CreateUserSmallTitles = styled.div`
-  color: blueviolet;
-`
 interface ICreateUserSmallTitlesProps {
   title?: string
 }
-
+const CreateUserSmallTitles = styled.div`
+  color: blueviolet;
+`
 export default function CreateUserSmallTitle(
   props: ICreateUserSmallTitlesProps
 ) {
