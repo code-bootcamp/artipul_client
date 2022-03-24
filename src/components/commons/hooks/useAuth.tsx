@@ -14,7 +14,7 @@ export function useAuth() {
         const newAccessToken = await getAccessToken()
         if (!newAccessToken) {
           alert('로그인이 필요한 서비스 입니다.')
-          router.push('/Login')
+          router.push('/login')
         } else {
           setIsLoading(false)
         }
