@@ -3,15 +3,13 @@ import MainPresenter from './Main.Presenter'
 
 export default function MainContainer() {
   const outerDivRef = useRef<any>(null)
-  const [scrollIndex, setScrollIndex] = useState(1)
-
   useEffect(() => {
-    const wheelHandler = (e: { preventDefault: any; deltaY: number }) => {
+    const wheelHandler = async (e: { preventDefault: any; deltaY: number }) => {
       e.preventDefault()
       const { deltaY } = e
       const { scrollTop } = outerDivRef.current
       const pageHeight = window.innerHeight
-
+      console.log(scrollTop)
       if (deltaY > 0) {
         if (scrollTop >= 0 && scrollTop < pageHeight) {
           outerDivRef.current?.scrollTo({
@@ -19,58 +17,59 @@ export default function MainContainer() {
             left: 0,
             behavior: 'smooth'
           })
-          setScrollIndex(2)
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           outerDivRef.current?.scrollTo({
             top: pageHeight * 2,
             left: 0,
             behavior: 'smooth'
           })
-          setScrollIndex(3)
         } else if (scrollTop >= pageHeight * 2 && scrollTop < pageHeight * 3) {
           outerDivRef.current?.scrollTo({
             top: pageHeight * 3,
             left: 0,
             behavior: 'smooth'
           })
-          setScrollIndex(4)
         } else {
-          outerDivRef.current?.scrollTo({
-            top: pageHeight * 4,
+          await outerDivRef.current?.scrollTo({
+            top: scrollTop + 200,
             left: 0,
             behavior: 'smooth'
           })
-          setScrollIndex(4)
         }
       } else {
-        if (scrollTop >= 0 && scrollTop < pageHeight) {
+        if (scrollTop >= 0 && scrollTop <= pageHeight) {
           outerDivRef.current?.scrollTo({
             top: 0,
             left: 0,
             behavior: 'smooth'
           })
-          setScrollIndex(1)
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+        } else if (scrollTop > pageHeight && scrollTop < pageHeight * 2) {
           outerDivRef.current?.scrollTo({
-            top: 0,
+            top: pageHeight,
             left: 0,
             behavior: 'smooth'
           })
-          setScrollIndex(1)
         } else if (scrollTop >= pageHeight * 2 && scrollTop < pageHeight * 3) {
           outerDivRef.current?.scrollTo({
             top: pageHeight * 1,
             left: 0,
             behavior: 'smooth'
           })
-          setScrollIndex(2)
-        } else {
+        } else if (
+          scrollTop >= pageHeight * 3 &&
+          scrollTop <= pageHeight * 3 + 200
+        ) {
           outerDivRef.current?.scrollTo({
             top: pageHeight * 2,
             left: 0,
             behavior: 'smooth'
           })
-          setScrollIndex(3)
+        } else {
+          await outerDivRef.current?.scrollTo({
+            top: scrollTop - 200,
+            left: 0,
+            behavior: 'smooth'
+          })
         }
       }
     }

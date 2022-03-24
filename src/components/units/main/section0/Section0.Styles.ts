@@ -39,13 +39,13 @@ export const Section0Wrapper = styled.div`
 `
 
 export const TitleBox = styled.div`
-  width: 550px;
+  width: 700px;
   height: 56px;
   position: relative;
 `
 
 export const MainTitle1 = styled.div`
-  width: 550px;
+  width: 700px;
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -53,6 +53,7 @@ export const MainTitle1 = styled.div`
   text-transform: uppercase;
   & span {
     opacity: 0;
+    font-size: 72px;
     animation-name: titleAnimation1;
     animation-timing-function: ease;
     animation-duration: 1.8s;
@@ -79,7 +80,7 @@ export const MainTitle1 = styled.div`
 `
 
 export const MainTitle2 = styled.div`
-  width: 550px;
+  width: 700px;
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -87,6 +88,7 @@ export const MainTitle2 = styled.div`
   text-transform: uppercase;
   & span {
     opacity: 0;
+    font-size: 72px;
     animation-name: titleAnimation2;
     animation-timing-function: ease;
     animation-duration: 3.4s;

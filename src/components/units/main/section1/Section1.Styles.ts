@@ -61,7 +61,7 @@ export const Section1Content = styled.span`
 `
 
 export const Section1NextButtonBox = styled.div`
-  width: 494px;
+  width: 550px;
   height: 329px;
   display: flex;
   flex-direction: column;

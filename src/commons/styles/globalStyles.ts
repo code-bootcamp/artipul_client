@@ -6,7 +6,7 @@ export const globalStyles = css`
     margin: 0;
     box-sizing: border-box;
     /* font-family: "Cafe24SsurroundAir"; */
-    font-family: 'Pretendard';
+    font-family: 'Pretendard-Regular';
     font-size: 16px;
   }
 
@@ -18,7 +18,7 @@ export const globalStyles = css`
 } */
 
   @font-face {
-    font-family: 'Pretendard';
+    font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
       format('woff');
     font-weight: 400;
