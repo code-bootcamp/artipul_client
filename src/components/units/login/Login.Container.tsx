@@ -29,18 +29,17 @@ export default function LoginContainer() {
 
   const onClickLogin = async () => {
     if (loginInputs.email && loginInputs.password) {
+      setLoginCheck(false)
       try {
-        setLoginCheck(false)
         const result = await login({
           variables: {
             ...loginInputs
           }
         })
-        console.log(result)
         const accessToken = result.data?.login.accessToken || ''
         setLoginCheck(true)
         if (setAccessToken) setAccessToken(accessToken)
-        // router.push('/')
+        router.push('/')
       } catch (e) {
         alert(e.message)
       }
