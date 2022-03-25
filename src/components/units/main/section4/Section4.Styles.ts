@@ -152,7 +152,7 @@ export const Section4ContentRight = styled.div`
 `
 
 export const Section4ScrollBox = styled.div`
-  width: 55.25rem;
+  width: 56.5rem;
   height: 71.25rem;
   overflow: auto;
   -webkit-scrollbar: {
