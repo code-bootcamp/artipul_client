@@ -11,17 +11,15 @@ export const CREATE_PROFILE = gql`
 export const FETCH_PROFILE = gql`
   query fetchProfile {
     fetchProfile {
-      id
       url
-      # introduce
-      # user {
-      #   name
-      #   phoneNum
-      #   nickname
-      #   point
-      #   is_artist
-      #   college
-      # }
+      introduce
+      user {
+        name
+        phoneNum
+        nickname
+        point
+        is_artist
+      }
     }
   }
 `
@@ -31,5 +29,10 @@ export const FETCH_USER = gql`
       name
       nickname
     }
+  }
+`
+export const UPLOAD_ART_IMAGE = gql`
+  mutation uploadArtImage($files: [Upload!]!) {
+    uploadArtImage(files: $files)
   }
 `
