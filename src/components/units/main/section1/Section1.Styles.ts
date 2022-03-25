@@ -1,11 +1,11 @@
 import styled from '@emotion/styled'
 
 export const Section1Wrapper = styled.div`
-  width: 100%;
+  width: 120rem;
   height: 100vh;
-  padding-top: 370px;
-  padding-left: 370px;
-  padding-right: 156px;
+  padding-top: 23rem;
+  padding-left: 23.125rem;
+  padding-right: 3.125rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -15,14 +15,15 @@ export const Section1Wrapper = styled.div`
 `
 
 export const Section1TitleBox = styled.div`
-  height: 329px;
+  width: 30.875rem;
+  height: 20.688rem;
   display: flex;
   flex-direction: column;
 `
 
 export const Section1Title = styled.span`
-  height: 85px;
-  font-size: 72px;
+  height: 5.438rem;
+  font-size: 4.5rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -32,9 +33,9 @@ export const Section1Title = styled.span`
 `
 
 export const Section1SubTitle = styled.span`
-  margin-top: 12px;
+  margin-top: 1.125rem;
   font-family: Gotham;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -44,12 +45,12 @@ export const Section1SubTitle = styled.span`
 `
 
 export const Section1ContentBox = styled.div`
-  margin-top: 48px;
-  width: 461px;
+  margin-top: 3.25rem;
+  width: 28.813rem;
 `
 
 export const Section1Content = styled.span`
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -59,16 +60,16 @@ export const Section1Content = styled.span`
 `
 
 export const Section1NextButtonBox = styled.div`
-  width: 550px;
-  height: 329px;
+  width: 30.875rem;
+  height: 20.688rem;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 `
 export const Section1NextButtonTitle = styled.span`
-  height: 85px;
+  height: 5.438rem;
   opacity: 0.3;
-  font-size: 72px;
+  font-size: 4.5rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -78,10 +79,10 @@ export const Section1NextButtonTitle = styled.span`
 `
 
 export const Section1NextButtonSubTitle = styled.span`
-  margin-top: 12px;
+  margin-top: 1.125rem;
   opacity: 0.3;
   font-family: Gotham;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
