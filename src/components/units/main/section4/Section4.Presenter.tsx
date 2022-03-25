@@ -1,5 +1,4 @@
 import * as S from './Section4.Styles'
-import useSrr from '../../../../commons/libraries/useSrr'
 export default function Section4Presenter() {
   return (
     <>
@@ -81,7 +80,7 @@ export default function Section4Presenter() {
                 아티클은 신예 작가들을 지원하고 발단 되었습니다.
               </S.Section4ContentRightTitle>
               <S.Section4ContentRightContentBox
-                style={{ marginBottom: '200px' }}
+                style={{ marginBottom: '12.5rem' }}
               >
                 <S.Section4ContentRightImage image="/main_bottom01.png" />
                 <S.Section4ContentRightSubTitle>
@@ -97,7 +96,7 @@ export default function Section4Presenter() {
               </S.Section4ContentRightContentBox>
 
               <S.Section4ContentRightContentBox
-                style={{ marginBottom: '200px' }}
+                style={{ marginBottom: '12.5rem' }}
               >
                 <S.Section4ContentRightImage image="/brands-people-0uw3Ojx-4Cw-unsplash.png" />
                 <S.Section4ContentRightSubTitle>

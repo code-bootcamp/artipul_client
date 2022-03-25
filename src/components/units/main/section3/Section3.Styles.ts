@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const Section3Wrapper = styled.div`
-  width: 100vw;
+  width: 120rem;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@ export const Section3Wrapper = styled.div`
   background-size: cover;
 `
 export const Section3Title = styled.span`
-  font-size: 60px;
+  font-size: 3.75rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
