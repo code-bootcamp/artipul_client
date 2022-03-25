@@ -6,9 +6,10 @@ export const Section3Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('/background_gallery.png');
+  background-size: cover;
 `
 export const Section3Title = styled.span`
-  font-family: Pretendard;
   font-size: 60px;
   font-weight: bold;
   font-stretch: normal;
@@ -16,4 +17,5 @@ export const Section3Title = styled.span`
   line-height: 1.3;
   letter-spacing: -2.1px;
   text-align: center;
+  color: #fff;
 `

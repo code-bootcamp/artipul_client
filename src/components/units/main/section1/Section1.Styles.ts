@@ -9,6 +9,9 @@ export const Section1Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background-image: ${(props) => `url(${props.image})`};
+  background-size: cover;
+  color: #fff;
 `
 
 export const Section1TitleBox = styled.div`
@@ -19,7 +22,6 @@ export const Section1TitleBox = styled.div`
 
 export const Section1Title = styled.span`
   height: 85px;
-  font-family: Pretendard;
   font-size: 72px;
   font-weight: bold;
   font-stretch: normal;
@@ -27,7 +29,6 @@ export const Section1Title = styled.span`
   line-height: 0.39;
   letter-spacing: -2.52px;
   text-align: left;
-  /* color: #fff; */
 `
 
 export const Section1SubTitle = styled.span`
@@ -40,7 +41,6 @@ export const Section1SubTitle = styled.span`
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
-  /* color: #fff; */
 `
 
 export const Section1ContentBox = styled.div`
@@ -49,7 +49,6 @@ export const Section1ContentBox = styled.div`
 `
 
 export const Section1Content = styled.span`
-  font-family: Pretendard;
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -57,7 +56,6 @@ export const Section1Content = styled.span`
   line-height: 1.56;
   letter-spacing: -0.63px;
   text-align: left;
-  /* color: #fff; */
 `
 
 export const Section1NextButtonBox = styled.div`
@@ -69,8 +67,7 @@ export const Section1NextButtonBox = styled.div`
 `
 export const Section1NextButtonTitle = styled.span`
   height: 85px;
-  opacity: 0.2;
-  font-family: Pretendard;
+  opacity: 0.3;
   font-size: 72px;
   font-weight: bold;
   font-stretch: normal;
@@ -82,7 +79,7 @@ export const Section1NextButtonTitle = styled.span`
 
 export const Section1NextButtonSubTitle = styled.span`
   margin-top: 12px;
-  opacity: 0.2;
+  opacity: 0.3;
   font-family: Gotham;
   font-size: 28px;
   font-weight: bold;
