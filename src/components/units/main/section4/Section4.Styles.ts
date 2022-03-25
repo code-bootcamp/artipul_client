@@ -126,7 +126,7 @@ export const Section4ContentTitle = styled.div`
 export const Section4ContentSubTitleBox = styled.div`
   margin-top: 120px;
   margin-left: 150px;
-  width: 212px;
+  width: 250px;
   height: 165px;
   display: flex;
   flex-direction: column;
@@ -134,8 +134,8 @@ export const Section4ContentSubTitleBox = styled.div`
 `
 
 export const Section4ContentSubTitle = styled.div`
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 39px;
   font-family: Pretendard;
   font-size: 32px;
   font-weight: bold;
@@ -155,8 +155,8 @@ export const Section4ContentRight = styled.div`
 `
 
 export const Section4ScrollBox = styled.div`
-  width: 880px;
-  height: 1256px;
+  width: 920px;
+  height: 887px;
   overflow: auto;
   -webkit-scrollbar: {
     display: block;
