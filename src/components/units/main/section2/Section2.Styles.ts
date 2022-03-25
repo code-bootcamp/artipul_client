@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 export const Section2Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  padding-top: 327px;
+  padding-top: 20vh;
   overflow: hidden;
 `
 
@@ -43,8 +43,45 @@ export const Section2SubTitle = styled.span`
 `
 
 export const Section2ImageBox = styled.div`
-  margin-top: 130px;
+  margin-top: 100px;
   width: 100%;
   height: 423px;
-  background-color: aqua;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const Section2Image1 = styled.div`
+  width: 265px;
+  height: 277.1px;
+  margin-top: 145.9px;
+  background-image: url('./stone.png');
+`
+
+export const Section2Image2 = styled.div`
+  width: 360px;
+  height: 354px;
+  margin-top: 69px;
+  background-image: url('./article.png');
+`
+
+export const Section2Image3 = styled.div`
+  width: 430px;
+  height: 423px;
+  background-image: url('./fox.png');
+`
+
+export const Section2Image4 = styled.div`
+  width: 360px;
+  height: 354px;
+  margin-top: 69px;
+  background-image: url('./human.png');
+`
+
+export const Section2Image5 = styled.div`
+  width: 265px;
+  height: 277.1px;
+  margin-top: 145.9px;
+  background-image: url('./piece.png');
 `

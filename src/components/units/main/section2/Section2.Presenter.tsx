@@ -13,7 +13,13 @@ export default function Section2Presenter() {
             마우스를 스크롤하여 아티플의 방향과 가치를 확인하실 수 있습니다
           </S.Section2SubTitle>
         </S.Section2TopBox>
-        <S.Section2ImageBox></S.Section2ImageBox>
+        <S.Section2ImageBox>
+          <S.Section2Image1 />
+          <S.Section2Image2 />
+          <S.Section2Image3 />
+          <S.Section2Image4 />
+          <S.Section2Image5 />
+        </S.Section2ImageBox>
       </S.Section2Wrapper>
     </>
   )

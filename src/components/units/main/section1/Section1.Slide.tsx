@@ -6,19 +6,22 @@ export default function Section1Slide(props) {
       title: '성공한 우주비행사',
       subTitle: 'successful astronaut',
       content:
-        '이병권 작가는 설치 미술로서 우수에 찬 성공한 감정을 공유하고 있는 고양이를 우주비행사라는 직업으로서 표현하여 큰 인상을 남겨주었다.'
+        '이병권 작가는 설치 미술로서 우수에 찬 성공한 감정을 공유하고 있는 고양이를 우주비행사라는 직업으로서 표현하여 큰 인상을 남겨주었다.',
+      image: '/main_background01.png'
     },
     {
       title: '슬픔 잠긴 도넛',
       subTitle: 'sorrowful doughnut',
       content:
-        '강릉 최대의 리조트 건설이라는 도시를 덮자 사람들은 괴물로 변하고 마비된다. 한편, 조선을 사이에 둔 청과 명의 대립으로 가족을 24...'
+        '강릉 최대의 리조트 건설이라는 도시를 덮자 사람들은 괴물로 변하고 마비된다. 한편, 조선을 사이에 둔 청과 명의 대립으로 가족을 24...',
+      image: '/main_background02.png'
     },
     {
       title: '아이슈타인',
       subTitle: 'Einstein pipe',
       content:
-        '강릉 최대의 리조트 건설이라는 도시를 덮자 사람들은 괴물로 변하고 마비된다. 한편, 조선을 사이에 둔 청과 명의 대립으로 가족을 24...'
+        '강릉 최대의 리조트 건설이라는 도시를 덮자 사람들은 괴물로 변하고 마비된다. 한편, 조선을 사이에 둔 청과 명의 대립으로 가족을 24...',
+      image: '/main_background03.png'
     }
   ]
 
@@ -26,7 +29,7 @@ export default function Section1Slide(props) {
 
   return (
     <>
-      <S.Section1Wrapper>
+      <S.Section1Wrapper image={data[Number(props.index)].image}>
         <S.Section1TitleBox>
           <S.Section1Title>{data[Number(props.index)].title}</S.Section1Title>
           <S.Section1SubTitle>
