@@ -12,8 +12,6 @@ const head = `https://storage.googleapis.com`
 
 import * as UMP from './UserMyPage.Styles'
 export default function UserMyPagePresenter(props) {
-  console.log(props.url)
-  console.log(props.data)
   return (
     <>
       {props.data?.fetchProfile.user.is_artist ? (

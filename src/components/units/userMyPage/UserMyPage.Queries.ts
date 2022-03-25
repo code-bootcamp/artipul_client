@@ -13,6 +13,7 @@ export const FETCH_PROFILE = gql`
     fetchProfile {
       url
       introduce
+      address
       user {
         name
         phoneNum
