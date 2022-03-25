@@ -3,12 +3,13 @@ import { useRouter } from 'next/router'
 import { useContext, useState } from 'react'
 import { GlobalContext } from '../../../../pages/_app'
 import LoginPresenter from './Login.Presenter'
-import { LOGIN } from './Login.Queries'
+import { LOGIN, LOGOUT } from './Login.Queries'
 
 export default function LoginContainer() {
   const router = useRouter()
   const { setAccessToken } = useContext(GlobalContext)
   const [login] = useMutation(LOGIN)
+  const [logout] = useMutation(LOGOUT)
   const [loginInputs, setLoginInputs] = useState({
     email: '',
     password: ''
@@ -46,6 +47,15 @@ export default function LoginContainer() {
     }
   }
 
+  const onClickLogout = async () => {
+    try {
+      await logout()
+      // window.location.reload()
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+
   const onClickMoveToCreateUser = () => {
     router.push('/selectUser')
   }
@@ -55,6 +65,7 @@ export default function LoginContainer() {
       onClickLogin={onClickLogin}
       onClickMoveToCreateUser={onClickMoveToCreateUser}
       loginCheck={loginCheck}
+      onClickLogout={onClickLogout}
     />
   )
 }

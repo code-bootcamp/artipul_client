@@ -37,6 +37,9 @@ export default function LoginPresenter(props) {
         <LoginSpans title="비밀번호 재설정" /> |{' '}
         <LoginSpans onClick={props.onClickMoveToCreateUser} title="회원가입" />
       </div>
+      <div>
+        <button onClick={props.onClickLogout}>로그아웃</button>
+      </div>
       <div>소셜 로그인</div>
       <div>
         <button>Google</button>
