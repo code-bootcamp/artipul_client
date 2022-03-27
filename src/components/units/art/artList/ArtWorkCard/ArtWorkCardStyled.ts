@@ -6,6 +6,30 @@ export const ArtWorkCardWrapper = styled.div`
   margin-bottom: 7rem;
   display: flex;
   flex-direction: column;
+  :hover {
+    box-shadow: 0px 10px 5px -5px #aaa;
+  }
+  &:hover article {
+    opacity: 1;
+  }
+`
+export const ArtWorkLikeButton = styled.article`
+  position: relative;
+  opacity: 0;
+  bottom: 12rem;
+  left: 10.7rem;
+  width: 2.875rem;
+  height: 2.875rem;
+  background-color: #fff;
+  border-radius: 1.4rem;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+  :hover {
+    color: red;
+  }
 `
 
 export const ArtWorkImageBox = styled.div`
@@ -18,6 +42,7 @@ export const ArtWorkImageBox = styled.div`
 `
 
 export const ArtWorkImage = styled.div`
+  position: absolute;
   width: 22rem;
   height: 22rem;
   background-image: ${(props) => `url(${props.image})`};

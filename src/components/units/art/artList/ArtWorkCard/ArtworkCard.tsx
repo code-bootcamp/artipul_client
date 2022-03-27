@@ -1,9 +1,13 @@
 import * as S from './ArtWorkCardStyled'
+import { FaRegHeart } from 'react-icons/fa'
 
 export default function ArtWorkCard(props) {
   return (
     <S.ArtWorkCardWrapper>
       <S.ArtWorkImageBox>
+        <S.ArtWorkLikeButton>
+          <FaRegHeart />
+        </S.ArtWorkLikeButton>
         <S.ArtWorkImage image={props.el.image} />
       </S.ArtWorkImageBox>
       <S.ArtWorkCardTime>{`입찰중 | 5일 00:22:14 까지`}</S.ArtWorkCardTime>
