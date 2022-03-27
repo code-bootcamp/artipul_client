@@ -1,3 +1,4 @@
+import MyPageLeft from '../../commons/div/myPageLeft'
 import AuctioningPageContainer from '../artistMyPage/auctioningPage/AuctioningPage.Container'
 import DonePageContainer from '../artistMyPage/donePage/DonePage.Container'
 import IntroducePageContainer from '../artistMyPage/introducePage/IntroducePage.Container'
@@ -7,113 +8,137 @@ import LikePageContainer from './likePage/likePage.Container'
 import MyBoardsContainer from './myBoards/MyBoards.Container'
 import PointPageContainer from './pointPage/PointPage.Container'
 import PostPageContainer from './postPage/PostPage.Container'
-
-const head = `https://storage.googleapis.com`
-
-import * as UMP from './UserMyPage.Styles'
-export default function UserMyPagePresenter(props) {
+import * as MP from './UserMyPage.Styles'
+import { IMypageProps } from './UserMyPage.Types'
+export default function UserMyPagePresenter(props: IMypageProps) {
   return (
     <>
       {props.data?.fetchProfile.user.is_artist ? (
-        <UMP.Wrapper>
+        <MP.Wrapper>
           <div>
-            {' '}
-            <UMP.WrapperLeft>
-              <div>
-                <img
-                  style={{ width: '100px', height: '100px' }}
-                  src={
-                    props.url
-                      ? `${head}${props.url}`
-                      : `${head}${props.data?.fetchProfile.url}`
-                  }
-                />
-                <input
-                  type="file"
-                  ref={props.fileRef}
-                  style={{ display: 'none' }}
-                  onChange={props.onChangeImageUrl}
-                />
-              </div>
-              {props.clickImage ? (
-                <button onClick={props.onClickChangeProfileImage}>
-                  이미지 수정완료
-                </button>
-              ) : (
-                <button onClick={props.onClickEdit}>이미지 수정하기</button>
-              )}
-
-              <div>{props.data?.fetchProfile.user.name} 님</div>
-              <div>{props.data?.fetchProfile.user.nickname} </div>
-              <div>{props.data?.fetchProfile.user.point} 원</div>
-            </UMP.WrapperLeft>
-            <div>
-              <button onClick={props.onClickIntroduce}> 작가 소개 </button>
-            </div>
-            <div>
-              <button onClick={props.onClickSale}> 판매중인 작품들 </button>
-            </div>
-            <div>
-              <button onClick={props.onClickDone}> 거래 완료된 작품들 </button>
-            </div>
+            <MyPageLeft
+              data={props.data}
+              url={props.url}
+              fileRef={props.fileRef}
+              onChangeImageUrl={props.onChangeImageUrl}
+              clickImage={props.clickImage}
+              onClickChangeProfileImage={props.onClickChangeProfileImage}
+              onClickEdit={props.onClickEdit}
+            />
+            <MP.WrapperLeftBodyAr>
+              <MP.LeftBodyMenu
+                style={{
+                  color: `${props.introduce ? 'orange' : 'black'}`
+                }}
+                onClick={props.onClickIntroduce}
+              >
+                개인
+              </MP.LeftBodyMenu>
+              <MP.ClickMenus
+                style={{ color: `${props.introduce ? '#615e5e' : '#aaaaaa'}` }}
+                onClick={props.onClickIntroduce}
+              >
+                작가 소개
+              </MP.ClickMenus>
+              <MP.LeftBodyMenu
+                style={{
+                  color: `${props.sale || props.done ? 'orange' : 'black'}`
+                }}
+                onClick={props.onClickSale}
+              >
+                개인
+              </MP.LeftBodyMenu>
+              <MP.ClickMenus
+                style={{ color: `${props.sale ? '#615e5e' : '#aaaaaa'}` }}
+                onClick={props.onClickSale}
+              >
+                경매중인 작품
+              </MP.ClickMenus>
+              <MP.ClickMenus
+                style={{ color: `${props.done ? '#615e5e' : '#aaaaaa'}` }}
+                onClick={props.onClickDone}
+              >
+                거래 완료된 작품
+              </MP.ClickMenus>
+            </MP.WrapperLeftBodyAr>
           </div>
           <div>
             {props.introduce && <IntroducePageContainer />}
             {props.sale && <AuctioningPageContainer />}
             {props.done && <DonePageContainer />}
           </div>
-        </UMP.Wrapper>
+        </MP.Wrapper>
       ) : (
-        <UMP.Wrapper>
+        <MP.Wrapper>
           <div>
-            <UMP.WrapperLeft>
-              <div>
-                <img
-                  style={{ width: '100px', height: '100px' }}
-                  src={
-                    props.url
-                      ? `${head}${props.url}`
-                      : `${head}${props.data?.fetchProfile.url}`
-                  }
-                />
-                <input
-                  type="file"
-                  ref={props.fileRef}
-                  style={{ display: 'none' }}
-                  onChange={props.onChangeImageUrl}
-                />
-              </div>
-              {props.clickImage ? (
-                <button onClick={props.onClickChangeProfileImage}>
-                  이미지 수정완료
-                </button>
-              ) : (
-                <button onClick={props.onClickEdit}>이미지 수정하기</button>
-              )}
-              <div>{props.data?.fetchProfile.user.name} 님</div>
-              <div>{props.data?.fetchProfile.user.nickname} </div>
-              <div>{props.data?.fetchProfile.user.point} 원</div>
-            </UMP.WrapperLeft>
-            <div>
-              <button onClick={props.onClickPoint}>포인트</button>
-            </div>
-            <div>
-              <button onClick={props.onClickPost}>배송지 설정</button>
-            </div>
-            <div>
-              <button onClick={props.onClickLike}> 내가 찜한 작품들</button>
-            </div>
-            <div>
-              <button onClick={props.onClickBoards}>내가 작성한 게시글</button>
-            </div>
-            <div>
-              <button onClick={props.onClickBought}>구매한 작품들</button>
-            </div>
-            <div>
-              <button onClick={props.onClickAuction}>
-                경매 참여중인 작품들
-              </button>
-            </div>
+            <MyPageLeft
+              data={props.data}
+              url={props.url}
+              fileRef={props.fileRef}
+              onChangeImageUrl={props.onChangeImageUrl}
+              clickImage={props.clickImage}
+              onClickChangeProfileImage={props.onClickChangeProfileImage}
+              onClickEdit={props.onClickEdit}
+            />
+            <MP.WrapperLeftBody>
+              <MP.LeftBodyMenu
+                style={{ color: `${props.point ? 'orange' : 'black'}` }}
+                onClick={props.onClickPoint}
+              >
+                포인트
+              </MP.LeftBodyMenu>
+              <MP.LeftBodyMenu
+                style={{
+                  color: `${props.like || props.auction ? 'orange' : 'black'}`
+                }}
+                onClick={props.onClickAuction}
+              >
+                경매
+              </MP.LeftBodyMenu>
+              <MP.ClickMenus
+                style={{ color: `${props.auction ? '#615e5e' : '#aaaaaa'}` }}
+                onClick={props.onClickAuction}
+              >
+                참여중인 경매
+              </MP.ClickMenus>
+              <MP.ClickMenus
+                style={{ color: `${props.like ? '#615e5e' : '#aaaaaa'}` }}
+                onClick={props.onClickLike}
+              >
+                찜한 작품들
+              </MP.ClickMenus>
+
+              <MP.LeftBodyMenu
+                style={{
+                  color: `${
+                    props.boards || props.bought || props.post
+                      ? 'orange'
+                      : 'black'
+                  }`
+                }}
+                onClick={props.onClickPoint}
+              >
+                개인
+              </MP.LeftBodyMenu>
+              <MP.ClickMenus
+                style={{ color: `${props.post ? '#615e5e' : '#aaaaaa'}` }}
+                onClick={props.onClickPost}
+              >
+                배송지 설정
+              </MP.ClickMenus>
+              <MP.ClickMenus
+                onClick={props.onClickBoards}
+                style={{ color: `${props.boards ? '#615e5e' : '#aaaaaa'}` }}
+              >
+                작성한 리뷰
+              </MP.ClickMenus>
+              <MP.ClickMenus
+                onClick={props.onClickBought}
+                style={{ color: `${props.bought ? '#615e5e' : '#aaaaaa'}` }}
+              >
+                구매한 작품들
+              </MP.ClickMenus>
+            </MP.WrapperLeftBody>
           </div>
           <div>
             {props.point && <PointPageContainer />}
@@ -123,7 +148,7 @@ export default function UserMyPagePresenter(props) {
             {props.bought && <BoughtArtsPageContainer />}
             {props.auction && <AuctionArtsPageContainer />}
           </div>
-        </UMP.Wrapper>
+        </MP.Wrapper>
       )}
     </>
   )

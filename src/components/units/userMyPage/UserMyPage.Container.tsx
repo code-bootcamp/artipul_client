@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client'
-import { useRef, useState } from 'react'
+import { ChangeEvent, useRef, useState } from 'react'
 import UserMyPagePresenter from './UserMyPage.Presenter'
 import {
   CREATE_PROFILE,
@@ -21,7 +21,7 @@ export default function UserMyPageContainer() {
   const [sale, setSale] = useState(false)
   const [done, setDone] = useState(false)
   const [clickImage, setClickImage] = useState(false)
-  const fileRef = useRef(null)
+  const fileRef = useRef<HTMLInputElement>(null)
 
   const onClickEdit = () => {
     setClickImage(true)
@@ -35,8 +35,6 @@ export default function UserMyPageContainer() {
         variables: {
           createProfileInput: {
             url: url[0]
-            // introduce: data?.fetchProfile.introduce,
-            // address: data?.fetchProfile.address
           }
         }
       })
@@ -46,7 +44,7 @@ export default function UserMyPageContainer() {
     }
   }
 
-  const onChangeImageUrl = async (e) => {
+  const onChangeImageUrl = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files?.[0]
     try {
       const result = await uploadArtImage({

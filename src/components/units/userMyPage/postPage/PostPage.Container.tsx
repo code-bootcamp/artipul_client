@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { CREATE_PROFILE, FETCH_PROFILE } from '../UserMyPage.Queries'
 import PostPagePresenter from './PostPage.Presenter'
 
@@ -22,7 +22,7 @@ export default function PostPageContainer() {
     onClickDaumPostCode()
   }
 
-  const onChangeAddressDetail = (e) => {
+  const onChangeAddressDetail = (e: ChangeEvent<HTMLInputElement>) => {
     setAddressDetail(e.target.value)
   }
 

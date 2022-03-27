@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     position: relative;
     top: 0%;
     left: 50%;
@@ -18,21 +19,11 @@ export const Wrapper = styled.div`
 `
 export const Header = styled.h1`
   font-size: 1.563rem;
-  padding-bottom: 20px;
 `
-export const InputButtonBox = styled.div`
+export const SmallHeader = styled.h2`
+  font-size: 1.125rem;
+  padding-top: 30px;
+`
+export const SelectTypeBox = styled.div`
   width: 100%;
-  display: flex;
-  position: relative;
-`
-export const InputBox = styled.div`
-  width: 100%;
-`
-export const Count = styled.span`
-  font-size: 0.9rem;
-  color: darkgrey;
-`
-export const SubmitButtonBox = styled.div`
-  width: 50%;
-  padding-top: 60px;
 `

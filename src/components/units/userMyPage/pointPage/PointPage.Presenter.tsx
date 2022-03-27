@@ -1,5 +1,6 @@
 import Head from 'next/head'
-export default function PointPagePresenter(props) {
+import { IPointPageProps } from './PointPage.Types'
+export default function PointPagePresenter(props: IPointPageProps) {
   return (
     <>
       <Head>
