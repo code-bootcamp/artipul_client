@@ -87,7 +87,7 @@ export const ArtListContent = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow-y: scroll;
   margin-top: 1.625rem;
 `
 export const ArtListButtonBox = styled.div`
