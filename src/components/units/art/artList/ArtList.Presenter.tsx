@@ -1,6 +1,7 @@
 import * as S from './ArtList.Styles'
 import ArtWorkCard from './ArtWorkCard/ArtworkCard'
 import ArtWorkSelectPicture from './ArtWorkSelect/ArtWorkSelectPicture'
+import ArtWorkSelectPiece from './ArtWorkSelect/ArtWorkSelectPiece'
 
 export default function ArtListPresenter(props) {
   return (
@@ -17,7 +18,7 @@ export default function ArtListPresenter(props) {
           <S.ArtListCategoryTop>
             <S.ArtListCategoryTopButton
               id="회화"
-              artCategory={props.artCategory}
+              artCategory={props.artCategory[0]}
               onClick={props.onClickArtCategory}
             >
               회화
@@ -30,11 +31,11 @@ export default function ArtListPresenter(props) {
               }}
             ></div>
             <S.ArtListCategoryTopButton
-              id="조각"
-              artCategory={props.artCategory}
+              id="조소"
+              artCategory={props.artCategory[0]}
               onClick={props.onClickArtCategory}
             >
-              조각
+              조소
             </S.ArtListCategoryTopButton>
             <div
               style={{
@@ -45,14 +46,29 @@ export default function ArtListPresenter(props) {
             ></div>
             <S.ArtListCategoryTopButton
               id="기타"
-              artCategory={props.artCategory}
+              artCategory={props.artCategory[0]}
               onClick={props.onClickArtCategory}
             >
               기타
             </S.ArtListCategoryTopButton>
           </S.ArtListCategoryTop>
           <S.ArtListCategorySelectBox>
-            <ArtWorkSelectPicture />
+            {props.artCategory[0] === '회화' && (
+              <ArtWorkSelectPicture
+                onChangeSelect1={props.onChangeSelect1}
+                onChangeSelect2={props.onChangeSelect2}
+                onChangeSelect3={props.onChangeSelect3}
+                artCategory={props.artCategory}
+              />
+            )}
+            {props.artCategory[0] === '조소' && (
+              <ArtWorkSelectPiece
+                onChangeSelect1={props.onChangeSelect1}
+                onChangeSelect2={props.onChangeSelect2}
+                onChangeSelect3={props.onChangeSelect3}
+                artCategory={props.artCategory}
+              />
+            )}
           </S.ArtListCategorySelectBox>
         </S.ArtListCategory>
         <S.ArtListContent>
