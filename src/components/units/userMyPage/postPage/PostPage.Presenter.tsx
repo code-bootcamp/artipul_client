@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
 import * as PP from './PostPage.Styles'
+import { IPostProps } from './PostPage.Types'
 
 declare const window: typeof globalThis & {
   kakao: any
 }
 
-export default function PostPagePresenter(props) {
+export default function PostPagePresenter(props: IPostProps) {
   useEffect(() => {
     // 여기서 카카오맵 직접 다운로드 받고, 다 받을때까지 기다렸다가 그려주기
     const script = document.createElement('script') // <script></script>태그 생성
@@ -33,7 +34,7 @@ export default function PostPagePresenter(props) {
           `${
             props.address
               ? props.address
-              : props.data?.fetchProfile.address.split('#$%')[1]
+              : props.data?.fetchProfile.address?.split('#$%')[1]
           }`,
           // "제주특별자치도 제주시 첨단로 242",
           function (result, status) {
@@ -56,7 +57,7 @@ export default function PostPagePresenter(props) {
                 content: `<div style="width: 150px; text-align:center;padding:6px 0;"> ${
                   props.address
                     ? props.address
-                    : props.data?.fetchProfile.address.split('#$%')[1]
+                    : props.data?.fetchProfile.address?.split('#$%')[1]
                 }</div>`
               })
               infowindow.open(map, marker)
@@ -89,7 +90,7 @@ export default function PostPagePresenter(props) {
             readOnly
             defaultValue={
               props.zipcode ||
-              props.data?.fetchProfile.address.split('#$%')[0] ||
+              props.data?.fetchProfile.address?.split('#$%')[0] ||
               ''
             }
           />
@@ -101,7 +102,7 @@ export default function PostPagePresenter(props) {
             readOnly
             defaultValue={
               props.address ||
-              props.data?.fetchProfile.address.split('#$%')[1] ||
+              props.data?.fetchProfile.address?.split('#$%')[1] ||
               ''
             }
           />
@@ -110,7 +111,7 @@ export default function PostPagePresenter(props) {
         <input
           type="text"
           onChange={props.onChangeAddressDetail}
-          defaultValue={props.data?.fetchProfile.address.split('#$%')[2]}
+          defaultValue={props.data?.fetchProfile.address?.split('#$%')[2]}
         />
         <div>
           <button onClick={props.onClickSubmitProfile1}>배송장소 저장</button>

@@ -24,4 +24,11 @@ export const globalStyles = css`
     font-weight: 400;
     font-style: normal;
   }
+
+  @font-face {
+    font-family: 'Gotham';
+    src: url('http://fonts.cdnfonts.com/css/gotham');
+    font-weight: 400;
+    font-style: normal;
+  }
 `

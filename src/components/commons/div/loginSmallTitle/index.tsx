@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
 
 const LoginSmallTitle = styled.div`
-  color: orange;
+  font-size: 1rem;
+  font-weight: 700, Bold;
+  margin-bottom: 5px;
 `
 interface ILoginSmallTitlesProps {
   title?: string

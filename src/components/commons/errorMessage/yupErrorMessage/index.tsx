@@ -2,6 +2,7 @@ import HeadShake from 'react-reveal/HeadShake'
 import styled from '@emotion/styled'
 const WarningDiv = styled.div`
   color: red;
+  font-size: 1rem;
 `
 
 interface IErrorMessageProps {
