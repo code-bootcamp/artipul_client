@@ -74,7 +74,7 @@ export const Section4SubTitle = styled.div`
   text-align: left;
 `
 export const Section4TitleBottom = styled.div`
-  width: 26.938rem;
+  width: 27.325rem;
   height: 5.313rem;
   font-size: 18px;
   font-weight: normal;
@@ -154,7 +154,7 @@ export const Section4ContentRight = styled.div`
 export const Section4ScrollBox = styled.div`
   width: 56.5rem;
   height: 71.25rem;
-  overflow: auto;
+  overflow: scroll;
   -webkit-scrollbar: {
     display: block;
   }
