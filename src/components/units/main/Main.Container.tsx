@@ -9,7 +9,6 @@ export default function MainContainer() {
       const { deltaY } = e
       const { scrollTop } = outerDivRef.current
       const pageHeight = window.innerHeight
-      console.log(scrollTop)
       if (deltaY > 0) {
         if (scrollTop >= 0 && scrollTop < pageHeight) {
           outerDivRef.current?.scrollTo({
