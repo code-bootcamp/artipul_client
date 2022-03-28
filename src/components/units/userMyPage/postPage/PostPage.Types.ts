@@ -7,6 +7,7 @@ export interface IPostProps {
   onCompleteDaumPostcode: (ad: any) => void
   zipcode: string
   address: string
+  addressDetail: string
   onChangeAddressDetail: (e: ChangeEvent<HTMLInputElement>) => void
   onClickSubmitProfile1: () => void
 }

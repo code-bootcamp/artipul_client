@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { CREATE_PROFILE, FETCH_PROFILE } from '../UserMyPage.Queries'
 import PostPagePresenter from './PostPage.Presenter'
 
@@ -9,7 +9,6 @@ export default function PostPageContainer() {
   const [zipcode, setZipcode] = useState('')
   const [address, setAddress] = useState('')
   const [addressDetail, setAddressDetail] = useState('')
-
   const [view, setView] = useState(false)
 
   const onClickDaumPostCode = () => {
@@ -40,7 +39,17 @@ export default function PostPageContainer() {
       alert(e.message)
     }
   }
-
+  useEffect(() => {
+    if (data?.fetchProfile.address?.split('#$%')[0]) {
+      setZipcode(data?.fetchProfile.address?.split('#$%')[0])
+    }
+    if (data?.fetchProfile.address?.split('#$%')[1]) {
+      setAddress(data?.fetchProfile.address?.split('#$%')[1])
+    }
+    if (data?.fetchProfile.address?.split('#$%')[2]) {
+      setAddressDetail(data?.fetchProfile.address?.split('#$%')[2])
+    }
+  }, [data])
   return (
     <PostPagePresenter
       data={data}
@@ -49,6 +58,7 @@ export default function PostPageContainer() {
       onCompleteDaumPostcode={onCompleteDaumPostcode}
       zipcode={zipcode}
       address={address}
+      addressDetail={addressDetail}
       onChangeAddressDetail={onChangeAddressDetail}
       onClickSubmitProfile1={onClickSubmitProfile1}
     />

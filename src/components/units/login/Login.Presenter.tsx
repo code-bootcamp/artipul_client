@@ -11,7 +11,7 @@ export default function LoginPresenter(props) {
         <div>
           <L.Header>ARTIPUL</L.Header>
           <L.WrapperInputBox>
-            <LoginSmallTitles title="이메일" />
+            <LoginSmallTitles title="Email" />
             <LoginInputs
               id="email"
               type="text"
@@ -19,7 +19,7 @@ export default function LoginPresenter(props) {
             />
           </L.WrapperInputBox>
           <L.WrapperInputBox>
-            <LoginSmallTitles title="password" />
+            <LoginSmallTitles title="Password" />
             <LoginInputs
               id="password"
               type="password"

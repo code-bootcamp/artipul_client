@@ -18,6 +18,7 @@ const LoginAuthButton = styled.button`
   cursor: pointer;
   :hover {
     background-color: #f64612;
+    color: white;
   }
 `
 

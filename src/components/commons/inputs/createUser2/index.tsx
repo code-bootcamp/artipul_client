@@ -2,8 +2,10 @@ import styled from '@emotion/styled'
 import { ChangeEvent } from 'react'
 
 interface ICreateUserInputProps {
-  type: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  type?: string
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  defaultValue?: string
+  readonly?: boolean
 }
 
 const CreateUserInput = styled.input`
@@ -18,5 +20,12 @@ const CreateUserInput = styled.input`
 `
 
 export default function CreateUser2(props: ICreateUserInputProps) {
-  return <CreateUserInput type={props.type} onChange={props.onChange} />
+  return (
+    <CreateUserInput
+      readOnly={props.readonly}
+      defaultValue={props.defaultValue}
+      type={props.type}
+      onChange={props.onChange}
+    />
+  )
 }

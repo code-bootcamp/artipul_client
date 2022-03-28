@@ -1,7 +1,10 @@
+import * as L from './likePage.Styles'
 export default function LikePagePresenter() {
   return (
     <>
-      <h1>내가 찜한 작품들</h1>
+      <L.Wrapper>
+        <L.Header>내가 찜한 작품들</L.Header>
+      </L.Wrapper>
     </>
   )
 }

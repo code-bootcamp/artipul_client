@@ -1,20 +1,22 @@
 import { useMutation, useQuery } from '@apollo/client'
 import { useState } from 'react'
+import { FETCH_PROFILE } from '../UserMyPage.Queries'
 import PointPagePresenter from './PointPage.Presenter'
-import {
-  CREATE_POINT_TRANSACTION,
-  FETCH_POINT_TRANSACTIONS
-} from './PointPage.Queries'
+import { CREATE_POINT_TRANSACTION, FETCH_HISTORY } from './PointPage.Queries'
 
 export default function PointPageContainer() {
   const [createPointTransaction] = useMutation(CREATE_POINT_TRANSACTION)
-  const [amount, setAmount] = useState(0)
-  const { data } = useQuery(FETCH_POINT_TRANSACTIONS)
+  const [amount, setAmount] = useState('')
+  const { data, refetch } = useQuery(FETCH_HISTORY, { variables: { page: 1 } })
+  const { data: fetchProfileData } = useQuery(FETCH_PROFILE)
   const onClickMoney = (e) => {
     setAmount(e.target.id)
   }
+  const onChangePage = (page) => {
+    refetch({ page })
+  }
 
-  const createPoint = async (rsp) => {
+  const createPoint = async (rsp: any) => {
     try {
       await createPointTransaction({
         variables: {
@@ -28,20 +30,16 @@ export default function PointPageContainer() {
   }
   const onClickPayment = () => {
     const IMP = window.IMP // 생략 가능
-    IMP.init('imp70536123') // Example: imp00000000
-
-    // IMP.request_pay(param, callback) 결제창 호출
+    IMP.init('imp70536123')
     IMP.request_pay(
       {
-        // param
         pg: 'html5_inicis',
         pay_method: 'card',
-        // merchant_uid: "ORD20180131-0000011", // 아이디는 중복되지 않음. 빼게되면 자동으로 생김
         name: '포인트 금액',
         amount,
-        buyer_email: 'quswowns928@naver.com',
-        buyer_name: `박쥬비`
-        // buyer_tel: "010-4242-4242",
+        buyer_email: `${fetchProfileData?.fetchProfile.user.email}`,
+        buyer_name: `${fetchProfileData?.fetchProfile.user.name}`,
+        buyer_tel: `${fetchProfileData?.fetchProfile.user.phoneNum}`
         // buyer_addr: "서울특별시 강남구 신사동",
         // buyer_postcode: "01181",
         // m_redirect_url: 모바일 결제 시 돌아갈 주소
@@ -52,12 +50,9 @@ export default function PointPageContainer() {
         if (rsp.success) {
           // 결제 성공 시 로직,
           createPoint(rsp)
-          // refetch()
-          // 1. 백엔드에 결제관련 데이터 넘겨주기
-          // => 즉, mutation 실행하기
-          // createPointTransactionOfLoading 3시 10분
+          refetch()
         } else {
-          // 결제 실패 시 로직,
+          alert('결제에 실패하셨습니다.')
         }
       }
     )
@@ -68,6 +63,9 @@ export default function PointPageContainer() {
       onClickMoney={onClickMoney}
       onClickPayment={onClickPayment}
       data={data}
+      fetchProfileData={fetchProfileData}
+      amount={amount}
+      onChangePage={onChangePage}
     />
   )
 }

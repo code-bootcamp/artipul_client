@@ -1,7 +1,10 @@
+import * as B from './MyBoards.Styles'
 export default function MyBoardsPresenter() {
   return (
     <>
-      <h1>내가 작성한 게시글들</h1>
+      <B.Wrapper>
+        <B.Header>작성한 리뷰</B.Header>
+      </B.Wrapper>
     </>
   )
 }
