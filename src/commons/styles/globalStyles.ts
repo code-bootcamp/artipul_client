@@ -31,4 +31,26 @@ export const globalStyles = css`
     font-weight: 400;
     font-style: normal;
   }
+
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    left: -50rem;
+  }
+
+  .swiper-pagination-bullet {
+    width: var(
+      --swiper-pagination-bullet-width,
+      var(--swiper-pagination-bullet-size, 35px)
+    );
+    height: var(
+      --swiper-pagination-bullet-height,
+      var(--swiper-pagination-bullet-size, 6px)
+    );
+    border-radius: 15%;
+  }
+  :root {
+    --swiper-theme-color: #f64612;
+  }
 `
