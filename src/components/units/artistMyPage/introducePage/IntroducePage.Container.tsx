@@ -8,13 +8,9 @@ import {
 import IntroducePagePresenter from './IntroducePage.Presenter'
 
 export default function IntroducePageContainer() {
-  const [introduce, setIntroduce] = useState('')
   const [createProfile] = useMutation(CREATE_PROFILE)
   const editorRef = useRef<Editor>(null)
   const { data } = useQuery(FETCH_PROFILE)
-  // const onChangeIntroduce = () => {
-  //   setIntroduce(editorRef.current.getInstance().getMarkdown())
-  // }
 
   const onClickUpdateIntroduce = async () => {
     try {
@@ -37,7 +33,6 @@ export default function IntroducePageContainer() {
       onClickUpdateIntroduce={onClickUpdateIntroduce}
       data={data}
       editorRef={editorRef}
-      introduce={introduce}
     />
   )
 }

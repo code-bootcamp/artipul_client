@@ -1,7 +1,11 @@
+import * as D from './DonePage.Styles'
+
 export default function DonePagePresenter() {
   return (
     <>
-      <h1>판매 완료 상품</h1>
+      <D.Wrapper>
+        <D.Header>거래 완료된 작품들</D.Header>
+      </D.Wrapper>
     </>
   )
 }

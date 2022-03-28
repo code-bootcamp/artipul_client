@@ -11,8 +11,11 @@ import {
 } from './CreateUser.Queries'
 import { ICreateIsArtist, ICreateUserDataProps } from './CreateUser.Types'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function CreateUserContainer(props: ICreateIsArtist) {
+  const router = useRouter()
+
   const [createUser] = useMutation(CREATE_USER)
   const [sendPhoneToken] = useMutation(SEND_PHONE_TOKEN)
   const [phoneAuth] = useMutation(PHONE_AUTH)
@@ -60,6 +63,7 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
           }
         }
       })
+      router.push('/login')
     } catch (e) {
       alert(e.message)
     }

@@ -62,7 +62,7 @@ export default function UserMyPagePresenter(props: IMypageProps) {
               </MP.ClickMenus>
             </MP.WrapperLeftBodyAr>
           </div>
-          <div>
+          <div style={{ width: '100%' }}>
             {props.introduce && <IntroducePageContainer />}
             {props.sale && <AuctioningPageContainer />}
             {props.done && <DonePageContainer />}
@@ -87,6 +87,12 @@ export default function UserMyPagePresenter(props: IMypageProps) {
               >
                 포인트
               </MP.LeftBodyMenu>
+              <MP.ClickMenus
+                style={{ color: `${props.point ? '#615e5e' : '#aaaaaa'}` }}
+                onClick={props.onClickPoint}
+              >
+                포인트 충전 및 사용내역
+              </MP.ClickMenus>
               <MP.LeftBodyMenu
                 style={{
                   color: `${props.like || props.auction ? 'orange' : 'black'}`
@@ -140,7 +146,7 @@ export default function UserMyPagePresenter(props: IMypageProps) {
               </MP.ClickMenus>
             </MP.WrapperLeftBody>
           </div>
-          <div>
+          <div style={{ width: '100%' }}>
             {props.point && <PointPageContainer />}
             {props.post && <PostPageContainer />}
             {props.like && <LikePageContainer />}
