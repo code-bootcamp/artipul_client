@@ -33,7 +33,8 @@ export const ArtDetailImageBox = styled.div`
 export const ArtDetailImage = styled.div`
   width: 28rem;
   height: 28rem;
-  background-image: url('/test2.jpg');
+  background-image: ${(props) =>
+    `url(https://storage.googleapis.com${props.image})`};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -322,6 +323,7 @@ export const ArtDetailDescription = styled.div`
   letter-spacing: -0.53px;
   text-align: left;
   color: #333;
+  white-space: pre-line;
 `
 
 export const ArtDetailDescriptionImageBox = styled.div`
@@ -336,7 +338,8 @@ export const ArtDetailDescriptionImageBox = styled.div`
 export const ArtDetailDescriptionImage = styled.div`
   width: 30rem;
   height: 30rem;
-  background-image: url('/test2.jpg');
+  background-image: ${(props) =>
+    `url(https://storage.googleapis.com${props.image})`};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;

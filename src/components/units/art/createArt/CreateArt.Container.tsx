@@ -26,7 +26,6 @@ export default function CreateArtContainer() {
   const onChangeDescription = (event) => {
     setDescription(event.target.value)
   }
-
   const onChangeStart_price = (event) => {
     setStart_price(Number(event.target.value))
     if (instant_bid < Number(event.target.value)) {
@@ -150,6 +149,12 @@ export default function CreateArtContainer() {
     }
   }
 
+  const onClickCancle = () => {
+    router.push('/mypage')
+  }
+
+  console.log(description)
+
   return (
     <>
       <CreateArtPresenter
@@ -165,6 +170,7 @@ export default function CreateArtContainer() {
         onChangeTag2={onChangeTag2}
         onChangeTag3={onChangeTag3}
         onClickSubmit={onClickSubmit}
+        onClickCancle={onClickCancle}
         start_price={start_price}
         instant_bid={instant_bid}
         fileRef={fileRef}
