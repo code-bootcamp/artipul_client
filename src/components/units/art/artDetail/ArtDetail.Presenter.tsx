@@ -7,7 +7,7 @@ export default function ArtDetailPresenter(props) {
         <S.ArtDetailTop>
           <S.ArtDetaiToplLeft>
             <S.ArtDetailImageBox>
-              <S.ArtDetailImage />
+              <S.ArtDetailImage image={props.data?.thumbnail} />
             </S.ArtDetailImageBox>
           </S.ArtDetaiToplLeft>
           <S.ArtDetailTopRight>
@@ -72,7 +72,7 @@ export default function ArtDetailPresenter(props) {
               {props.data?.description}
             </S.ArtDetailDescription>
             <S.ArtDetailDescriptionImageBox>
-              <S.ArtDetailDescriptionImage />
+              <S.ArtDetailDescriptionImage image={props.data?.thumbnail} />
             </S.ArtDetailDescriptionImageBox>
           </S.ArtDetailDescriptionBox>
         </S.ArtDetailBottom>
