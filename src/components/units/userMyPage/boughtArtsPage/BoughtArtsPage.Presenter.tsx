@@ -14,16 +14,23 @@ export default function BoughtArtsPagePresenter() {
           <B.TableHeadMenu>구매날짜</B.TableHeadMenu>
           <B.TableHeadMenu>리뷰</B.TableHeadMenu>
         </B.TableHead>
-        <B.TableRow>
-          <B.TableRowMenu>a</B.TableRowMenu>
-          <B.TableRowMenu>b</B.TableRowMenu>
-          <B.TableRowMenu>c</B.TableRowMenu>
-          <B.TableRowMenu>d</B.TableRowMenu>
-          <B.TableRowMenu>e</B.TableRowMenu>
-          <B.TableRowMenu>f</B.TableRowMenu>
-          <B.TableRowMenu>g</B.TableRowMenu>
-          <B.TableRowMenu>h</B.TableRowMenu>
-        </B.TableRow>
+
+        {new Array(11).fill(1).map((el, index) => (
+          <B.TableRow key={index}>
+            <B.TableRowMenu>
+              <B.TableRowImg src="/test3.jpg" />
+            </B.TableRowMenu>
+            <B.TableRowMenu>카테고리</B.TableRowMenu>
+            <B.TableRowMenu>제목</B.TableRowMenu>
+            <B.TableRowMenu>리재후</B.TableRowMenu>
+            <B.TableRowMenu>e</B.TableRowMenu>
+            <B.TableRowMenu>100000</B.TableRowMenu>
+            <B.TableRowMenu>g</B.TableRowMenu>
+            <B.TableRowMenu>
+              <B.ReviewButton>리뷰하기</B.ReviewButton>
+            </B.TableRowMenu>
+          </B.TableRow>
+        ))}
       </B.Wrapper>
     </>
   )

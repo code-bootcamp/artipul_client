@@ -1,6 +1,7 @@
-import { Pagination } from 'antd'
 import * as A from './AuctionArtsPage.Styles'
-export default function AuctionArtsPagePresenter(props) {
+import { IAuctionArtsProps } from './AuctionArtsPage.Types'
+export default function AuctionArtsPagePresenter(props: IAuctionArtsProps) {
+  console.log(props.data?.fetchAuctionArts)
   return (
     <>
       <A.Wrapper>
@@ -13,34 +14,48 @@ export default function AuctionArtsPagePresenter(props) {
           <A.TableHeadMenu>즉시 입찰가</A.TableHeadMenu>
           <A.TableHeadMenu>현재 입찰가</A.TableHeadMenu>
           <A.TableHeadMenu>나의 입찰가</A.TableHeadMenu>
-          <A.TableHeadMenu>작품 바로가기</A.TableHeadMenu>
+          <A.TableHeadMenu>바로가기</A.TableHeadMenu>
         </A.TableHead>
-        <A.TableRow>
-          <A.TableRowMenu>a</A.TableRowMenu>
-          <A.TableRowMenu>b</A.TableRowMenu>
-          <A.TableRowMenu>c</A.TableRowMenu>
-          <A.TableRowMenu>d</A.TableRowMenu>
-          <A.TableRowMenu>e</A.TableRowMenu>
-          <A.TableRowMenu>f</A.TableRowMenu>
-          <A.TableRowMenu>g</A.TableRowMenu>
-          <A.TableRowMenu>h</A.TableRowMenu>
-        </A.TableRow>
-        {/* {props.data?.fetchAuctionArts.map((el) => (
-          <A.TableRow key={el.id}>
-            <A.TableRowMenu>{el.createdAt}</A.TableRowMenu>
-            <A.TableRowMenu>{el.charge_amount}</A.TableRowMenu>
-            <A.TableRowMenu>aa</A.TableRowMenu>
-            <A.TableRowMenu>bb</A.TableRowMenu>
-            <A.TableRowMenu>cc</A.TableRowMenu>
-            <A.TableRowMenu>dd</A.TableRowMenu>
-            <A.TableRowMenu>ee</A.TableRowMenu>
-            <A.TableRowMenu>ff</A.TableRowMenu>
+        {/* {new Array(7).fill(1).map((el, index) => (
+          <A.TableRow key={index}>
+            <A.TableRowMenu>
+              <A.TableRowImg src="/test4.webp" />
+            </A.TableRowMenu>
+            <A.TableRowMenu>회황</A.TableRowMenu>
+            <A.TableRowMenu>제목</A.TableRowMenu>
+            <A.TableRowMenu>날짜</A.TableRowMenu>
+            <A.TableRowMenu>100000원</A.TableRowMenu>
+            <A.TableRowMenu>70000원</A.TableRowMenu>
+            <A.TableRowMenu>80000원</A.TableRowMenu>
+            <A.TableRowMenu>
+              <A.DetailButton onClick={props.onClickArtDetail(el)}>
+                바로가기
+              </A.DetailButton>
+            </A.TableRowMenu>
           </A.TableRow>
         ))} */}
+        {props.data?.fetchAuctionArts.map((el, index) => (
+          <A.TableRow key={index}>
+            <A.TableRowMenu>
+              <A.TableRowImg src="/test4.webp" />
+            </A.TableRowMenu>
+            <A.TableRowMenu>회황</A.TableRowMenu>
+            <A.TableRowMenu>제목</A.TableRowMenu>
+            <A.TableRowMenu>날짜</A.TableRowMenu>
+            <A.TableRowMenu>100000원</A.TableRowMenu>
+            <A.TableRowMenu>70000원</A.TableRowMenu>
+            <A.TableRowMenu>80000원</A.TableRowMenu>
+            <A.TableRowMenu>
+              <A.DetailButton onClick={props.onClickArtDetail(el)}>
+                바로가기
+              </A.DetailButton>
+            </A.TableRowMenu>
+          </A.TableRow>
+        ))}
 
-        <Pagination
+        <A.Paginations
           defaultCurrent={1}
-          total={props.data?.fetchHistory?.length}
+          total={props.data?.fetchAuctionArts?.length}
           onChange={props.onChangePage}
         />
       </A.Wrapper>

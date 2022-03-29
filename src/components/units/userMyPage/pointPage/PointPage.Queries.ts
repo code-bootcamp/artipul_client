@@ -17,34 +17,20 @@ export const FETCH_POINT_TRANSACTIONS = gql`
     }
   }
 `
+
 export const FETCH_HISTORY = gql`
-  query fetchHistor {
-    fetchHistory {
+  query fetchHistor($page: Float!) {
+    fetchHistory(page: $page) {
       id
       createdAt
-      charge_amount
-      # user {
-      #   point
-      # }
-      # pointTransaction {
-      #   status {
-      #     PAYMENT
-      #   }
-      # }
+      point
+      balance
+      pointTransaction {
+        status
+      }
+      payment {
+        id
+      }
     }
   }
 `
-// export const FETCH_HISTORY = gql`
-//   query fetchHistor($page: Int) {
-//     fetchHistory(page: $page) {
-//       id
-//       createdAt
-//       charge_amount
-//       # pointTransaction {
-//       #   status {
-//       #     PAYMENT
-//       #   }
-//       # }
-//     }
-//   }
-// `

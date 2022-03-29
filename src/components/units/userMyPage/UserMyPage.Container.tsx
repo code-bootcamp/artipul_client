@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client'
+import { useRouter } from 'next/router'
 import { ChangeEvent, useRef, useState } from 'react'
 import UserMyPagePresenter from './UserMyPage.Presenter'
 import {
@@ -8,6 +9,7 @@ import {
 } from './UserMyPage.Queries'
 
 export default function UserMyPageContainer() {
+  const router = useRouter()
   const [createProfile] = useMutation(CREATE_PROFILE)
   const [uploadArtImage] = useMutation(UPLOAD_ART_IMAGE)
   const { data } = useQuery(FETCH_PROFILE)
@@ -56,6 +58,9 @@ export default function UserMyPageContainer() {
     } catch (e) {
       alert(e.message)
     }
+  }
+  const onClickCreateArt = () => {
+    router.push('/createArt')
   }
 
   const onClickIntroduce = () => {
@@ -150,6 +155,7 @@ export default function UserMyPageContainer() {
       fileRef={fileRef}
       onChangeImageUrl={onChangeImageUrl}
       url={url}
+      onClickCreateArt={onClickCreateArt}
     />
   )
 }

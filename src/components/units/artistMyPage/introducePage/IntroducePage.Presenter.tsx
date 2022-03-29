@@ -19,7 +19,11 @@ export default function IntroducePagePresenter(props) {
             <EditorC
               height={'400px'}
               forwardRef={props.editorRef}
-              initialValue={props.data?.fetchProfile?.introduce}
+              initialValue={
+                props.data?.fetchProfile?.introduce
+                  ? props.data?.fetchProfile?.introduce
+                  : ''
+              }
             />
           </I.EditWrapper>
         </div>

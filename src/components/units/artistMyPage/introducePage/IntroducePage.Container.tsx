@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client'
 import { Editor } from '@toast-ui/react-editor'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import {
   CREATE_PROFILE,
   FETCH_PROFILE
