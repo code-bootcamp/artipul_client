@@ -57,11 +57,11 @@ export const CreateArtTitleInput = styled.input`
 `
 
 export const CreateArtImageBox = styled.div`
-  margin-top: 7.531rem;
+  margin-top: 3.5rem;
 `
 
 export const CreateArtImageInputButtonBox = styled.div`
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   width: 25rem;
   height: 25rem;
   background-color: #eee;
@@ -111,25 +111,27 @@ export const CreateArtImageInputImage = styled.div`
 `
 
 export const CreateArtCategoryBox = styled.div`
-  margin-top: 7.5rem;
-  height: 12.5rem;
+  margin-top: 3.5rem;
+  height: 6.125rem;
 `
 
 export const CreateArtCategorySelectBox = styled.div`
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   height: 6.125rem;
   width: 30rem;
   display: flex;
-  justify-content: space-between;
 `
 
 export const CreateArtCategorySelect = styled.select`
   height: 2.125rem;
   width: 6.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
 `
 
 export const CreateArtDescriptionBox = styled.div`
-  margin-bottom: 10rem;
+  margin-top: 3.5rem;
+  margin-bottom: 7rem;
 `
 
 export const CreateArtDescriptionInput = styled.textarea`
@@ -148,10 +150,11 @@ export const CreateArtDeadline = styled.input`
   margin-top: 2rem;
   width: 10rem;
   height: 2.125rem;
+  cursor: pointer;
 `
 
 export const CreateArtPriceBox = styled.div`
-  margin-top: 7.813rem;
+  margin-top: 3.5rem;
 `
 
 export const CreateArtPriceInput = styled.input`
@@ -165,7 +168,7 @@ export const CreateArtPriceInput = styled.input`
 `
 
 export const CreateArtButtonBox = styled.div`
-  margin-top: 7.531rem;
+  margin-top: 5rem;
   width: 100%;
   height: 3.75rem;
   display: flex;

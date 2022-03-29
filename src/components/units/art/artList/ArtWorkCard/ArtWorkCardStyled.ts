@@ -6,8 +6,9 @@ export const ArtWorkCardWrapper = styled.div`
   margin-bottom: 7rem;
   display: flex;
   flex-direction: column;
-  :hover {
-    box-shadow: 0px 10px 5px -5px #aaa;
+  cursor: pointer;
+  :hover .image {
+    transform: scale(1.02);
   }
   &:hover article {
     opacity: 1;
