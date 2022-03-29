@@ -4,7 +4,8 @@ import LoginSmallTitles from '../../commons/div/loginSmallTitle'
 import LoginInputs from '../../commons/inputs/login'
 import LoginSpans from '../../commons/span/login'
 import * as L from './Login.Styles'
-export default function LoginPresenter(props) {
+import { ILoginProps } from './Login.Types'
+export default function LoginPresenter(props: ILoginProps) {
   return (
     <>
       <L.Wrapper>
@@ -40,17 +41,17 @@ export default function LoginPresenter(props) {
             />
           </L.ButtonBox>
           <L.SpanBox>
-            <LoginSpans title="아이디 찾기" />
-            <LoginSpans title="비밀번호 재설정" />
+            <LoginSpans onClick={props.onClickFindUser} title="아이디 찾기" />
+            <LoginSpans
+              onClick={props.onClickFindUser}
+              title="비밀번호 재설정"
+            />
           </L.SpanBox>
 
           <L.SocialLoginBox>
             <SocialLoginButtons src="/google.png" title="Google로 로그인" />
             <SocialLoginButtons src="/kakao.png" title="Kakao로 로그인" />
           </L.SocialLoginBox>
-          <div>
-            <button onClick={props.onClickLogout}>로그아웃</button>
-          </div>
         </div>
       </L.Wrapper>
     </>

@@ -1,22 +1,23 @@
 import { useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
-import { useContext, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../../../pages/_app'
 import LoginPresenter from './Login.Presenter'
-import { LOGIN, LOGOUT } from './Login.Queries'
+import { LOGIN } from './Login.Queries'
 
 export default function LoginContainer() {
   const router = useRouter()
   const { setAccessToken } = useContext(GlobalContext)
   const [login] = useMutation(LOGIN)
-  const [logout] = useMutation(LOGOUT)
   const [loginInputs, setLoginInputs] = useState({
     email: '',
     password: ''
   })
   const [loginCheck, setLoginCheck] = useState(false)
-
-  const onChangeLoginInputs = (event) => {
+  const onClickFindUser = () => {
+    router.push('/findUser')
+  }
+  const onChangeLoginInputs = (event: ChangeEvent<HTMLInputElement>) => {
     setLoginInputs({
       ...loginInputs,
       [event.target.id]: event.target.value
@@ -47,15 +48,6 @@ export default function LoginContainer() {
     }
   }
 
-  const onClickLogout = async () => {
-    try {
-      await logout()
-      // window.location.reload()
-    } catch (e) {
-      alert(e.message)
-    }
-  }
-
   const onClickMoveToCreateUser = () => {
     router.push('/selectUser')
   }
@@ -65,7 +57,7 @@ export default function LoginContainer() {
       onClickLogin={onClickLogin}
       onClickMoveToCreateUser={onClickMoveToCreateUser}
       loginCheck={loginCheck}
-      onClickLogout={onClickLogout}
+      onClickFindUser={onClickFindUser}
     />
   )
 }

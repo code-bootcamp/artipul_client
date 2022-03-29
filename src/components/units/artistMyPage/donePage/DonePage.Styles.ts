@@ -71,3 +71,21 @@ export const DetailButton = styled.button`
     color: white;
   }
 `
+export const SmallHeadWrapper = styled.div`
+  width: 100%;
+  padding: 40px 0px;
+`
+export const TitleAmountSpan = styled.span`
+  font-size: 1.575rem;
+  color: #f64612;
+  padding-right: 2px;
+  font-weight: 700;
+`
+export const SmallHead = styled.div`
+  max-width: 1140px;
+  width: 100%;
+  background-color: #eeeeee;
+  font-size: 1.25rem;
+  padding: 1.25rem 1.56rem;
+  font-weight: 700;
+`
