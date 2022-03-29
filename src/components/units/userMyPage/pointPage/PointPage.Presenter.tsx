@@ -94,10 +94,22 @@ export default function PointPagePresenter(props: IPointPageProps) {
         {props.data?.fetchHistory.map((el) => (
           <P.TableRow key={el.id}>
             <P.TableRowMenu>{el.createdAt}</P.TableRowMenu>
-            <P.TableRowMenu>{el.charge_amount}</P.TableRowMenu>
-            <P.TableRowMenu>aa</P.TableRowMenu>
-            <P.TableRowMenu>bb</P.TableRowMenu>
-            <P.TableRowMenu>cc</P.TableRowMenu>
+
+            {el.payment ? (
+              <>
+                <P.TableRowMenu>출금</P.TableRowMenu>
+                <P.TableRowMenu>{el.point}</P.TableRowMenu>
+                <P.TableRowMenu></P.TableRowMenu>
+              </>
+            ) : (
+              <>
+                <P.TableRowMenu>입금</P.TableRowMenu>
+                <P.TableRowMenu></P.TableRowMenu>
+                <P.TableRowMenu>{el.point}</P.TableRowMenu>
+              </>
+            )}
+            {/* <P.TableRowMenu>{el.point}</P.TableRowMenu> */}
+            <P.TableRowMenu>{el.balance}</P.TableRowMenu>
             {/* <span>{el.user.point}</span> */}
           </P.TableRow>
         ))}

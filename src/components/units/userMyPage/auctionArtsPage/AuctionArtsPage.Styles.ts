@@ -1,4 +1,9 @@
 import styled from '@emotion/styled'
+import { Pagination } from 'antd'
+
+export const Paginations = styled(Pagination)`
+  padding: 1rem;
+`
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -39,10 +44,32 @@ export const TableRowMenu = styled.span`
   font-weight: 400;
   color: #111111;
   border-right: 1px solid #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 export const TableRowLastMenu = styled.span`
   text-align: center;
   font-size: 1rem;
   font-weight: 400;
   color: #111111;
+`
+export const TableRowImg = styled.img`
+  width: 80%;
+  height: 80%;
+`
+export const DetailButton = styled.button`
+  width: 70%;
+  height: 40px;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  background-color: '#eeeeee';
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  :hover {
+    background-color: #f64612;
+    color: white;
+  }
 `

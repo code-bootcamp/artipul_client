@@ -6,3 +6,7 @@ function UserMyPagePage() {
 }
 
 export default withAuth(UserMyPagePage)
+
+// export default function UserMyPage() {
+//   return <UserMyPageContainer />
+// }

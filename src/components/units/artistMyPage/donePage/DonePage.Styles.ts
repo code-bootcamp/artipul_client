@@ -14,3 +14,60 @@ export const Header = styled.h1`
   font-weight: 700;
   font-size: 1.5625rem;
 `
+export const TableHead = styled.div`
+  width: 1140px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: #eeeeee;
+  padding: 1rem 0.5rem;
+  margin-top: 2.6rem;
+`
+export const TableHeadMenu = styled.span`
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+`
+export const TableRow = styled.div`
+  width: 1140px;
+  border-bottom: 1px solid #eeeeee;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+`
+export const TableRowMenu = styled.span`
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #111111;
+  border-right: 1px solid #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const TableRowLastMenu = styled.span`
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const TableRowImg = styled.img`
+  width: 70%;
+  height: 70%;
+`
+export const DetailButton = styled.button`
+  width: 70%;
+  height: 40px;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  background-color: '#eeeeee';
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  :hover {
+    background-color: #f64612;
+    color: white;
+  }
+`

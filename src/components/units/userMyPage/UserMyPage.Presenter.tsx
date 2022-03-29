@@ -60,6 +60,11 @@ export default function UserMyPagePresenter(props: IMypageProps) {
               >
                 거래 완료된 작품
               </MP.ClickMenus>
+              <MP.ReviewBox>
+                <MP.ReviewButton onClick={props.onClickCreateArt}>
+                  작품 등록하기
+                </MP.ReviewButton>
+              </MP.ReviewBox>
             </MP.WrapperLeftBodyAr>
           </div>
           <div style={{ width: '100%' }}>
@@ -144,6 +149,11 @@ export default function UserMyPagePresenter(props: IMypageProps) {
               >
                 구매한 작품들
               </MP.ClickMenus>
+              <MP.ReviewBox>
+                <MP.ReviewButton onClick={props.onClickBought}>
+                  리뷰 작성하기
+                </MP.ReviewButton>
+              </MP.ReviewBox>
             </MP.WrapperLeftBody>
           </div>
           <div style={{ width: '100%' }}>

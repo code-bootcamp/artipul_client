@@ -17,6 +17,7 @@ export interface IMypageProps {
   onClickBoards: () => void
   onClickBought: () => void
   onClickAuction: () => void
+  onClickCreateArt: () => void
   introduce: boolean
   sale: boolean
   done: boolean
