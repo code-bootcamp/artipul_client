@@ -1,6 +1,5 @@
-import { useRouter } from 'next/router'
+import ArtDetailContainer from '../../../src/components/units/art/artDetail/ArtDetail.Container'
 
 export default function ArtDetailPage() {
-  const router = useRouter()
-  return <>{router.query.id}</>
+  return <ArtDetailContainer />
 }

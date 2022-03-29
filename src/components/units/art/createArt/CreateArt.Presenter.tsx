@@ -8,7 +8,7 @@ export default function CreateArtPresenter(props) {
       </div>
       <br />
       <div>
-        작품 설명: <input type="text" onChange={props.onChangeDescription} />
+        작품 설명: <textarea onChange={props.onChangeDescription} />
       </div>
       <br />
       <div>

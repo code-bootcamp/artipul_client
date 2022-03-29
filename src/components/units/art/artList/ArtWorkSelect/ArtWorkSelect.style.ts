@@ -3,6 +3,9 @@ import styled from '@emotion/styled'
 export const ArtWorkSelectPictureWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  & select {
+    outline: 0;
+  }
 `
 export const Select2Word = styled.select`
   width: 5.438rem;
