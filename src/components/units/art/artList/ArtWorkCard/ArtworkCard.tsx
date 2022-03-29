@@ -8,7 +8,7 @@ export default function ArtWorkCard(props) {
         <S.ArtWorkLikeButton>
           <FaRegHeart />
         </S.ArtWorkLikeButton>
-        <S.ArtWorkImage image={props.el.image} />
+        <S.ArtWorkImage className="image" image={props.el.image} />
       </S.ArtWorkImageBox>
       <S.ArtWorkCardTime>{`입찰중 | 5일 00:22:14 까지`}</S.ArtWorkCardTime>
       <S.ArtWorkCardContent>

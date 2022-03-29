@@ -264,6 +264,7 @@ export const ArtDetailAuctionButton = styled.div`
   font-style: normal;
   text-align: center;
   color: #fff;
+  cursor: pointer;
 `
 
 export const ArtDetailBuyButton = styled.div`
@@ -281,6 +282,7 @@ export const ArtDetailBuyButton = styled.div`
   text-align: center;
   border: 3px solid #f64612;
   color: #f64612;
+  cursor: pointer;
 `
 
 export const ArtDetailBottom = styled.div`
@@ -329,10 +331,11 @@ export const ArtDetailDescription = styled.div`
 export const ArtDetailDescriptionImageBox = styled.div`
   margin-top: 2rem;
   width: 50%;
-  height: 30rem;
+  height: 40rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #eee;
 `
 
 export const ArtDetailDescriptionImage = styled.div`
