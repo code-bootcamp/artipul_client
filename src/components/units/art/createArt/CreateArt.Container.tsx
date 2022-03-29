@@ -1,7 +1,7 @@
 import { useState, useRef, ChangeEvent } from 'react'
 import CreateArtPresenter from './CreateArt.Presenter'
 import { useMutation } from '@apollo/client'
-import { CREATE_ART, UPLOAD_ART_IMAGE } from './CreateArt.Query'
+import { CREATE_ART, UPLOAD_ART_IMAGE } from './CreateArt.Queries'
 import { checkFileValidation } from '../../../../commons/libraries/checkFileValidation'
 import { useRouter } from 'next/router'
 
