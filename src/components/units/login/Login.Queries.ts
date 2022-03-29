@@ -12,3 +12,15 @@ export const LOGOUT = gql`
     logout
   }
 `
+export const FETCH_USER_EMAIL = gql`
+  query findUserEmail($phoneNum: String!) {
+    findUserEmail(phoneNum: $phoneNum)
+  }
+`
+export const RESET_USER_PASSWORD = gql`
+  mutation resetUserPassword($email: String!, $password: String!) {
+    resetUserPassword(email: $email, password: $password) {
+      id
+    }
+  }
+`

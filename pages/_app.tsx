@@ -18,6 +18,7 @@ import { createUploadLink } from 'apollo-upload-client'
 import { useRouter } from 'next/router'
 import { AppProps } from 'next/dist/shared/lib/router/router'
 import { getAccessToken } from '../src/commons/libraries/refreshAccessToken'
+import Layout from '../src/components/commons/layout'
 
 interface IGlobalContext {
   accessToken?: string
@@ -74,7 +75,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <GlobalContext.Provider value={value}>
       <ApolloProvider client={client}>
         <Global styles={globalStyles} />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ApolloProvider>
     </GlobalContext.Provider>
   )

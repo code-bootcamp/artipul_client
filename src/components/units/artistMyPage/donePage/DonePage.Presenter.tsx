@@ -1,10 +1,22 @@
 import * as D from './DonePage.Styles'
+import { IDonePageProps } from './DonePage.Types'
 
-export default function DonePagePresenter() {
+export default function DonePagePresenter(props: IDonePageProps) {
   return (
     <>
       <D.Wrapper>
         <D.Header>거래 완료된 작품들</D.Header>
+        <D.SmallHeadWrapper>
+          <D.SmallHead>
+            {props.data?.fetchProfile.user.nickname} 님의 현재 보유 금액은&nbsp;
+            <D.TitleAmountSpan>
+              {props.data?.fetchProfile.user.point
+                .toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+            </D.TitleAmountSpan>
+            원 입니다
+          </D.SmallHead>
+        </D.SmallHeadWrapper>
         <D.TableHead>
           <D.TableHeadMenu>작품이미지</D.TableHeadMenu>
           <D.TableHeadMenu>카테고리</D.TableHeadMenu>
