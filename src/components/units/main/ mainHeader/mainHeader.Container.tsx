@@ -28,11 +28,15 @@ export default function MainHeaderContainer() {
     }
   }
 
+  const onClickLogo = () => {
+    router.push('/')
+  }
+
   const onClickAboutus = () => {
     router.push('/')
   }
   const onClickStore = () => {
-    router.push('/art/artlist')
+    router.push('/art/artList')
   }
   const onClickReview = () => {
     router.push('/')
@@ -42,6 +46,7 @@ export default function MainHeaderContainer() {
   }
   return (
     <MainHeaderPresenter
+      onClickLogo={onClickLogo}
       onClickAboutus={onClickAboutus}
       onClickStore={onClickStore}
       onClickReview={onClickReview}

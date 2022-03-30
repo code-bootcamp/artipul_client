@@ -100,8 +100,8 @@ export default function CreateArtContainer() {
   const onClickSubmit = async () => {
     if (
       (title &&
-        description &&
-        start_price <= instant_bid - 10000 &&
+        // description &&
+        // start_price <= instant_bid - 10000 &&
         deadline &&
         image_urls[0] &&
         tags[0] === '회화' &&
@@ -109,16 +109,16 @@ export default function CreateArtContainer() {
         tags[2] &&
         tags[3]) ||
       (title &&
-        description &&
-        start_price <= instant_bid - 10000 &&
+        // description &&
+        // start_price <= instant_bid - 10000 &&
         deadline &&
         image_urls[0] &&
         tags[0] === '조소' &&
         tags[1] &&
         tags[2]) ||
       (title &&
-        description &&
-        start_price <= instant_bid - 10000 &&
+        // description &&
+        // start_price <= instant_bid - 10000 &&
         deadline &&
         image_urls[0] &&
         tags[0] === '기타')

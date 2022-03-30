@@ -45,7 +45,9 @@ export default function ArtDetailPresenter(props) {
               </S.ArtDetailPriceBox>
               <S.ArtDetailTimeBox>
                 <S.ArtDetailTimeTitle>경매마감일</S.ArtDetailTimeTitle>
-                <S.ArtDetailTime>{props.data?.deadline}까지</S.ArtDetailTime>
+                <S.ArtDetailTime>
+                  {props.data?.deadline.slice(0, 10)}까지
+                </S.ArtDetailTime>
               </S.ArtDetailTimeBox>
             </S.ArtDetailPriceTimeBox>
             <S.ArtDetailNowPriceBox>
@@ -59,7 +61,9 @@ export default function ArtDetailPresenter(props) {
             </S.ArtDetailNowPriceBox>
             <S.ArtDetailButtonBox>
               <S.ArtDetailAuctionButton>입찰하기</S.ArtDetailAuctionButton>
-              <S.ArtDetailBuyButton>즉시 구매하기</S.ArtDetailBuyButton>
+              <S.ArtDetailBuyButton onClick={props.onClickInstanceBid}>
+                즉시 구매하기
+              </S.ArtDetailBuyButton>
             </S.ArtDetailButtonBox>
           </S.ArtDetailTopRight>
         </S.ArtDetailTop>

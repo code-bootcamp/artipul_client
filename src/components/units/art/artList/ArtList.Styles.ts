@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const ArtListWrapper = styled.div`
-  width: 120rem;
+  width: 100%;
   height: 215.25rem;
   padding-top: 4.937rem;
   padding-left: 16.25rem;
@@ -15,7 +15,7 @@ export const ArtListTop = styled.div`
   flex-direction: column;
 `
 
-export const ArtListTopTitle = styled.div`
+export const ArtListTopTitle = styled.div`ß
   width: 5.063rem;
   height: 1.5rem;
   font-family: Gotham;
@@ -87,8 +87,10 @@ export const ArtListContent = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  overflow-y: scroll;
   margin-top: 1.625rem;
+  /* -webkit-scrollbar {
+    display: none;
+  } */
 `
 export const ArtListButtonBox = styled.div`
   margin-top: 6rem;
