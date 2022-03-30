@@ -1,6 +1,7 @@
 import CreateUser2 from '../../commons/inputs/createUser2'
 import * as F from './FindUser.Styles'
-export default function FindUserPresenter(props) {
+import { IFindUserProps } from './FindUser.Types'
+export default function FindUserPresenter(props: IFindUserProps) {
   console.log(props.data)
   return (
     <>
