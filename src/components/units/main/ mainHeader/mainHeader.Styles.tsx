@@ -35,7 +35,9 @@ export const BodyMenu = styled.div`
 export const Footer = styled.div`
   display: flex;
   padding-right: 4.5rem;
+  justify-content: flex-end;
   align-items: center;
+  width: 300px;
 `
 export const FooterMenu = styled.div`
   padding-left: 1rem;

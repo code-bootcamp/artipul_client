@@ -1,3 +1,4 @@
+import FooterContainer from '../../../commons/layout/footer/Footer.Container'
 import * as S from './ArtList.Styles'
 import ArtWorkCard from './ArtWorkCard/ArtworkCard'
 import ArtWorkSelectPicture from './ArtWorkSelect/ArtWorkSelectPicture'
@@ -79,6 +80,7 @@ export default function ArtListPresenter(props) {
         <S.ArtListButtonBox>
           <S.MoreButton onClick={props.onClickMoreButton}>MORE ⬇️</S.MoreButton>
         </S.ArtListButtonBox>
+        <FooterContainer />
       </S.ArtListWrapper>
     </>
   )

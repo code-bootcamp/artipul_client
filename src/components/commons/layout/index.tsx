@@ -6,16 +6,17 @@ interface IPropsLayout {
   children: ReactChild
 }
 
-const HEDDEN_LAYOUT = ['/']
+const HIDDEN_HEADER = ['/']
+const HIDDEN_FOOTER = ['/', '/art/artList']
 
 export default function Layout(props: IPropsLayout) {
   const router = useRouter()
 
   return (
     <>
-      {router.asPath === HEDDEN_LAYOUT[0] || <HeaderContainer />}
+      {router.asPath === HIDDEN_HEADER[0] || <HeaderContainer />}
       {props.children}
-      {router.asPath === HEDDEN_LAYOUT[0] || <FooterContainer />}
+      {HIDDEN_FOOTER.includes(router.asPath) || <FooterContainer />}
     </>
   )
 }
