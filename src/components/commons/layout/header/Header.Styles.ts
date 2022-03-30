@@ -31,7 +31,9 @@ export const BodyMenu = styled.div`
     color: orange;
   }
 `
+
 export const Footer = styled.div`
+  width: 300px;
   display: flex;
   padding-right: 4.5rem;
   justify-content: flex-end;

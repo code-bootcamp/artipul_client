@@ -1,7 +1,5 @@
 import '@toast-ui/editor/dist/toastui-editor.css'
-// import { Editor, Viewer } from '@toast-ui/react-editor'
 import * as I from './IntroducePage.Styles'
-// import '@toast-ui/editor/dist/toastui-editor-viewer.css'
 import dynamic from 'next/dynamic'
 
 const EditorC = dynamic(() => import('./Editor'), { ssr: false })
