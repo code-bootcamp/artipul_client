@@ -20,6 +20,11 @@ import { AppProps } from 'next/dist/shared/lib/router/router'
 import { getAccessToken } from '../src/commons/libraries/refreshAccessToken'
 import Layout from '../src/components/commons/layout'
 
+import Crontab from 'reactjs-crontab'
+import 'reactjs-crontab/dist/index.css'
+import { gql } from '@apollo/client'
+import { GraphQLClient } from 'graphql-request'
+
 interface IGlobalContext {
   accessToken?: string
   setAccessToken?: Dispatch<SetStateAction<string>>
@@ -71,10 +76,45 @@ function MyApp({ Component, pageProps }: AppProps) {
     cache: new InMemoryCache()
   })
 
+  const CHECK_TIMEDOUT_AND_PROCESS = gql`
+    mutation checkTimedoutAndProcess {
+      checkTimedoutAndProcess
+    }
+  `
+
+  const timeToDeadline = async () => {
+    try {
+      const graphqlClient_1 = new GraphQLClient(
+        'https://mybackend.arios67.shop/graphql'
+      )
+      await graphqlClient_1.request(CHECK_TIMEDOUT_AND_PROCESS)
+      console.log('굳')
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+
+  const tasks = [
+    {
+      fn: timeToDeadline,
+      // this is the function which is triggered based on the config
+      id: '1',
+      config: '0 0 * * *', // runs at every minutes
+      name: '' // optional
+    }
+  ]
+
   return (
     <GlobalContext.Provider value={value}>
       <ApolloProvider client={client}>
         <Global styles={globalStyles} />
+        <Crontab
+          tasks={tasks}
+          timeZone="Asia/Seoul"
+          // 'UTC', 'local, or 'YOUR PREFERRED TIMEZONE'
+          dashboard={{ hidden: true }}
+          // if true, dashboard is hidden
+        />
         <Layout>
           <Component {...pageProps} />
         </Layout>
