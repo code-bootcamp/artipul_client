@@ -154,7 +154,7 @@ export const Section4ContentRight = styled.div`
 export const Section4ScrollBox = styled.div`
   width: 56.5rem;
   height: 71.25rem;
-  overflow: scroll;
+  overflow-y: scroll;
   -webkit-scrollbar: {
     display: block;
   }
@@ -217,5 +217,5 @@ export const Section4ContentRightContent = styled.div`
 export const Section4Footer = styled.div`
   background-color: white;
   width: 100%;
-  height: 19.938rem;
+  height: 16.875rem;
 `

@@ -1,3 +1,4 @@
+import FooterPresenter from '../../../commons/layout/footer/Footer.Presenter'
 import * as S from './Section4.Styles'
 export default function Section4Presenter() {
   return (
@@ -127,7 +128,9 @@ export default function Section4Presenter() {
             </S.Section4ScrollBox>
           </S.Section4ContentRight>
         </S.Section4Content>
-        <S.Section4Footer></S.Section4Footer>
+        <S.Section4Footer>
+          <FooterPresenter />
+        </S.Section4Footer>
       </S.Section4Wrapper>
     </>
   )
