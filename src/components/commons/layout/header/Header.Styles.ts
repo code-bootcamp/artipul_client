@@ -16,6 +16,7 @@ export const Header = styled.h1`
   font-family: 'Gotham';
   color: #f64612;
   padding: 1.2rem;
+  cursor: pointer;
 `
 export const Body = styled.div`
   width: 60%;

@@ -3,6 +3,7 @@ export interface IHeaderProps {
   onClickStore: () => void
   onClickReview: () => void
   onClickMyPage: () => void
+  onClickLogo: () => void
   accessToken: string
   data: any
   onClickLogout: () => void

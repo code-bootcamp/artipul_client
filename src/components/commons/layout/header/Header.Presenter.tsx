@@ -5,7 +5,7 @@ export default function HeaderPresenter(props: IHeaderProps) {
     <>
       <H.WWrapper>
         <H.Wrapper>
-          <H.Header>ARTIPUL</H.Header>
+          <H.Header onClick={props.onClickLogo}>ARTIPUL</H.Header>
           <H.Body>
             <H.BodyMenu onClick={props.onClickAboutus}>ABOUT US</H.BodyMenu>
             <H.BodyMenu onClick={props.onClickStore}>STORE</H.BodyMenu>
