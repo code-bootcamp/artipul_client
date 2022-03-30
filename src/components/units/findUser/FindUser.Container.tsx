@@ -1,6 +1,7 @@
 import { useLazyQuery, useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useState } from 'react'
+import { PHONE_AUTH, SEND_PHONE_TOKEN } from '../createUser/CreateUser.Queries'
 import { FETCH_USER_EMAIL, RESET_USER_PASSWORD } from '../login/Login.Queries'
 import FindUserPresenter from './FindUser.Presenter'
 
@@ -11,10 +12,63 @@ export default function FindUserContainer() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [check, setCheck] = useState('')
+  const [token, setToken] = useState('')
+  const [phoneCheck, setPhoneCheck] = useState(false)
+  const [passwordCheck, setPasswordCheck] = useState(false)
+  const [sendPhoneToken] = useMutation(SEND_PHONE_TOKEN)
+  const [phoneAuth] = useMutation(PHONE_AUTH)
   const [resetUserPassword] = useMutation(RESET_USER_PASSWORD)
   const [fetchUserEmail, { data }] = useLazyQuery(FETCH_USER_EMAIL, {
     variables: { phoneNum: '' }
   })
+
+  const onClickPhoneAuth = async () => {
+    if (!/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/.test(phoneNum)) {
+      alert('휴대전화 형식이 아닙니다')
+      return
+    }
+    try {
+      await sendPhoneToken({
+        variables: {
+          phoneNum
+        }
+      })
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+
+  const onClickAuth = async () => {
+    try {
+      await phoneAuth({
+        variables: {
+          phoneNum,
+          token
+        }
+      })
+      setPhoneCheck(true)
+      alert('인증에 성공하셨습니다.')
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+  const onClickAuth2 = async () => {
+    try {
+      await phoneAuth({
+        variables: {
+          phoneNum,
+          token
+        }
+      })
+      setPasswordCheck(true)
+      alert('인증에 성공하셨습니다.')
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+  const onChangeToken = (e: ChangeEvent<HTMLInputElement>) => {
+    setToken(e.target.value)
+  }
   const onChangePhoneNum = (e: ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(e.target.value)
   }
@@ -65,6 +119,12 @@ export default function FindUserContainer() {
       onChangePassword={onChangePassword}
       onChangeCheck={onChangeCheck}
       onClickReset={onClickReset}
+      onClickPhoneAuth={onClickPhoneAuth}
+      onChangeToken={onChangeToken}
+      onClickAuth={onClickAuth}
+      onClickAuth2={onClickAuth2}
+      phoneCheck={phoneCheck}
+      passwordCheck={passwordCheck}
     />
   )
 }
