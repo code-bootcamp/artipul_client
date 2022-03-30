@@ -33,6 +33,7 @@
     "react-lazyload": "^3.2.0",
     "react-reveal": "^1.2.2",
     "react-slick": "^0.28.1",
+    "reactjs-crontab": "^4.5.0",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.4.4",
     "swiper": "^8.0.7",
