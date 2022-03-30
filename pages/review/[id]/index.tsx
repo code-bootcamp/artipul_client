@@ -1,3 +1,3 @@
 export default function ReviewDetailPage() {
-  return <div>aaa</div>
+  return <div>ㅓㅓㅝㅝ</div>
 }
