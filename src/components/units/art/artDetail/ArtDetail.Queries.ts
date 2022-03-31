@@ -32,4 +32,9 @@ export const INSTANT_BID = gql`
   }
 `
 
-// http://localhost:3000/art/236de9aa-bf1d-48da-9867-2f3f4e689d71
+export const BID = gql`
+  mutation Bid($artId: String!, $bid_price: Float!) {
+    Bid(artId: $artId, bid_price: $bid_price)
+    saveBid(artId: $artId, bid_price: $bid_price)
+  }
+`
