@@ -1,4 +1,5 @@
 import * as S from './ArtDetail.Styles'
+import ArttDetailModal from './ArtDetailModal/ArtDetailModal'
 
 export default function ArtDetailPresenter(props) {
   return (
@@ -60,7 +61,9 @@ export default function ArtDetailPresenter(props) {
               </S.ArtDetailNowPrice>
             </S.ArtDetailNowPriceBox>
             <S.ArtDetailButtonBox>
-              <S.ArtDetailAuctionButton>입찰하기</S.ArtDetailAuctionButton>
+              <S.ArtDetailAuctionButton onClick={props.onClickAcution}>
+                입찰하기
+              </S.ArtDetailAuctionButton>
               <S.ArtDetailBuyButton onClick={props.onClickInstanceBid}>
                 즉시 구매하기
               </S.ArtDetailBuyButton>
@@ -81,6 +84,17 @@ export default function ArtDetailPresenter(props) {
           </S.ArtDetailDescriptionBox>
         </S.ArtDetailBottom>
       </S.ArtDetailWrapper>
+      <S.ArtDetailModal
+        visible={props.isModalVisible}
+        onOk={props.handleOk}
+        onCancel={props.handleCancel}
+      >
+        <ArttDetailModal
+          userPoint={props.userPoint}
+          price={props.data?.price}
+          onChangeBuyPrice={props.onChangeBuyPrice}
+        />
+      </S.ArtDetailModal>
     </>
   )
 }

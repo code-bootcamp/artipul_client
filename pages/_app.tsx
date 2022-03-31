@@ -19,7 +19,7 @@ import { useRouter } from 'next/router'
 import { AppProps } from 'next/dist/shared/lib/router/router'
 import { getAccessToken } from '../src/commons/libraries/refreshAccessToken'
 import Layout from '../src/components/commons/layout'
-
+import 'antd/dist/antd.css'
 import Crontab from 'reactjs-crontab'
 import 'reactjs-crontab/dist/index.css'
 import { gql } from '@apollo/client'

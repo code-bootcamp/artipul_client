@@ -1,4 +1,18 @@
+import { Modal } from 'antd'
 import styled from '@emotion/styled'
+
+export const ArtDetailModal = styled(Modal)`
+  .ant-btn-primary {
+    background-color: #f64612;
+    border: 1px solid #f64612;
+  }
+  .ant-btn-default {
+    :hover {
+      color: #f64612;
+      border: 1px solid #f64612;
+    }
+  }
+`
 
 export const ArtDetailWrapper = styled.div`
   width: 100%;
