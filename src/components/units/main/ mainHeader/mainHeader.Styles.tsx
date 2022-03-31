@@ -12,12 +12,13 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `
-export const Header = styled.h1`
+export const Header = styled.div`
   font-size: 2rem;
   font-weight: 700;
   font-family: 'Gotham';
   color: #f64612;
   padding: 1.2rem;
+  cursor: pointer;
 `
 export const Body = styled.div`
   width: 60%;

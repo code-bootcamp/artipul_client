@@ -1,6 +1,6 @@
-import * as S from './scrollButton.Styles'
+import * as S from './MainScrollButton.Styles'
 
-export default function ScrollButtonPresenter(props) {
+export default function MainScrollButtonPresenter(props) {
   return (
     <>
       <S.ScrollButtonWrapper onClick={props.onClickScrollDown}>

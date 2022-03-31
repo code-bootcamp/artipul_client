@@ -5,14 +5,14 @@ import Section2Presenter from './section2/Section2.Presenter'
 import Section3Presenter from './section3/Section3.Presenter'
 import Section4Presenter from './section4/Section4.Presenter'
 import MainHeaderContainer from './ mainHeader/mainHeader.Container'
-import ScrollButtonContainer from './scrollButton/scrollButton.Container'
+import MainScrollButtonContainer from './mainScrollButton/MainScrollButton.Container'
 
 export default function MainPresenter(props) {
   return (
     <>
       <Section0Presenter />
       <MainHeaderContainer />
-      <ScrollButtonContainer outerDivRef={props.outerDivRef} />
+      <MainScrollButtonContainer outerDivRef={props.outerDivRef} />
       <S.MainWrapper ref={props.outerDivRef}>
         <div className="inner">
           <Section1Presenter />

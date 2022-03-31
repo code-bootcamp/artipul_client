@@ -1,6 +1,6 @@
-import ScrollButtonPresenter from './scrollButton.Presenter'
+import MainScrollButtonPresenter from './AboutUsScrollButton.Presenter'
 
-export default function ScrollButtonContainer(props) {
+export default function AboutUsScrollButtonContainer(props) {
   const onClickScrollDown = async () => {
     console.log('click')
     const { scrollTop } = props.outerDivRef.current
@@ -12,19 +12,7 @@ export default function ScrollButtonContainer(props) {
         left: 0,
         behavior: 'smooth'
       })
-    } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-      props.outerDivRef.current?.scrollTo({
-        top: pageHeight * 2,
-        left: 0,
-        behavior: 'smooth'
-      })
-    } else if (scrollTop >= pageHeight * 2 && scrollTop < pageHeight * 3) {
-      props.outerDivRef.current?.scrollTo({
-        top: pageHeight * 3,
-        left: 0,
-        behavior: 'smooth'
-      })
-    } else if (scrollTop >= pageHeight * 3 + 2500) {
+    } else if (scrollTop >= pageHeight + 1700) {
       await props.outerDivRef.current?.scrollTo({
         top: 0,
         left: 0,
@@ -40,7 +28,7 @@ export default function ScrollButtonContainer(props) {
   }
 
   return (
-    <ScrollButtonPresenter
+    <MainScrollButtonPresenter
       scrollTop={props.outerDivRef.current}
       onClickScrollDown={onClickScrollDown}
     />

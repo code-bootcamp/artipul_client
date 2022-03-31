@@ -33,7 +33,7 @@ export default function HeaderContainer() {
   }
 
   const onClickAboutus = () => {
-    router.push('/')
+    router.push('/aboutUs')
   }
   const onClickStore = () => {
     router.push('/art/artList')
