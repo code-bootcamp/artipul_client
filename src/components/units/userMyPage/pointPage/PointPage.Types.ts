@@ -6,5 +6,6 @@ export interface IPointPageProps {
   onChangePage: (page: any) => void
   data: any
   fetchProfileData: any
+  fetchHistoryCount: any
   amount: string
 }

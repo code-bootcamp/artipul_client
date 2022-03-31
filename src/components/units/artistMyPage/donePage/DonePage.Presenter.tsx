@@ -1,7 +1,11 @@
+import { Pagination } from 'antd'
 import * as D from './DonePage.Styles'
 import { IDonePageProps } from './DonePage.Types'
 
 export default function DonePagePresenter(props: IDonePageProps) {
+  const head = `https://storage.googleapis.com`
+  console.log(props.timeOutData?.fetchTimedOutArt[0].is_soldout)
+  // console.log(props.fetchTimedOutArtsCount?.fetchTimedOutArtsCount)
   return (
     <>
       <D.Wrapper>
@@ -22,19 +26,34 @@ export default function DonePagePresenter(props: IDonePageProps) {
           <D.TableHeadMenu>카테고리</D.TableHeadMenu>
           <D.TableHeadMenu>작품제목</D.TableHeadMenu>
           <D.TableHeadMenu>종료일</D.TableHeadMenu>
-          <D.TableHeadMenu>낙찰가</D.TableHeadMenu>
+          <D.TableHeadMenu>판매여부</D.TableHeadMenu>
+          <D.TableHeadMenu>가격</D.TableHeadMenu>
         </D.TableHead>
-        {new Array(6).fill(1).map((el, index) => (
-          <D.TableRow key={index}>
+        {props.timeOutData?.fetchTimedOutArt.map((el) => (
+          <D.TableRow key={el.id}>
             <D.TableRowMenu>
-              <D.TableRowImg src="/test5.webp" />
+              <D.TableRowImg src={`${head}${el.thumbnail}`} />
             </D.TableRowMenu>
-            <D.TableRowMenu>회황</D.TableRowMenu>
-            <D.TableRowMenu>제목</D.TableRowMenu>
-            <D.TableRowMenu>날짜</D.TableRowMenu>
-            <D.TableRowLastMenu>100000원</D.TableRowLastMenu>
+            <D.TableRowMenu>{el.tag1}</D.TableRowMenu>
+            <D.TableRowMenu>{el.title}</D.TableRowMenu>
+            <D.TableRowMenu>{el.deadline.slice(0, 10)}</D.TableRowMenu>
+            <D.TableRowLastMenu>
+              {el.is_soldout ? '판매완료' : '유찰'}
+            </D.TableRowLastMenu>
+            <D.TableRowMenu>
+              {el.price
+                .toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+            </D.TableRowMenu>
           </D.TableRow>
         ))}
+        <D.PagDiv>
+          <Pagination
+            current={1}
+            total={props.fetchTimedOutArtsCount?.fetchTimedOutArtsCount}
+            onChange={props.onChange}
+          />
+        </D.PagDiv>
       </D.Wrapper>
     </>
   )

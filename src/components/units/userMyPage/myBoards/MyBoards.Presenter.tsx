@@ -1,20 +1,30 @@
+import { Pagination } from 'antd'
 import * as B from './MyBoards.Styles'
-export default function MyBoardsPresenter() {
+export default function MyBoardsPresenter(props) {
+  console.log(props.data)
+  const head = `https://storage.googleapis.com`
   return (
     <>
       <B.Wrapper>
         <B.Header>작성한 리뷰</B.Header>
         <B.MapWrapper>
-          {new Array(8).fill(1).map((_, index) => (
+          {props.data?.fetchBoardsOfMine.map((el, index) => (
             <B.MapDiv key={index}>
               <div>
-                <B.MapElImage src="/test1.jpg" />
+                <B.MapElImage src={`${head}${el.thumbnail}`} />
               </div>
-              <B.MapElTitle>제목 넣고</B.MapElTitle>
-              <B.MapElCreatedAt>작성날자 넣고</B.MapElCreatedAt>
+              <B.MapElTitle>{el.title}</B.MapElTitle>
+              <B.MapElCreatedAt>{el.createdAt}</B.MapElCreatedAt>
             </B.MapDiv>
           ))}
         </B.MapWrapper>
+        <B.PagiDiv>
+          <Pagination
+            current={1}
+            total={props.data?.fetchBoardsOfMine?.length}
+            onChange={props.onChange}
+          />
+        </B.PagiDiv>
       </B.Wrapper>
     </>
   )

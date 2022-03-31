@@ -1,17 +1,23 @@
 import { gql } from '@apollo/client'
 
-export const FETCH_AUCTION_ARTS = gql`
-  query fetchAuctionArts {
-    fetchAuctionArts {
-      id
-      title
-      description
-      start_price
-      instant_bid
-      price
-      thumbnail
-      deadline
-      is_soldout
+export const FETCH_ENGAGING = gql`
+  query fetchEngaging($page: Float!) {
+    fetchEngaging(page: $page) {
+      art {
+        id
+        thumbnail
+        title
+        tag1
+        deadline
+        instant_bid
+        price
+        is_soldout
+      }
     }
+  }
+`
+export const FETCH_ENGAGE_COUNT = gql`
+  query fetchEngageCount {
+    fetchEngageCount
   }
 `

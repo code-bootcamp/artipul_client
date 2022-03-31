@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const FETCH_AUCTION_ARTS = gql`
-  query fetchAuctionArts {
-    fetchAuctionArts {
+  query fetchAuctionArts($page: Float!) {
+    fetchAuctionArts(page: $page) {
       id
       title
       start_price
@@ -11,6 +11,12 @@ export const FETCH_AUCTION_ARTS = gql`
       thumbnail
       deadline
       is_soldout
+      tag1
     }
+  }
+`
+export const FETCH_AUCTION_ARTS_COUNT = gql`
+  query fetchAuctionArtsCount {
+    fetchAuctionArtsCount
   }
 `

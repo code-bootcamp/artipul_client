@@ -5,7 +5,6 @@ import LoginSmallTitles from '../../../commons/div/loginSmallTitle'
 import 'antd/dist/antd.css'
 import { Pagination } from 'antd'
 export default function PointPagePresenter(props: IPointPageProps) {
-  console.log(props.data?.fetchHistory)
   return (
     <>
       <Head>
@@ -95,7 +94,7 @@ export default function PointPagePresenter(props: IPointPageProps) {
           <P.TableRow key={el.id}>
             {el.payment ? (
               <>
-                <P.TableRowMenu>{el.createdAt}</P.TableRowMenu>
+                <P.TableRowMenu>{el.createdAt.slice(0, 10)}</P.TableRowMenu>
                 <P.TableRowMenu>출금</P.TableRowMenu>
                 <P.TableRowMenu>{el.point}</P.TableRowMenu>
                 <P.TableRowMenu></P.TableRowMenu>
@@ -103,7 +102,7 @@ export default function PointPagePresenter(props: IPointPageProps) {
               </>
             ) : (
               <>
-                <P.TableRowMenu>{el.createdAt}</P.TableRowMenu>
+                <P.TableRowMenu>{el.createdAt.slice(0, 10)}</P.TableRowMenu>
                 <P.TableRowMenu>입금</P.TableRowMenu>
                 <P.TableRowMenu></P.TableRowMenu>
                 <P.TableRowMenu>{el.point}</P.TableRowMenu>
@@ -112,11 +111,13 @@ export default function PointPagePresenter(props: IPointPageProps) {
             )}
           </P.TableRow>
         ))}
-        <Pagination
-          defaultCurrent={1}
-          total={props.data?.fetchHistory?.length}
-          onChange={props.onChangePage}
-        />
+        <P.PagiDiv>
+          <Pagination
+            defaultCurrent={1}
+            total={props.fetchHistoryCount?.fetchHitoryCount}
+            onChange={props.onChangePage}
+          />
+        </P.PagiDiv>
       </P.Wrapper>
     </>
   )

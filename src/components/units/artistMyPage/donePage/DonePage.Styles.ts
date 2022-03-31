@@ -17,7 +17,7 @@ export const Header = styled.h1`
 export const TableHead = styled.div`
   width: 1140px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   background-color: #eeeeee;
   padding: 1rem 0.5rem;
   margin-top: 2.6rem;
@@ -31,7 +31,7 @@ export const TableRow = styled.div`
   width: 1140px;
   border-bottom: 1px solid #eeeeee;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 `
 export const TableRowMenu = styled.span`
   text-align: center;
@@ -88,4 +88,7 @@ export const SmallHead = styled.div`
   font-size: 1.25rem;
   padding: 1.25rem 1.56rem;
   font-weight: 700;
+`
+export const PagDiv = styled.div`
+  padding: 2rem;
 `

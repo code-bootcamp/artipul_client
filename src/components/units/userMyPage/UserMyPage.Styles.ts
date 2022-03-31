@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { BreakPoints } from '../../../commons/styles/media'
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -55,5 +56,9 @@ export const ReviewButton = styled.button`
   :hover {
     background-color: #f64612;
     color: white;
+  }
+`
+export const RightBody = styled.div`
+  @media ${BreakPoints.mobile} {
   }
 `

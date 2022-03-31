@@ -1,5 +1,19 @@
+import { useQuery } from '@apollo/client'
 import LikePagePresenter from './likePage.Presenter'
+import { FETCH_LIKE_ART, FETCH_LIKE_ART_COUNT } from './likePage.Queries'
 
 export default function LikePageContainer() {
-  return <LikePagePresenter />
+  const { data, refetch } = useQuery(FETCH_LIKE_ART, { variables: { page: 1 } })
+  const { data: fetchLikeArtCount } = useQuery(FETCH_LIKE_ART_COUNT)
+
+  const onChange = (page) => {
+    refetch(page)
+  }
+  return (
+    <LikePagePresenter
+      data={data}
+      onChange={onChange}
+      fetchLikeArtCount={fetchLikeArtCount}
+    />
+  )
 }

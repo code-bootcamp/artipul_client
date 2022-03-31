@@ -67,11 +67,11 @@ export default function UserMyPagePresenter(props: IMypageProps) {
               </MP.ReviewBox>
             </MP.WrapperLeftBodyAr>
           </div>
-          <div style={{ width: '100%' }}>
+          <MP.RightBody style={{ width: '100%' }}>
             {props.introduce && <IntroducePageContainer />}
             {props.sale && <AuctioningPageContainer />}
             {props.done && <DonePageContainer />}
-          </div>
+          </MP.RightBody>
         </MP.Wrapper>
       ) : (
         <MP.Wrapper>
@@ -156,14 +156,14 @@ export default function UserMyPagePresenter(props: IMypageProps) {
               </MP.ReviewBox>
             </MP.WrapperLeftBody>
           </div>
-          <div style={{ width: '100%' }}>
+          <MP.RightBody style={{ width: '100%' }}>
             {props.point && <PointPageContainer />}
             {props.post && <PostPageContainer />}
             {props.like && <LikePageContainer />}
             {props.boards && <MyBoardsContainer />}
             {props.bought && <BoughtArtsPageContainer />}
             {props.auction && <AuctionArtsPageContainer />}
-          </div>
+          </MP.RightBody>
         </MP.Wrapper>
       )}
     </>

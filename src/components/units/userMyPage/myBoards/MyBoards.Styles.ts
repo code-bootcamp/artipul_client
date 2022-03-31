@@ -44,3 +44,6 @@ export const MapElCreatedAt = styled.div`
   font-size: 1rem;
   color: #aaaaaa;
 `
+export const PagiDiv = styled.div`
+  padding: 2rem;
+`

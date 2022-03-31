@@ -123,3 +123,6 @@ export const TableRowLastMenu = styled.span`
   font-weight: 400;
   color: #111111;
 `
+export const PagiDiv = styled.div`
+  padding: 2rem;
+`
