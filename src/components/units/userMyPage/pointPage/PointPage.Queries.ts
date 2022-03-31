@@ -34,3 +34,8 @@ export const FETCH_HISTORY = gql`
     }
   }
 `
+export const FETCH_HISTORY_COUNT = gql`
+  query fetchHitoryCount {
+    fetchHitoryCount
+  }
+`

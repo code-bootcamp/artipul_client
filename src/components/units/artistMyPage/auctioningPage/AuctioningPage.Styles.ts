@@ -71,3 +71,6 @@ export const DetailButton = styled.button`
     color: white;
   }
 `
+export const PagDiv = styled.div`
+  padding: 2rem;
+`

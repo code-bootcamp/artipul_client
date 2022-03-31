@@ -1,20 +1,18 @@
 import { useQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
 import AuctionArtsPagePresenter from './AuctionArtsPage.Presenter'
-import { FETCH_AUCTION_ARTS } from './AuctionArtsPage.Queries'
+import { FETCH_ENGAGE_COUNT, FETCH_ENGAGING } from './AuctionArtsPage.Queries'
+import { IFetchEngagingProps } from './AuctionArtsPage.Types'
 
 export default function AuctionArtsPageContainer() {
   const router = useRouter()
-
-  const onClickArtDetail = (el) => () => {
-    router.push(`/art/${el.id}`)
+  const { data, refetch } = useQuery(FETCH_ENGAGING, { variables: { page: 1 } })
+  const { data: fetchEngageCount } = useQuery(FETCH_ENGAGE_COUNT)
+  const onClickArtDetail = (el: IFetchEngagingProps) => () => {
+    router.push(`/art/${el.art.id}`)
   }
 
-  const { data, refetch } = useQuery(FETCH_AUCTION_ARTS, {
-    variables: { page: 1 }
-  })
-
-  const onChangePage = (page) => {
+  const onChangePage = (page: any) => {
     refetch({ page })
   }
   return (
@@ -22,6 +20,7 @@ export default function AuctionArtsPageContainer() {
       data={data}
       onClickArtDetail={onClickArtDetail}
       onChangePage={onChangePage}
+      fetchEngageCount={fetchEngageCount}
     />
   )
 }
