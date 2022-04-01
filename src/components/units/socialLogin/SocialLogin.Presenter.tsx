@@ -2,8 +2,11 @@ import AuthButtons from '../../commons/buttons/authButtons'
 import CreateUserSmallTitle from '../../commons/div/createUser'
 import CreateUser2 from '../../commons/inputs/createUser2'
 import * as M from './SocialLogin.Styles'
-export default function SocialLoginPresenter(props) {
-  console.log(props.artist)
+import { ISocialLoginPresenterProps } from './SocialLogin.Types'
+export default function SocialLoginPresenter(
+  props: ISocialLoginPresenterProps
+) {
+  console.log(props.checkPhoneAuth, props.nicknameAuth)
   return (
     <M.Wrapper>
       <div>
@@ -58,6 +61,16 @@ export default function SocialLoginPresenter(props) {
             />
           </div>
         </div>
+        <M.UpdateButtonBox>
+          <M.CreateUserButton
+            onClick={props.onClickUpdateSocialLogin}
+            checkPhoneAuth={props.checkPhoneAuth}
+            nicknameAuth={props.nicknameAuth}
+            disabled={!(props.checkPhoneAuth && props.nicknameAuth)}
+          >
+            기입 완료
+          </M.CreateUserButton>
+        </M.UpdateButtonBox>
       </div>
     </M.Wrapper>
   )

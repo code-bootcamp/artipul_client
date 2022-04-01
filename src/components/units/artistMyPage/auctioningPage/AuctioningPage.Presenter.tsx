@@ -28,7 +28,9 @@ export default function AuctioningPagePresenter(props) {
             <A.TableRowMenu>{el.instant_bid}</A.TableRowMenu>
             <A.TableRowMenu>{el.price}</A.TableRowMenu>
             <A.TableRowLastMenu>
-              <A.DetailButton>상세보기</A.DetailButton>
+              <A.DetailButton onClick={props.onClickDetail(el)}>
+                상세보기
+              </A.DetailButton>
             </A.TableRowLastMenu>
           </A.TableRow>
         ))}

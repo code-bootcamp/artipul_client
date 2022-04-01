@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { ISocialLoginProps } from './SocialLogin.Types'
 export const Wrapper = styled.div`
   width: 100%;
   padding: 100px 10px;
@@ -40,4 +41,20 @@ export const CreateUserYupInputs = styled.input`
   font-size: 1.1rem;
   padding-top: 1rem;
   margin-bottom: 12px;
+`
+export const UpdateButtonBox = styled.div`
+  width: 100%;
+  padding-top: 2rem;
+`
+export const CreateUserButton = styled.button`
+  background-color: ${(props: ISocialLoginProps) =>
+    props.checkPhoneAuth && props.nicknameAuth ? '#f64612' : '#eeeeee'};
+  color: ${(props) =>
+    props.checkPhoneAuth && props.nicknameAuth ? 'white' : 'black'};
+  font-size: 1rem;
+  width: 100%;
+  height: 55px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 `

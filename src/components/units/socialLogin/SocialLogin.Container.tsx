@@ -6,19 +6,20 @@ import {
   SEND_PHONE_TOKEN
 } from '../createUser/CreateUser.Queries'
 import SocialLoginPresenter from './SocialLogin.Presenter'
+import { UPDATE_SOCIAL_USER } from './SocialLogin.Queries'
 
 export default function SocialLoginContainer() {
   const [sendPhoneToken] = useMutation(SEND_PHONE_TOKEN)
   const [phoneAuth] = useMutation(PHONE_AUTH)
   const [checkNickname] = useMutation(CHECK_NICKNAME)
-
+  const [updateSocialUser] = useMutation(UPDATE_SOCIAL_USER)
   const [phoneNum, setPhoneNum] = useState('')
   const [token, setToken] = useState('')
   const [isCheckPhoneNum, setIsCheckPhoneNum] = useState(false)
   const [checkPhoneAuth, setCheckPhoneAuth] = useState(false)
   const [nickname, setNickname] = useState('')
   const [nicknameAuth, setNicknameAuth] = useState(false)
-  const [colleage, setColleage] = useState('')
+  const [college, setCollege] = useState('')
   const [minSec, setMinSec] = useState(false)
   const [min, setMin] = useState(3)
   const [sec, setSec] = useState(0)
@@ -35,7 +36,7 @@ export default function SocialLoginContainer() {
     setNickname(event.target.value)
   }
   const onChangeColleage = (event: ChangeEvent<HTMLInputElement>) => {
-    setColleage(event.target.value)
+    setCollege(event.target.value)
   }
   const onClickPhoneNum = async () => {
     if (!/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/.test(phoneNum)) {
@@ -102,6 +103,39 @@ export default function SocialLoginContainer() {
       alert(e.message)
     }
   }
+  const onClickUpdateSocialLogin = async () => {
+    if (college) {
+      try {
+        await updateSocialUser({
+          variables: {
+            updateSocialUser: {
+              phoneNum,
+              nickname,
+              is_artist: false,
+              colleage: ''
+            }
+          }
+        })
+      } catch (e) {
+        alert(e.message)
+      }
+    } else {
+      try {
+        await updateSocialUser({
+          variables: {
+            updateSocialUser: {
+              phoneNum,
+              nickname,
+              is_artist: true,
+              college
+            }
+          }
+        })
+      } catch (e) {
+        alert(e.message)
+      }
+    }
+  }
 
   return (
     <SocialLoginPresenter
@@ -116,6 +150,9 @@ export default function SocialLoginContainer() {
       min={min}
       sec={sec}
       onChangeColleage={onChangeColleage}
+      checkPhoneAuth={checkPhoneAuth}
+      nicknameAuth={nicknameAuth}
+      onClickUpdateSocialLogin={onClickUpdateSocialLogin}
     />
   )
 }
