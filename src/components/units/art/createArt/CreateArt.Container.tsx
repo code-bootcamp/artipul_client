@@ -12,9 +12,13 @@ export default function CreateArtContainer() {
   const [start_price, setStart_price] = useState(10000)
   const [instant_bid, setInstant_bid] = useState(start_price + 10000)
   const [deadline, setDeadline] = useState('')
+  const [deadlineDate, setDeadlineDate] = useState('')
   const [image_urls, setImage_urls] = useState([])
   const [is_soldout, _] = useState(false)
-  const [tags, setTags] = useState([])
+  const [tag1, setTag1] = useState('')
+  const [tag2, setTag2] = useState('')
+  const [tag3, setTag3] = useState('')
+  const [tag4, setTag4] = useState('')
 
   const [createArt] = useMutation(CREATE_ART)
   const [uploadArtImage] = useMutation(UPLOAD_ART_IMAGE)
@@ -42,7 +46,14 @@ export default function CreateArtContainer() {
 
   const onChangeDeadline = (event) => {
     setDeadline(String(event.target.value))
+    setDeadlineDate(String(event.target.value))
   }
+
+  const onChangeTime = (event) => {
+    setDeadline(deadlineDate + 'T' + event.target.value + ':00.000Z')
+  }
+
+  console.log(deadline)
 
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -70,30 +81,51 @@ export default function CreateArtContainer() {
 
   const onChangeTag0 = (event) => {
     if (event.target.value !== '') {
-      setTags([event.target.value])
+      if (tag1 !== event.target.value) {
+        setTag2('')
+        setTag3('')
+        setTag4('')
+      }
+      setTag1(event.target.value)
     } else {
-      setTags([])
+      setTag1('')
+      setTag2('')
+      setTag3('')
+      setTag4('')
     }
   }
+
   const onChangeTag1 = (event) => {
     if (event.target.value !== '') {
-      setTags([tags[0], event.target.value])
+      if (tag2 !== event.target.value) {
+        setTag3('')
+        setTag4('')
+      }
+      setTag2(event.target.value)
     } else {
-      setTags([tags[0]])
+      setTag2('')
+      setTag3('')
+      setTag4('')
     }
   }
+
   const onChangeTag2 = (event) => {
     if (event.target.value !== '') {
-      setTags([tags[0], tags[1], event.target.value])
+      if (tag3 !== event.target.value) {
+        setTag4('')
+      }
+      setTag3(event.target.value)
     } else {
-      setTags([tags[0], tags[1]])
+      setTag3('')
+      setTag4('')
     }
   }
+
   const onChangeTag3 = (event) => {
     if (event.target.value !== '') {
-      setTags([tags[0], tags[1], tags[2], event.target.value])
+      setTag4(event.target.value)
     } else {
-      setTags([tags[0], tags[1], tags[2]])
+      setTag4('')
     }
   }
 
@@ -104,24 +136,24 @@ export default function CreateArtContainer() {
         // start_price <= instant_bid - 10000 &&
         deadline &&
         image_urls[0] &&
-        tags[0] === '회화' &&
-        tags[1] &&
-        tags[2] &&
-        tags[3]) ||
+        tag1 === '회화' &&
+        tag2 &&
+        tag3 &&
+        tag4) ||
       (title &&
         // description &&
         // start_price <= instant_bid - 10000 &&
         deadline &&
         image_urls[0] &&
-        tags[0] === '조소' &&
-        tags[1] &&
-        tags[2]) ||
+        tag1 === '조소' &&
+        tag2 &&
+        tag3) ||
       (title &&
         // description &&
         // start_price <= instant_bid - 10000 &&
         deadline &&
         image_urls[0] &&
-        tags[0] === '기타')
+        tag1 === '기타')
     ) {
       try {
         const result = await createArt({
@@ -135,7 +167,10 @@ export default function CreateArtContainer() {
               deadline,
               image_urls,
               is_soldout,
-              tags
+              tag1,
+              tag2,
+              tag3,
+              tag4
             }
           }
         })
@@ -163,6 +198,7 @@ export default function CreateArtContainer() {
         onChangeStart_price={onChangeStart_price}
         onChangeInstant_bid={onChangeInstant_bid}
         onChangeDeadline={onChangeDeadline}
+        onChangeTime={onChangeTime}
         onClickImage={onClickImage}
         onChangeFile={onChangeFile}
         onChangeTag0={onChangeTag0}
@@ -175,8 +211,13 @@ export default function CreateArtContainer() {
         instant_bid={instant_bid}
         fileRef={fileRef}
         image_urls={image_urls}
-        tags={tags}
+        tag1={tag1}
+        tag2={tag2}
+        tag3={tag3}
+        tag4={tag4}
       />
     </>
   )
 }
+
+//http://localhost:3000/art/1b25c3b7-dccb-4725-ae9a-b6e92ef6dd54

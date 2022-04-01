@@ -24,6 +24,7 @@ import Crontab from 'reactjs-crontab'
 import 'reactjs-crontab/dist/index.css'
 import { gql } from '@apollo/client'
 import { GraphQLClient } from 'graphql-request'
+import Head from 'next/head'
 
 interface IGlobalContext {
   accessToken?: string
@@ -97,7 +98,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       fn: timeToDeadline,
       // this is the function which is triggered based on the config
       id: '1',
-      config: '0 0 * * *', // runs at every minutes
+      config: '* * * * *', // runs at every minutes
       name: '' // optional
     }
   ]
@@ -122,3 +123,5 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp
+
+//15bc09bf-ad38-4858-bbad-68d83ad931de

@@ -72,7 +72,8 @@ export default function ArtDetailContainer() {
               bid_price: Number(buyPrice)
             }
           })
-          console.log('굳')
+          alert('입찰이 완료되었습니다.')
+          router.push('/mypage')
         } catch (e) {
           alert(e.message)
         }
