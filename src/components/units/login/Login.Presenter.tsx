@@ -49,8 +49,16 @@ export default function LoginPresenter(props: ILoginProps) {
           </L.SpanBox>
 
           <L.SocialLoginBox>
-            <SocialLoginButtons src="/google.png" title="Google로 로그인" />
-            <SocialLoginButtons src="/kakao.png" title="Kakao로 로그인" />
+            <SocialLoginButtons
+              onClick={props.onClickGoogle}
+              src="/google.png"
+              title="Google로 로그인"
+            />
+            <SocialLoginButtons
+              onClick={props.onClickKakao}
+              src="/kakao.png"
+              title="Kakao로 로그인"
+            />
           </L.SocialLoginBox>
         </div>
       </L.Wrapper>

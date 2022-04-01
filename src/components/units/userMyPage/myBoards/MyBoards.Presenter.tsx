@@ -1,7 +1,6 @@
 import { Pagination } from 'antd'
 import * as B from './MyBoards.Styles'
 export default function MyBoardsPresenter(props) {
-  console.log(props.data)
   const head = `https://storage.googleapis.com`
   return (
     <>
@@ -21,7 +20,7 @@ export default function MyBoardsPresenter(props) {
         <B.PagiDiv>
           <Pagination
             current={1}
-            total={props.data?.fetchBoardsOfMine?.length}
+            total={props.fetchBoardsOfMineCount?.fetchBoardsOfMineCount}
             onChange={props.onChange}
           />
         </B.PagiDiv>

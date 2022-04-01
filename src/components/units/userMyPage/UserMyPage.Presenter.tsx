@@ -9,13 +9,45 @@ import MyBoardsContainer from './myBoards/MyBoards.Container'
 import PointPageContainer from './pointPage/PointPage.Container'
 import PostPageContainer from './postPage/PostPage.Container'
 import * as MP from './UserMyPage.Styles'
+import { Menu, Dropdown } from 'antd'
 import { IMypageProps } from './UserMyPage.Types'
 export default function UserMyPagePresenter(props: IMypageProps) {
+  const menu = (
+    <Menu>
+      <Menu.Item onClick={props.onClickPoint}>
+        포인트 충전 및 사용내역
+      </Menu.Item>
+    </Menu>
+  )
+  const menu2 = (
+    <Menu>
+      <Menu.Item onClick={props.onClickAuction}>참여중인 경매</Menu.Item>
+      <Menu.Item onClick={props.onClickLike}>찜한 작품들</Menu.Item>
+    </Menu>
+  )
+  const menu3 = (
+    <Menu>
+      <Menu.Item onClick={props.onClickPost}>배송지 설정</Menu.Item>
+      <Menu.Item onClick={props.onClickBoards}>작성한 리뷰</Menu.Item>
+      <Menu.Item onClick={props.onClickBought}>구매한 작품들</Menu.Item>
+    </Menu>
+  )
+  const menu4 = (
+    <Menu>
+      <Menu.Item onClick={props.onClickIntroduce}>작가 소개</Menu.Item>
+    </Menu>
+  )
+  const menu5 = (
+    <Menu>
+      <Menu.Item onClick={props.onClickSale}>경매중인 작품</Menu.Item>
+      <Menu.Item onClick={props.onClickDone}>거래 완료된 작품</Menu.Item>
+    </Menu>
+  )
   return (
     <>
       {props.data?.fetchProfile.user.is_artist ? (
         <MP.Wrapper>
-          <div>
+          <MP.Web>
             <MyPageLeft
               data={props.data}
               url={props.url}
@@ -46,7 +78,7 @@ export default function UserMyPagePresenter(props: IMypageProps) {
                 }}
                 onClick={props.onClickSale}
               >
-                개인
+                작품
               </MP.LeftBodyMenu>
               <MP.ClickMenus
                 style={{ color: `${props.sale ? '#615e5e' : '#aaaaaa'}` }}
@@ -66,8 +98,26 @@ export default function UserMyPagePresenter(props: IMypageProps) {
                 </MP.ReviewButton>
               </MP.ReviewBox>
             </MP.WrapperLeftBodyAr>
-          </div>
+          </MP.Web>
           <MP.RightBody style={{ width: '100%' }}>
+            <MP.SmallBar>
+              <Dropdown overlay={menu4}>
+                <MP.DropdownA
+                  className="ant-dropdown-link"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  개인
+                </MP.DropdownA>
+              </Dropdown>
+              <Dropdown overlay={menu5}>
+                <MP.DropdownA
+                  className="ant-dropdown-link"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  작품
+                </MP.DropdownA>
+              </Dropdown>
+            </MP.SmallBar>
             {props.introduce && <IntroducePageContainer />}
             {props.sale && <AuctioningPageContainer />}
             {props.done && <DonePageContainer />}
@@ -75,7 +125,7 @@ export default function UserMyPagePresenter(props: IMypageProps) {
         </MP.Wrapper>
       ) : (
         <MP.Wrapper>
-          <div>
+          <MP.Web>
             <MyPageLeft
               data={props.data}
               url={props.url}
@@ -155,8 +205,34 @@ export default function UserMyPagePresenter(props: IMypageProps) {
                 </MP.ReviewButton>
               </MP.ReviewBox>
             </MP.WrapperLeftBody>
-          </div>
+          </MP.Web>
           <MP.RightBody style={{ width: '100%' }}>
+            <MP.SmallBar>
+              <Dropdown overlay={menu}>
+                <MP.DropdownA
+                  className="ant-dropdown-link"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  포인트
+                </MP.DropdownA>
+              </Dropdown>
+              <Dropdown overlay={menu2}>
+                <MP.DropdownA
+                  className="ant-dropdown-link"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  경매
+                </MP.DropdownA>
+              </Dropdown>
+              <Dropdown overlay={menu3}>
+                <MP.DropdownA
+                  className="ant-dropdown-link"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  개인
+                </MP.DropdownA>
+              </Dropdown>
+            </MP.SmallBar>
             {props.point && <PointPageContainer />}
             {props.post && <PostPageContainer />}
             {props.like && <LikePageContainer />}

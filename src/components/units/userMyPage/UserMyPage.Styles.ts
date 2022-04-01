@@ -1,6 +1,13 @@
 import styled from '@emotion/styled'
 import { BreakPoints } from '../../../commons/styles/media'
-
+export const Web = styled.div`
+  @media ${BreakPoints.tablet} {
+    display: none;
+  }
+  @media ${BreakPoints.mobile} {
+    display: none;
+  }
+`
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -60,5 +67,23 @@ export const ReviewButton = styled.button`
 `
 export const RightBody = styled.div`
   @media ${BreakPoints.mobile} {
+  }
+`
+export const SmallBar = styled.div`
+  width: 100%;
+  display: flex;
+  display: none;
+  @media ${BreakPoints.tablet} {
+    display: block;
+  }
+  @media ${BreakPoints.mobile} {
+    display: block;
+  }
+`
+export const DropdownA = styled.a`
+  color: #f64612;
+  padding: 1rem;
+  :hover {
+    color: #f64612;
   }
 `
