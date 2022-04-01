@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { BreakPoints } from '../../../../commons/styles/media'
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -7,6 +8,9 @@ export const Wrapper = styled.div`
   > div {
     max-width: 1140px;
     width: 100%;
+  }
+  @media ${BreakPoints.mobile} {
+    padding: 20px 0.5rem;
   }
 `
 export const Header = styled.h1`

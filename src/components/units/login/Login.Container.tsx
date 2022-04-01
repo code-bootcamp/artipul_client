@@ -47,6 +47,12 @@ export default function LoginContainer() {
       }
     }
   }
+  const onClickGoogle = () => {
+    window.open('http://daseul.shop/login/google')
+  }
+  const onClickKakao = () => {
+    window.open('http://daseul.shop/login/kakao')
+  }
 
   const onClickMoveToCreateUser = () => {
     router.push('/selectUser')
@@ -58,6 +64,8 @@ export default function LoginContainer() {
       onClickMoveToCreateUser={onClickMoveToCreateUser}
       loginCheck={loginCheck}
       onClickFindUser={onClickFindUser}
+      onClickGoogle={onClickGoogle}
+      onClickKakao={onClickKakao}
     />
   )
 }

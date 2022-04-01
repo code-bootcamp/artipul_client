@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Pagination } from 'antd'
+import { BreakPoints } from '../../../../commons/styles/media'
 
 export const Paginations = styled(Pagination)`
   padding: 1rem;
@@ -12,6 +13,9 @@ export const Wrapper = styled.div`
   > div {
     max-width: 1140px;
     width: 100%;
+  }
+  @media ${BreakPoints.mobile} {
+    padding: 20px 0.5rem;
   }
 `
 export const Header = styled.h1`

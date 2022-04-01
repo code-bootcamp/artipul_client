@@ -6,4 +6,6 @@ export interface ILoginProps {
   onClickMoveToCreateUser: () => void
   loginCheck: boolean
   onClickFindUser: () => void
+  onClickGoogle: () => void
+  onClickKakao: () => void
 }

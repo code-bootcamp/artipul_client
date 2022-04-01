@@ -11,12 +11,9 @@ const RESTORE_ACCESS_TOKEN = gql`
 
 export async function getAccessToken() {
   try {
-    const graphqlClient = new GraphQLClient(
-      'https://mybackend.arios67.shop/graphql',
-      {
-        credentials: 'include'
-      }
-    )
+    const graphqlClient = new GraphQLClient('https://daseul.shop/graphql', {
+      credentials: 'include'
+    })
     const result = await graphqlClient.request(RESTORE_ACCESS_TOKEN)
     const newAccessToken = result.restoreAccessToken.accessToken
 

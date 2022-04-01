@@ -31,8 +31,6 @@ export default function IntroducePagePresenter(props) {
           </I.SaveButton>
         </I.WrapperBottom>
       </I.Wrapper>
-
-      {/* <Viewer initialValue={props.dd} /> */}
     </>
   )
 }

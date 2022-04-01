@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 interface ISocialLoginButtonProps {
   title: string
   src?: string
+  onClick?: () => void
 }
 const ButtonWrapper = styled.div`
   width: 100%;
@@ -37,7 +38,9 @@ export default function SocialLoginButtons(props: ISocialLoginButtonProps) {
   return (
     <ButtonWrapper>
       <LogoImage src={props.src} />
-      <SocialLoginButton>{props.title}</SocialLoginButton>
+      <SocialLoginButton onClick={props.onClick}>
+        {props.title}
+      </SocialLoginButton>
     </ButtonWrapper>
   )
 }

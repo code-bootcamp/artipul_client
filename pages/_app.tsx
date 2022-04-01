@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   })
 
   const uploadLink = createUploadLink({
-    uri: 'https://mybackend.arios67.shop/graphql',
+    uri: 'https://daseul.shop/graphql',
     headers: { Authorization: `Bearer ${accessToken}` },
     credentials: 'include'
   })
@@ -84,9 +84,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const timeToDeadline = async () => {
     try {
-      const graphqlClient_1 = new GraphQLClient(
-        'https://mybackend.arios67.shop/graphql'
-      )
+      const graphqlClient_1 = new GraphQLClient('https://daseul.shop/graphql')
       await graphqlClient_1.request(CHECK_TIMEDOUT_AND_PROCESS)
       console.log('굳')
     } catch (e) {
