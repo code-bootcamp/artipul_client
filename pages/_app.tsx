@@ -24,6 +24,7 @@ import Crontab from 'reactjs-crontab'
 import 'reactjs-crontab/dist/index.css'
 import { gql } from '@apollo/client'
 import { GraphQLClient } from 'graphql-request'
+import Head from 'next/head'
 
 interface IGlobalContext {
   accessToken?: string
@@ -66,7 +67,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   })
 
   const uploadLink = createUploadLink({
-    uri: 'https://mybackend.arios67.shop/graphql',
+    uri: 'https://daseul.shop/graphql',
     headers: { Authorization: `Bearer ${accessToken}` },
     credentials: 'include'
   })
@@ -84,9 +85,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const timeToDeadline = async () => {
     try {
-      const graphqlClient_1 = new GraphQLClient(
-        'https://mybackend.arios67.shop/graphql'
-      )
+      const graphqlClient_1 = new GraphQLClient('https://daseul.shop/graphql')
       await graphqlClient_1.request(CHECK_TIMEDOUT_AND_PROCESS)
       console.log('굳')
     } catch (e) {
@@ -99,7 +98,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       fn: timeToDeadline,
       // this is the function which is triggered based on the config
       id: '1',
-      config: '0 0 * * *', // runs at every minutes
+      config: '* * * * *', // runs at every minutes
       name: '' // optional
     }
   ]
@@ -124,3 +123,5 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp
+
+//15bc09bf-ad38-4858-bbad-68d83ad931de

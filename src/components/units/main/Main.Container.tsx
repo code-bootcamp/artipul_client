@@ -88,3 +88,5 @@ export default function MainContainer() {
     </>
   )
 }
+
+//http://localhost:3000/art/aaabe374-7edd-4516-b7d8-82998c9e5a1f

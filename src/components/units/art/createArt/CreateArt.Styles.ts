@@ -146,11 +146,16 @@ export const CreateArtDeadlineBox = styled.div`
   margin-top: 2rem;
 `
 
+export const CreateArtDeadlineInputBox = styled.div`
+  display: flex;
+`
+
 export const CreateArtDeadline = styled.input`
   margin-top: 2rem;
   width: 10rem;
   height: 2.125rem;
   cursor: pointer;
+  margin-right: 1.5rem;
 `
 
 export const CreateArtPriceBox = styled.div`
