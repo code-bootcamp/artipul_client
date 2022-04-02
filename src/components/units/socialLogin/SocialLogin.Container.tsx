@@ -111,6 +111,7 @@ export default function SocialLoginContainer() {
         await updateSocialUser({
           variables: {
             updateSocialUser: {
+              email: social.findSocialUser?.findSocialUser.email,
               phoneNum,
               nickname,
               is_artist: false,
@@ -126,6 +127,7 @@ export default function SocialLoginContainer() {
         await updateSocialUser({
           variables: {
             updateSocialUser: {
+              email: social.findSocialUser?.findSocialUser.email,
               phoneNum,
               nickname,
               is_artist: true,
