@@ -22,6 +22,7 @@ export const FETCH_USER = gql`
   query fetchUser {
     fetchUser {
       point
+      is_artist
     }
   }
 `
@@ -36,5 +37,19 @@ export const BID = gql`
   mutation Bid($artId: String!, $bid_price: Float!) {
     Bid(artId: $artId, bid_price: $bid_price)
     saveBid(artId: $artId, bid_price: $bid_price)
+  }
+`
+
+export const ADD_LIKE_ART = gql`
+  mutation addLikeArt($artId: String!) {
+    addLikeArt(artId: $artId)
+  }
+`
+
+export const FETCH_LIKE_ART = gql`
+  query fetchLikeArt($page: Float) {
+    fetchLikeArt(page: $page) {
+      id
+    }
   }
 `

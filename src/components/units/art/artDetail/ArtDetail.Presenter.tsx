@@ -1,5 +1,6 @@
 import * as S from './ArtDetail.Styles'
 import ArttDetailModal from './ArtDetailModal/ArtDetailModal'
+import { FaRegHeart, FaHeart, FaRegUser } from 'react-icons/fa'
 
 export default function ArtDetailPresenter(props) {
   return (
@@ -12,6 +13,24 @@ export default function ArtDetailPresenter(props) {
             </S.ArtDetailImageBox>
           </S.ArtDetaiToplLeft>
           <S.ArtDetailTopRight>
+            <S.ArtDetailTopButtonBox>
+              <S.ArtWorkArtistButton onClick={props.onClickArtist}>
+                <FaRegUser />
+              </S.ArtWorkArtistButton>
+              {!props.is_artist && props.is_artist !== undefined && (
+                <S.ArtWorkLikeButton
+                  onClick={props.onClickLike}
+                  value={props.likeDate?.includes(props.id)}
+                  id={props.id}
+                >
+                  {props.likeDate?.includes(props.el.id) ? (
+                    <FaHeart />
+                  ) : (
+                    <FaRegHeart />
+                  )}
+                </S.ArtWorkLikeButton>
+              )}
+            </S.ArtDetailTopButtonBox>
             <S.ArtDetailTag>{props.data?.tag1}</S.ArtDetailTag>
             <S.ArtDetailTitle>{props.data?.title}</S.ArtDetailTitle>
             <S.ArtDetailSubBox>
@@ -47,7 +66,7 @@ export default function ArtDetailPresenter(props) {
               <S.ArtDetailTimeBox>
                 <S.ArtDetailTimeTitle>경매마감일</S.ArtDetailTimeTitle>
                 <S.ArtDetailTime>
-                  {props.data?.deadline.slice(0, 10)}까지
+                  {props.data?.deadline.slice(0, 16)}
                 </S.ArtDetailTime>
               </S.ArtDetailTimeBox>
             </S.ArtDetailPriceTimeBox>

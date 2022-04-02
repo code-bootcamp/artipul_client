@@ -12,13 +12,16 @@ import { useRouter } from 'next/router'
 export default function ArtListContainer() {
   const [artCategory, setArtCategory] = useState(['회화'])
   const [page, setPage] = useState(0)
-  const { data: fetchLikeArts, refetch: refetchLikeArts } =
-    useQuery(FETCH_LIKE_ART)
-  const [fetchArts] = useLazyQuery(FETCH_ARTS)
+  const [fetchLikeArt] = useLazyQuery(FETCH_LIKE_ART)
+  const { data } = useQuery(FETCH_ARTS, {
+    variables: { tags: artCategory }
+  })
   const [addLikeArt] = useMutation(ADD_LIKE_ART)
+
   const [likeData, setLikeData] = useState([])
+  console.log(data)
+  console.log(likeData)
   const { data: userData } = useQuery(FETCH_USER)
-  const [artsData, setArtsData] = useState([])
   const router = useRouter()
 
   useEffect(() => {
@@ -30,66 +33,14 @@ export default function ArtListContainer() {
     }
   }, [userData])
 
-  console.log('userData:', userData)
-
-  useEffect(() => {
-    getArtsData()
-  }, [artCategory])
-
-  const getArtsData = async () => {
-    try {
-      const fetchArtsData = await fetchArts({
-        variables: { tags: artCategory }
-      })
-      const tempArtsData = []
-      console.log(fetchArtsData)
-      const date = new Date()
-      const yyyy = date.getFullYear()
-      const mm = date.getMonth() + 1
-      const dd = date.getDay()
-      const tt = date.getHours()
-      const mn = date.getMinutes()
-      const nowDate = `${yyyy}-${mm}-${dd}T${tt}:${mn}:00:000Z`
-
-      for (let i = 0; i < fetchArtsData.data.fetchArts.length; i++) {
-        if (
-          fetchArtsData.data.fetchArts[i].deadline < nowDate &&
-          !fetchArtsData.data.fetchArts[i].is_soldout
-        ) {
-          tempArtsData.push(fetchArtsData.data.fetchArts[i])
-        }
-      }
-
-      const stringifyTempArtsData = []
-      const parseTempArtsData = []
-
-      for (let i = 0; i < tempArtsData.length; i++) {
-        stringifyTempArtsData.push(JSON.stringify(tempArtsData[i]))
-      }
-
-      const tempSet = new Set(stringifyTempArtsData)
-
-      const setTempArtsData = tempSet.values()
-
-      for (let i = 0; i < tempSet.size; i++) {
-        parseTempArtsData.push(JSON.parse(setTempArtsData.next().value))
-      }
-
-      setArtsData(parseTempArtsData)
-    } catch (e) {
-      console.log('error:', e.message)
-    }
-  }
-
   const checkUser = async () => {
     try {
-      await refetchLikeArts()
+      const likeArt = await fetchLikeArt()
+      setLikeData([likeArt])
     } catch (e) {
-      console.log(e.message)
+      console.log(e)
     }
   }
-
-  console.log(fetchLikeArts)
 
   const onClickArtCategory = (event) => {
     setArtCategory([event.target.id])
@@ -141,16 +92,12 @@ export default function ArtListContainer() {
       await addLikeArt({
         variables: { artId: event.currentTarget.id }
       })
-      try {
-        refetchLikeArts()
-        const tempFetchLikeArtId = []
-        fetchLikeArts.fetchLikeArt.map((el) => {
-          tempFetchLikeArtId.push(el.id)
-        })
-        setLikeData(tempFetchLikeArtId)
-      } catch (e) {
-        alert(e.message)
+      const likeArt = await fetchLikeArt()
+      const tempLikeArt = []
+      for (let i = 0; i < likeArt.data.fetchLikeArt.length; i++) {
+        tempLikeArt.push(likeArt.data.fetchLikeArt[i].id)
       }
+      setLikeData(tempLikeArt)
     } catch (e) {
       alert(e.message)
     }
@@ -162,20 +109,19 @@ export default function ArtListContainer() {
 
   return (
     <>
-      <ArtListPresenter
+      {/* <ArtListPresenter
         artCategory={artCategory}
         onClickArtCategory={onClickArtCategory}
-        data={artsData.slice(0, page + 9)}
+        // data={data?.fetchArts.slice(0, page + 9)}
         page={page}
         is_artist={userData?.fetchUser.is_artist}
-        likeData={likeData}
         onClickMoreButton={onClickMoreButton}
         onChangeSelect1={onChangeSelect1}
         onChangeSelect2={onChangeSelect2}
         onChangeSelect3={onChangeSelect3}
         onClickLike={onClickLike}
         onClickArtWorkCard={onClickArtWorkCard}
-      />
+      /> */}
     </>
   )
 }

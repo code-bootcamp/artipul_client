@@ -1,39 +1,41 @@
 import * as S from './ArtWorkCardStyled'
-import { FaRegHeart } from 'react-icons/fa'
+import { FaRegHeart, FaHeart } from 'react-icons/fa'
 
 export default function ArtWorkCard(props) {
   return (
-    <S.ArtWorkCardWrapper>
+    <S.ArtWorkCardWrapper id={props.el.id} onClick={props.onClickArtWorkCard}>
       <S.ArtWorkImageBox>
-        <S.ArtWorkLikeButton>
-          <FaRegHeart />
-        </S.ArtWorkLikeButton>
-        <S.ArtWorkImage className="image" image={props.el.image} />
+        {!props.is_artist && props.is_artist !== undefined && (
+          <S.ArtWorkLikeButton
+            onClick={props.onClickLike}
+            value={props.likeData?.includes(props.el.id)}
+            id={props.el.id}
+          >
+            {props.likeData?.includes(props.el.id) ? (
+              <FaHeart />
+            ) : (
+              <FaRegHeart />
+            )}
+          </S.ArtWorkLikeButton>
+        )}
+        <S.ArtWorkImage className="image" image={props.el.thumbnail} />
       </S.ArtWorkImageBox>
-      <S.ArtWorkCardTime>{`입찰중 | 5일 00:22:14 까지`}</S.ArtWorkCardTime>
+      <S.ArtWorkCardTime>
+        입찰중 | {props.el.deadline.slice(2, 16)} 마감
+      </S.ArtWorkCardTime>
       <S.ArtWorkCardContent>
-        <S.ArtWorkCardSubTitle>{props.el.thumbnail}</S.ArtWorkCardSubTitle>
+        <S.ArtWorkCardSubTitle>{props.el.tag1}</S.ArtWorkCardSubTitle>
         <S.ArtWorkCardTitle>{props.el.title}</S.ArtWorkCardTitle>
         <S.ArtWorkCardContentBottom>
           <S.ArtWorkCardContentBottomTitle>
             작가
           </S.ArtWorkCardContentBottomTitle>
           <S.ArtWorkCardContentBottomSubTitle>
-            {props.el.user}
-          </S.ArtWorkCardContentBottomSubTitle>
-          <S.ArtWorkCardContentBottomTitle>
-            작품사이즈
-          </S.ArtWorkCardContentBottomTitle>
-          <S.ArtWorkCardContentBottomSubTitle>
-            {props.el.size}
+            {props.el.nickname}
           </S.ArtWorkCardContentBottomSubTitle>
         </S.ArtWorkCardContentBottom>
       </S.ArtWorkCardContent>
       <S.ArtWorkCardPriceBox>
-        <S.ArtWorkCardPriceTitle>현재입찰가</S.ArtWorkCardPriceTitle>
-        <S.ArtWorkCardPrice>
-          {props.el.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-        </S.ArtWorkCardPrice>
         <S.ArtWorkCardPriceSubBox>
           <S.ArtWorkCardNowPriceTitle>즉시구매가</S.ArtWorkCardNowPriceTitle>
           <S.ArtWorkCardNowPrice>
@@ -42,6 +44,8 @@ export default function ArtWorkCard(props) {
               .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             원
           </S.ArtWorkCardNowPrice>
+        </S.ArtWorkCardPriceSubBox>
+        <S.ArtWorkCardPriceSubBox>
           <S.ArtWorkCardStartPriceTitle>
             경매시작가
           </S.ArtWorkCardStartPriceTitle>

@@ -134,6 +134,7 @@ export default function CreateArtContainer() {
       (title &&
         // description &&
         // start_price <= instant_bid - 10000 &&
+
         deadline &&
         image_urls[0] &&
         tag1 === '회화' &&
@@ -165,12 +166,9 @@ export default function CreateArtContainer() {
               instant_bid,
               price: start_price,
               deadline,
-              image_urls,
+              thumbnail: image_urls[0],
               is_soldout,
-              tag1,
-              tag2,
-              tag3,
-              tag4
+              tags: [tag1, tag2, tag3, tag4]
             }
           }
         })
