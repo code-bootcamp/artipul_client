@@ -48,10 +48,10 @@ export default function LoginContainer() {
     }
   }
   const onClickGoogle = () => {
-    window.open('http://daseul.shop/login/google')
+    router.push('https://daseul.shop/login/google')
   }
   const onClickKakao = () => {
-    window.open('http://daseul.shop/login/kakao')
+    router.push('https://daseul.shop/login/kakao')
   }
 
   const onClickMoveToCreateUser = () => {

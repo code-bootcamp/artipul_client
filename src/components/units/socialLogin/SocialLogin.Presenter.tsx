@@ -7,6 +7,7 @@ export default function SocialLoginPresenter(
   props: ISocialLoginPresenterProps
 ) {
   console.log(props.checkPhoneAuth, props.nicknameAuth)
+  console.log(props.social)
   return (
     <M.Wrapper>
       <div>

@@ -14,33 +14,49 @@ import { IMypageProps } from './UserMyPage.Types'
 export default function UserMyPagePresenter(props: IMypageProps) {
   const menu = (
     <Menu>
-      <Menu.Item onClick={props.onClickPoint}>
+      <Menu.Item key={1} onClick={props.onClickPoint}>
         포인트 충전 및 사용내역
       </Menu.Item>
     </Menu>
   )
   const menu2 = (
     <Menu>
-      <Menu.Item onClick={props.onClickAuction}>참여중인 경매</Menu.Item>
-      <Menu.Item onClick={props.onClickLike}>찜한 작품들</Menu.Item>
+      <Menu.Item key={2} onClick={props.onClickAuction}>
+        참여중인 경매
+      </Menu.Item>
+      <Menu.Item key={3} onClick={props.onClickLike}>
+        찜한 작품들
+      </Menu.Item>
     </Menu>
   )
   const menu3 = (
     <Menu>
-      <Menu.Item onClick={props.onClickPost}>배송지 설정</Menu.Item>
-      <Menu.Item onClick={props.onClickBoards}>작성한 리뷰</Menu.Item>
-      <Menu.Item onClick={props.onClickBought}>구매한 작품들</Menu.Item>
+      <Menu.Item key={4} onClick={props.onClickPost}>
+        배송지 설정
+      </Menu.Item>
+      <Menu.Item key={5} onClick={props.onClickBoards}>
+        작성한 리뷰
+      </Menu.Item>
+      <Menu.Item key={6} onClick={props.onClickBought}>
+        구매한 작품들
+      </Menu.Item>
     </Menu>
   )
   const menu4 = (
     <Menu>
-      <Menu.Item onClick={props.onClickIntroduce}>작가 소개</Menu.Item>
+      <Menu.Item key={7} onClick={props.onClickIntroduce}>
+        작가 소개
+      </Menu.Item>
     </Menu>
   )
   const menu5 = (
     <Menu>
-      <Menu.Item onClick={props.onClickSale}>경매중인 작품</Menu.Item>
-      <Menu.Item onClick={props.onClickDone}>거래 완료된 작품</Menu.Item>
+      <Menu.Item key={8} onClick={props.onClickSale}>
+        경매중인 작품
+      </Menu.Item>
+      <Menu.Item key={9} onClick={props.onClickDone}>
+        거래 완료된 작품
+      </Menu.Item>
     </Menu>
   )
   return (

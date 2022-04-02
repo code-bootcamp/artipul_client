@@ -1,4 +1,4 @@
-import { useMutation } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import { ChangeEvent, useRef, useState } from 'react'
 import {
   CHECK_NICKNAME,
@@ -6,13 +6,14 @@ import {
   SEND_PHONE_TOKEN
 } from '../createUser/CreateUser.Queries'
 import SocialLoginPresenter from './SocialLogin.Presenter'
-import { UPDATE_SOCIAL_USER } from './SocialLogin.Queries'
+import { FIND_SOCIAL_USER, UPDATE_SOCIAL_USER } from './SocialLogin.Queries'
 
 export default function SocialLoginContainer() {
   const [sendPhoneToken] = useMutation(SEND_PHONE_TOKEN)
   const [phoneAuth] = useMutation(PHONE_AUTH)
   const [checkNickname] = useMutation(CHECK_NICKNAME)
   const [updateSocialUser] = useMutation(UPDATE_SOCIAL_USER)
+  const { data: social } = useQuery(FIND_SOCIAL_USER)
   const [phoneNum, setPhoneNum] = useState('')
   const [token, setToken] = useState('')
   const [isCheckPhoneNum, setIsCheckPhoneNum] = useState(false)
@@ -56,6 +57,7 @@ export default function SocialLoginContainer() {
           phoneNum
         }
       })
+
       setMinSec(true)
       setIsCheckPhoneNum(true)
     } catch (e) {
@@ -153,6 +155,7 @@ export default function SocialLoginContainer() {
       checkPhoneAuth={checkPhoneAuth}
       nicknameAuth={nicknameAuth}
       onClickUpdateSocialLogin={onClickUpdateSocialLogin}
+      social={social}
     />
   )
 }

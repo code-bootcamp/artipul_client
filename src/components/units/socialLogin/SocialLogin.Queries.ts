@@ -7,3 +7,11 @@ export const UPDATE_SOCIAL_USER = gql`
     }
   }
 `
+export const FIND_SOCIAL_USER = gql`
+  query findSocialUser {
+    findSocialUser {
+      id
+      email
+    }
+  }
+`
