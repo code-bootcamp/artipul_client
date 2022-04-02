@@ -6,8 +6,6 @@ import { ISocialLoginPresenterProps } from './SocialLogin.Types'
 export default function SocialLoginPresenter(
   props: ISocialLoginPresenterProps
 ) {
-  console.log(props.checkPhoneAuth, props.nicknameAuth)
-  console.log(props.social?.findSocialUser.email)
   return (
     <M.Wrapper>
       <div>

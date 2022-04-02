@@ -14,7 +14,6 @@ export default function BoughtArtsPagePresenter(props) {
           <B.TableHeadMenu>작가명</B.TableHeadMenu>
           <B.TableHeadMenu>낙찰가</B.TableHeadMenu>
           <B.TableHeadMenu>구매날짜</B.TableHeadMenu>
-          <B.TableHeadMenu>리뷰</B.TableHeadMenu>
         </B.TableHead>
 
         {props.data?.fetchTransactionCompletedArts.map((el) => (
@@ -27,9 +26,6 @@ export default function BoughtArtsPagePresenter(props) {
             <B.TableRowMenu>{el.user.name}</B.TableRowMenu>
             <B.TableRowMenu>{el.price}</B.TableRowMenu>
             <B.TableRowMenu>{el.deadline}</B.TableRowMenu>
-            <B.TableRowMenu>
-              <B.ReviewButton>리뷰하기</B.ReviewButton>
-            </B.TableRowMenu>
           </B.TableRow>
         ))}
         <B.PagiDiv>
