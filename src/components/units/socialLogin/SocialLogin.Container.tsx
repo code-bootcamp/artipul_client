@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client'
-import { ChangeEvent, useRef, useState } from 'react'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import {
   CHECK_NICKNAME,
   PHONE_AUTH,
@@ -14,6 +14,7 @@ export default function SocialLoginContainer() {
   const [checkNickname] = useMutation(CHECK_NICKNAME)
   const [updateSocialUser] = useMutation(UPDATE_SOCIAL_USER)
   const { data: social } = useQuery(FIND_SOCIAL_USER)
+  const [email, setEmail] = useState('')
   const [phoneNum, setPhoneNum] = useState('')
   const [token, setToken] = useState('')
   const [isCheckPhoneNum, setIsCheckPhoneNum] = useState(false)
@@ -111,7 +112,7 @@ export default function SocialLoginContainer() {
         await updateSocialUser({
           variables: {
             updateSocialUser: {
-              email: social.findSocialUser?.findSocialUser.email,
+              email,
               phoneNum,
               nickname,
               is_artist: false,
@@ -127,7 +128,7 @@ export default function SocialLoginContainer() {
         await updateSocialUser({
           variables: {
             updateSocialUser: {
-              email: social.findSocialUser?.findSocialUser.email,
+              email,
               phoneNum,
               nickname,
               is_artist: true,
@@ -140,6 +141,11 @@ export default function SocialLoginContainer() {
       }
     }
   }
+  useEffect(() => {
+    if (social.findSocialUser?.findSocialUser.email) {
+      setEmail(social.findSocialUser?.findSocialUser.email)
+    }
+  }, [])
 
   return (
     <SocialLoginPresenter
