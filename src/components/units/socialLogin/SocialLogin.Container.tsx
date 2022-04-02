@@ -112,7 +112,7 @@ export default function SocialLoginContainer() {
         await updateSocialUser({
           variables: {
             updateSocialUser: {
-              email,
+              email: social?.findSocialUser.email,
               phoneNum,
               nickname,
               is_artist: false,
@@ -128,7 +128,7 @@ export default function SocialLoginContainer() {
         await updateSocialUser({
           variables: {
             updateSocialUser: {
-              email,
+              email: social?.findSocialUser.email,
               phoneNum,
               nickname,
               is_artist: true,
@@ -141,11 +141,6 @@ export default function SocialLoginContainer() {
       }
     }
   }
-  useEffect(() => {
-    if (social?.findSocialUser.findSocialUser.email) {
-      setEmail(social?.findSocialUser.findSocialUser.email)
-    }
-  }, [])
 
   return (
     <SocialLoginPresenter
