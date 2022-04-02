@@ -216,7 +216,7 @@ export default function UserMyPagePresenter(props: IMypageProps) {
                 구매한 작품들
               </MP.ClickMenus>
               <MP.ReviewBox>
-                <MP.ReviewButton onClick={props.onClickBought}>
+                <MP.ReviewButton onClick={props.onClickReviewNew}>
                   리뷰 작성하기
                 </MP.ReviewButton>
               </MP.ReviewBox>

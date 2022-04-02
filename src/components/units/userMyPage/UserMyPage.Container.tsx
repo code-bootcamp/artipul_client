@@ -59,6 +59,10 @@ export default function UserMyPageContainer() {
       alert(e.message)
     }
   }
+  const onClickReviewNew = () => {
+    router.push('/review/new')
+  }
+
   const onClickCreateArt = () => {
     router.push('/createArt')
   }
@@ -156,6 +160,7 @@ export default function UserMyPageContainer() {
       onChangeImageUrl={onChangeImageUrl}
       url={url}
       onClickCreateArt={onClickCreateArt}
+      onClickReviewNew={onClickReviewNew}
     />
   )
 }
