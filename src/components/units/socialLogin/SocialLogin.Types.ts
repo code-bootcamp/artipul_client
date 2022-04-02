@@ -14,6 +14,7 @@ export interface ISocialLoginPresenterProps {
   minSec: boolean
   min: number
   sec: number
+  social: any
   onChangeNickName: (event: ChangeEvent<HTMLInputElement>) => void
   onClickNicknameAuth: () => void
   onChangeColleage: (event: ChangeEvent<HTMLInputElement>) => void
