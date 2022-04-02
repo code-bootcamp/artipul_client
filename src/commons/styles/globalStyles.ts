@@ -23,7 +23,7 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'Gotham';
-    src: url('http://fonts.cdnfonts.com/css/gotham');
+    src: url('https://fonts.cdnfonts.com/css/gotham');
     font-weight: 400;
     font-style: normal;
   }
