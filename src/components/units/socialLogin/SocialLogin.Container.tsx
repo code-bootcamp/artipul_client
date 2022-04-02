@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client'
+import Router, { useRouter } from 'next/router'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import {
   CHECK_NICKNAME,
@@ -9,12 +10,14 @@ import SocialLoginPresenter from './SocialLogin.Presenter'
 import { FIND_SOCIAL_USER, UPDATE_SOCIAL_USER } from './SocialLogin.Queries'
 
 export default function SocialLoginContainer() {
+  const router = useRouter()
+
   const [sendPhoneToken] = useMutation(SEND_PHONE_TOKEN)
   const [phoneAuth] = useMutation(PHONE_AUTH)
   const [checkNickname] = useMutation(CHECK_NICKNAME)
   const [updateSocialUser] = useMutation(UPDATE_SOCIAL_USER)
   const { data: social } = useQuery(FIND_SOCIAL_USER)
-  const [email, setEmail] = useState('')
+
   const [phoneNum, setPhoneNum] = useState('')
   const [token, setToken] = useState('')
   const [isCheckPhoneNum, setIsCheckPhoneNum] = useState(false)
@@ -115,11 +118,12 @@ export default function SocialLoginContainer() {
               email: social?.findSocialUser.email,
               phoneNum,
               nickname,
-              is_artist: false,
-              colleage: ''
+              is_artist: true,
+              college
             }
           }
         })
+        router.push('/')
       } catch (e) {
         alert(e.message)
       }
@@ -131,11 +135,12 @@ export default function SocialLoginContainer() {
               email: social?.findSocialUser.email,
               phoneNum,
               nickname,
-              is_artist: true,
-              college
+              is_artist: false,
+              college: ''
             }
           }
         })
+        router.push('/')
       } catch (e) {
         alert(e.message)
       }
