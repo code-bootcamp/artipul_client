@@ -361,3 +361,52 @@ export const ArtDetailDescriptionImage = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
 `
+
+export const ArtDetailTopButtonBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ArtWorkArtistButton = styled.div`
+  width: 2.875rem;
+  height: 2.875rem;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 1.4rem;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  cursor: pointer;
+  color: black;
+  :hover {
+    color: #f64612;
+  }
+  & svg {
+    width: 1.295rem;
+    height: 1.295rem;
+  }
+`
+
+export const ArtWorkLikeButton = styled.div`
+  width: 2.875rem;
+  height: 2.875rem;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 1.4rem;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: ${(props) => (props.value ? 'red' : 'black')};
+  :hover {
+    color: red;
+  }
+  & svg {
+    width: 1.295rem;
+    height: 1.295rem;
+  }
+`

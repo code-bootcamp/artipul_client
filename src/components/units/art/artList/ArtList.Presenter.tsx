@@ -5,6 +5,7 @@ import ArtWorkSelectPicture from './ArtWorkSelect/ArtWorkSelectPicture'
 import ArtWorkSelectPiece from './ArtWorkSelect/ArtWorkSelectPiece'
 
 export default function ArtListPresenter(props) {
+  console.log('ps', props.data)
   return (
     <>
       <S.ArtListWrapper>
@@ -73,13 +74,25 @@ export default function ArtListPresenter(props) {
           </S.ArtListCategorySelectBox>
         </S.ArtListCategory>
         <S.ArtListContent>
-          {props.data.map((el, index) => (
-            <ArtWorkCard key={index} el={el} index={index}></ArtWorkCard>
+          {props.data?.map((el, index) => (
+            <ArtWorkCard
+              key={index}
+              el={el}
+              index={index}
+              onClickArtWorkCard={props.onClickArtWorkCard}
+              onClickLike={props.onClickLike}
+              is_artist={props.is_artist}
+              likeData={props.likeData}
+            />
           ))}
         </S.ArtListContent>
-        <S.ArtListButtonBox>
-          <S.MoreButton onClick={props.onClickMoreButton}>MORE ⬇️</S.MoreButton>
-        </S.ArtListButtonBox>
+        {props.page + 9 <= props.data?.length && (
+          <S.ArtListButtonBox>
+            <S.MoreButton onClick={props.onClickMoreButton}>
+              MORE ⬇️
+            </S.MoreButton>
+          </S.ArtListButtonBox>
+        )}
         <FooterContainer />
       </S.ArtListWrapper>
     </>

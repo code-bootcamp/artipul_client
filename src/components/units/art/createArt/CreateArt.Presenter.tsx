@@ -87,7 +87,7 @@ export default function CreateArtPresenter(props) {
                     <option value="금속조">금속조</option>
                   </S.CreateArtCategorySelect>
                 )}
-                {props.tag3 === '소조' && (
+                {props.tag2 === '소조' && (
                   <S.CreateArtCategorySelect onChange={props.onChangeTag2}>
                     <option value="">소조 종류</option>
                     <option value="찰흙 소조">찰흙 소조</option>

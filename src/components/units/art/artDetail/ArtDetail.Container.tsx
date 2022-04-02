@@ -1,11 +1,12 @@
 import ArtDetailPresenter from './ArtDetail.Presenter'
-import { useMutation, useQuery } from '@apollo/client'
+import { useLazyQuery, useMutation, useQuery } from '@apollo/client'
 import {
   FETCH_ART,
   FETCH_USER,
   INSTANT_BID,
-  BID
-  // SAVE_BID
+  BID,
+  FETCH_LIKE_ART,
+  ADD_LIKE_ART
 } from './ArtDetail.Queries'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -14,7 +15,6 @@ export default function ArtDetailContainer() {
   const router = useRouter()
   const [instantBid] = useMutation(INSTANT_BID)
   const [Bid] = useMutation(BID)
-  // const [save_Bid] = useMutation(BID)
   const { data } = useQuery(FETCH_ART, {
     variables: { artId: String(router.query.id) }
   })
@@ -23,6 +23,10 @@ export default function ArtDetailContainer() {
 
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [buyPrice, setBuyPrice] = useState(1)
+  const { data: fetchLikeArts, refetch: refetchLikeArts } =
+    useQuery(FETCH_LIKE_ART)
+  const [addLikeArt] = useMutation(ADD_LIKE_ART)
+  const [likeData, setLikeData] = useState([])
 
   const onClickInstanceBid = async () => {
     if (dataPoint?.fetchUser.point < data?.fetchArt.instant_bid) {
@@ -43,10 +47,6 @@ export default function ArtDetailContainer() {
       }
     }
   }
-
-  // console.log(dataPoint.fetchUser.point)
-
-  //http://localhost:3000/art/02304f0c-ccd4-4301-9259-9e333440bc0a
 
   const onClickAcution = () => {
     setIsModalVisible(true)
@@ -85,14 +85,33 @@ export default function ArtDetailContainer() {
     }
   }
 
-  // const useBid = async () => {
-  //   await Bid({
-  //     variables: {
-  //       artId: String(router.query.id),
-  //       bid_price: buyPrice
-  //     }
-  //   })
-  // }
+  const onClickLike = async (event) => {
+    if (event.stopPropagation) {
+      event.stopPropagation()
+    }
+    event.cancelBubble = true
+    try {
+      await addLikeArt({
+        variables: { artId: event.currentTarget.id }
+      })
+      try {
+        refetchLikeArts()
+        const tempFetchLikeArtId = []
+        fetchLikeArts.fetchLikeArt.map((el) => {
+          tempFetchLikeArtId.push(el.id)
+        })
+        setLikeData(tempFetchLikeArtId)
+      } catch (e) {
+        alert(e.message)
+      }
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+
+  const onClickArtist = () => {
+    router.push('/art/${router.query.id}/artistIntroduce')
+  }
 
   return (
     <ArtDetailPresenter
@@ -104,6 +123,11 @@ export default function ArtDetailContainer() {
       handleOk={handleOk}
       handleCancel={handleCancel}
       onChangeBuyPrice={onChangeBuyPrice}
+      onClickLike={onClickLike}
+      onClickArtist={onClickArtist}
+      id={router.query.id}
+      is_artist={dataPoint?.fetchUser.is_artist}
+      likeData={likeData}
     />
   )
 }
