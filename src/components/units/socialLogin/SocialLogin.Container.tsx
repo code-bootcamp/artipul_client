@@ -142,8 +142,8 @@ export default function SocialLoginContainer() {
     }
   }
   useEffect(() => {
-    if (social.findSocialUser?.findSocialUser.email) {
-      setEmail(social.findSocialUser?.findSocialUser.email)
+    if (social?.findSocialUser.findSocialUser.email) {
+      setEmail(social?.findSocialUser.findSocialUser.email)
     }
   }, [])
 
