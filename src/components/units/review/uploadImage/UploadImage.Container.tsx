@@ -1,4 +1,5 @@
 import { ChangeEvent, useRef } from 'react'
+import * as S from './UploadImage.Styles'
 
 export default function UploadImageContainer(props) {
   const fileRef = useRef(null)
@@ -20,12 +21,9 @@ export default function UploadImageContainer(props) {
     <>
       {props.el ? (
         <>
-          <div style={{ width: '150px', height: '150px' }}>
-            <img
-              src={`${head}${props.el}`}
-              style={{ width: '100%', height: '100%' }}
-            />
-          </div>
+          <S.PhotoWrapper>
+            <S.Photo src={`${head}${props.el}`} onClick={onClickRef} />
+          </S.PhotoWrapper>
 
           <input
             type="file"
@@ -33,7 +31,6 @@ export default function UploadImageContainer(props) {
             ref={fileRef}
             style={{ display: 'none' }}
           />
-          <button onClick={onClickRef}>사진 수정하기</button>
         </>
       ) : (
         <>
@@ -43,7 +40,9 @@ export default function UploadImageContainer(props) {
             ref={fileRef}
             style={{ display: 'none' }}
           />
-          <button onClick={onClickRef}>사진 등록하기</button>
+          <S.Upload>
+            <S.UploadBtn onClick={onClickRef}>사진 업로드하기</S.UploadBtn>
+          </S.Upload>
         </>
       )}
     </>
