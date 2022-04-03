@@ -41,19 +41,24 @@ export default function ArtListContainer() {
       const fetchArtsData = await fetchArts({
         variables: { tags: artCategory }
       })
+
       const tempArtsData = []
-      console.log(fetchArtsData)
+
       const date = new Date()
       const yyyy = date.getFullYear()
-      const mm = date.getMonth() + 1
-      const dd = date.getDay()
-      const tt = date.getHours()
-      const mn = date.getMinutes()
-      const nowDate = `${yyyy}-${mm}-${dd}T${tt}:${mn}:00:000Z`
+      const mm = (date.getMonth() + 1).toString().padStart(2, '0')
+      const dd = date.getDate().toString().padStart(2, '0')
+      const tt = date.getHours().toString().padStart(2, '0')
+      const mn = date.getMinutes().toString().padStart(2, '0')
+      const nowDate = `${yyyy}-${mm}-${dd} ${tt}:${mn}:00:000Z`
 
       for (let i = 0; i < fetchArtsData.data.fetchArts.length; i++) {
+        console.log(
+          fetchArtsData.data.fetchArts[i].deadline > nowDate &&
+            !fetchArtsData.data.fetchArts[i].is_soldout
+        )
         if (
-          fetchArtsData.data.fetchArts[i].deadline < nowDate &&
+          fetchArtsData.data.fetchArts[i].deadline > nowDate &&
           !fetchArtsData.data.fetchArts[i].is_soldout
         ) {
           tempArtsData.push(fetchArtsData.data.fetchArts[i])
