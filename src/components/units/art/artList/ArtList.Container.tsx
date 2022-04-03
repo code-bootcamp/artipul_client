@@ -149,6 +149,7 @@ export default function ArtListContainer() {
     } catch (e) {
       alert(e.message)
     }
+    // console.log(event.currentTarget.id)
   }
 
   const onClickArtWorkCard = (event) => {

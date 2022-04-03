@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@apollo/client": "^3.5.6",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -36,6 +37,7 @@
     "react-slick": "^0.28.1",
     "reactjs-crontab": "^4.5.0",
     "slick-carousel": "^1.8.1",
+    "socket.io": "^4.4.1",
     "sweetalert2": "^11.4.4",
     "swiper": "^8.0.7",
     "uuid": "^8.3.2",

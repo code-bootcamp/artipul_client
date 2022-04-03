@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { CloseOutlined } from '@ant-design/icons'
 
 interface IProps {
   isSubmit: boolean
@@ -20,6 +21,7 @@ export const Subject = styled.div`
   color: #111;
   font-size: 1.75rem;
   font-weight: bold;
+  font-family: Pretendard;
 `
 
 export const BodyWrapper = styled.div`
@@ -55,24 +57,6 @@ export const Warning = styled.span`
 `
 
 export const Upload = styled.div`
-  /* width: 20vw;
-  height: 20vw;
-  border: dashed;
-  border-radius: 7.2px;
-  border-color: #ddd;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  & img {
-    width: 10%;
-    height: 10%;
-    margin-bottom: 0.25rem;
-  }
-  & div {
-    color: #dddddd;
-  }
-  cursor: pointer; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,10 +79,8 @@ export const UploadBtn = styled.div`
 `
 
 export const ImageWrapper = styled.div`
-  /* height: ; */
   display: flex;
   justify-content: space-between;
-  /* background-color: green; */
 `
 
 export const Title = styled.input`
@@ -137,4 +119,115 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: right;
   gap: 1rem;
+`
+
+export const CustomModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 40vw;
+  position: absolute;
+  left: 40%;
+  right: 0%;
+  top: 40%;
+  bottom: 0%;
+
+  background: #ffffff;
+  box-shadow: 2px 6px 20px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  padding: 3.3rem 4.25rem;
+
+  overflow: scroll;
+`
+
+export const IconWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: gree;
+`
+
+export const xIcon = styled(CloseOutlined)`
+  svg {
+    font-size: 2rem;
+    transition: 0.2s;
+    :hover {
+      border: none;
+      transform: scale(1.2);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  cursor: pointer;
+`
+
+export const ModalSubject = styled.div`
+  width: auto;
+  font-size: 1.75rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+`
+
+export const ListWrapper = styled.div`
+  margin-top: 1.4rem;
+  width: 30vw;
+  height: 11rem;
+  display: flex;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 2.25rem;
+`
+
+export const ListLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+`
+
+export const Thumbnail = styled.img`
+  width: 6.5rem;
+  height: 6.5rem;
+`
+
+export const ListRight = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+export const ArtInfo = styled.div`
+  width: 6.5rem;
+  height: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 3%;
+`
+
+export const ArtTitle = styled.div`
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+`
+
+export const ArtistInfo = styled.div`
+  display: flex;
+  gap: 12%;
+`
+
+export const Artist = styled.div`
+  font-size: 0.93rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+`
+
+export const ArtistName = styled.div`
+  font-size: 0.93rem;
 `
