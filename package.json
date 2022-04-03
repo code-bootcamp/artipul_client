@@ -36,6 +36,7 @@
     "react-slick": "^0.28.1",
     "reactjs-crontab": "^4.5.0",
     "slick-carousel": "^1.8.1",
+    "socket.io": "^4.4.1",
     "sweetalert2": "^11.4.4",
     "swiper": "^8.0.7",
     "uuid": "^8.3.2",

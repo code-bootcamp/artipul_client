@@ -1,5 +1,5 @@
 import ArtDetailPresenter from './ArtDetail.Presenter'
-import { useLazyQuery, useMutation, useQuery } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import {
   FETCH_ART,
   FETCH_USER,

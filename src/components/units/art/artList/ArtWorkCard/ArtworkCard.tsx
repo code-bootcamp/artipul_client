@@ -2,6 +2,8 @@ import * as S from './ArtWorkCardStyled'
 import { FaRegHeart, FaHeart } from 'react-icons/fa'
 
 export default function ArtWorkCard(props) {
+  console.log(props.likeData)
+
   return (
     <S.ArtWorkCardWrapper id={props.el.id} onClick={props.onClickArtWorkCard}>
       <S.ArtWorkImageBox>
@@ -11,7 +13,7 @@ export default function ArtWorkCard(props) {
             value={props.likeData?.includes(props.el.id)}
             id={props.el.id}
           >
-            {props.likeData?.includes(props.el.id) ? (
+            {props.likeData.includes(props.el.id) ? (
               <FaHeart />
             ) : (
               <FaRegHeart />
