@@ -142,7 +142,7 @@ export default function ArtListContainer() {
         variables: { artId: event.currentTarget.id }
       })
       try {
-        refetchLikeArts()
+        await refetchLikeArts()
         const tempFetchLikeArtId = []
         fetchLikeArts.fetchLikeArt.map((el) => {
           tempFetchLikeArtId.push(el.id)
@@ -154,6 +154,7 @@ export default function ArtListContainer() {
     } catch (e) {
       alert(e.message)
     }
+    // console.log(event.currentTarget.id)
   }
 
   const onClickArtWorkCard = (event) => {
