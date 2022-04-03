@@ -21,6 +21,9 @@ export default function ReviewContainer(props) {
       ? [props.sortImages]
       : ['', '', '']
   )
+
+  const [isOpen, setIsOpen] = useState(false)
+
   const { data: completedArtsData } = useQuery(
     FETCH_TRANSACTION_COMPLETED_ARTS,
     {
@@ -39,6 +42,13 @@ export default function ReviewContainer(props) {
     const newFileUrls = [...images]
     newFileUrls[index] = file
     setImages(newFileUrls)
+  }
+
+  const onClickSelectArt = (event) => {
+    setIsOpen(true)
+  }
+  const onClickCloseModal = (event) => {
+    setIsOpen(false)
   }
 
   const onClickCreateBoard = async () => {
@@ -78,8 +88,6 @@ export default function ReviewContainer(props) {
           }
         }
       })
-      // console.log(result)
-      console.log()
       router.push(`/review/${result.data?.updateBoard.id}`)
     } catch (e) {
       alert(e.message)
@@ -104,6 +112,9 @@ export default function ReviewContainer(props) {
       onChangeFileUrls={onChangeFileUrls}
       isEdit={props.isEdit}
       onClickUpdateBoard={onClickUpdateBoard}
+      onClickSelectArt={onClickSelectArt}
+      onClickCloseModal={onClickCloseModal}
+      isOpen={isOpen}
     />
   )
 }
