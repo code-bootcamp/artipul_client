@@ -30,8 +30,6 @@ export default function ArtListContainer() {
     }
   }, [userData])
 
-  console.log('userData:', userData)
-
   useEffect(() => {
     getArtsData()
   }, [artCategory])
@@ -51,7 +49,6 @@ export default function ArtListContainer() {
       const tt = date.getHours().toString().padStart(2, '0')
       const mn = date.getMinutes().toString().padStart(2, '0')
       const nowDate = `${yyyy}-${mm}-${dd} ${tt}:${mn}:00:000Z`
-
       for (let i = 0; i < fetchArtsData.data.fetchArts.length; i++) {
         console.log(
           fetchArtsData.data.fetchArts[i].deadline > nowDate &&
@@ -93,8 +90,6 @@ export default function ArtListContainer() {
       console.log(e.message)
     }
   }
-
-  console.log(fetchLikeArts)
 
   const onClickArtCategory = (event) => {
     setArtCategory([event.target.id])
