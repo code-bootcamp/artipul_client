@@ -21,6 +21,7 @@ export default function IntroducePageContainer() {
           }
         }
       })
+      alert('수정이 완료되었습니다.')
     } catch (e) {
       alert(e.message)
     }

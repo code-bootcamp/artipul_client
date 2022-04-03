@@ -5,7 +5,6 @@ import ArtWorkSelectPicture from './ArtWorkSelect/ArtWorkSelectPicture'
 import ArtWorkSelectPiece from './ArtWorkSelect/ArtWorkSelectPiece'
 
 export default function ArtListPresenter(props) {
-  console.log('ps', props.data)
   return (
     <>
       <S.ArtListWrapper>

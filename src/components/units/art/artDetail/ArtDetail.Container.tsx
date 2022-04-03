@@ -110,7 +110,7 @@ export default function ArtDetailContainer() {
   }
 
   const onClickArtist = () => {
-    router.push('/art/${router.query.id}/artistIntroduce')
+    router.push(`/art/${router.query.id}/artistIntroduce`)
   }
 
   return (
