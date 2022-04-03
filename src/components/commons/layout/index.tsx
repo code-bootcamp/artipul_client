@@ -6,8 +6,8 @@ interface IPropsLayout {
   children: ReactChild
 }
 
-const HIDDEN_HEADER = ['/', '/aboutUs']
-const HIDDEN_FOOTER = ['/', '/art/artList', '/aboutUs']
+const HIDDEN_HEADER = ['/', '/aboutUs', '/aboutUs/index.html']
+const HIDDEN_FOOTER = ['/', '/art/artList', '/aboutUs', '/art/artList/']
 
 export default function Layout(props: IPropsLayout) {
   const router = useRouter()

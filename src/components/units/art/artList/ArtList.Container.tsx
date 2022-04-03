@@ -30,8 +30,6 @@ export default function ArtListContainer() {
     }
   }, [userData])
 
-  console.log('userData:', userData)
-
   useEffect(() => {
     getArtsData()
   }, [artCategory])
@@ -42,18 +40,17 @@ export default function ArtListContainer() {
         variables: { tags: artCategory }
       })
       const tempArtsData = []
-      console.log(fetchArtsData)
+
       const date = new Date()
       const yyyy = date.getFullYear()
-      const mm = date.getMonth() + 1
-      const dd = date.getDay()
+      const mm = (date.getMonth() + 1).toString().padStart(2, '0')
+      const dd = date.getDate().toString().padStart(2, '0')
       const tt = date.getHours()
       const mn = date.getMinutes()
-      const nowDate = `${yyyy}-${mm}-${dd}T${tt}:${mn}:00:000Z`
-
+      const nowDate = `${yyyy}-${mm}-${dd} ${tt}:${mn}:00:000Z`
       for (let i = 0; i < fetchArtsData.data.fetchArts.length; i++) {
         if (
-          fetchArtsData.data.fetchArts[i].deadline < nowDate &&
+          fetchArtsData.data.fetchArts[i].deadline > nowDate &&
           !fetchArtsData.data.fetchArts[i].is_soldout
         ) {
           tempArtsData.push(fetchArtsData.data.fetchArts[i])
@@ -88,8 +85,6 @@ export default function ArtListContainer() {
       console.log(e.message)
     }
   }
-
-  console.log(fetchLikeArts)
 
   const onClickArtCategory = (event) => {
     setArtCategory([event.target.id])
@@ -142,7 +137,7 @@ export default function ArtListContainer() {
         variables: { artId: event.currentTarget.id }
       })
       try {
-        refetchLikeArts()
+        await refetchLikeArts()
         const tempFetchLikeArtId = []
         fetchLikeArts.fetchLikeArt.map((el) => {
           tempFetchLikeArtId.push(el.id)
