@@ -1,7 +1,7 @@
+import FooterContainer from '../../commons/layout/footer/Footer.Container'
 import * as S from './ReviewList.Styles'
 
 export default function ReviewListPresenter(props) {
-  console.log(props.data)
   return (
     <>
       <S.Wrapper>
@@ -22,18 +22,25 @@ export default function ReviewListPresenter(props) {
           </S.WriteButton>
         </S.ButtonWrapper>
         <S.ListWrapper>
-          {props.data?.fetchBoards.map((el) => (
-            <S.ReviewCard key={el.id} onClick={props.onClickDetail}>
+          {props.data?.map((el) => (
+            <S.ReviewCard key={el.id} id={el.id} onClick={props.onClickDetail}>
               <S.ThumbnailWrapper>
-                {/* <S.ReviewThumbnail src="${el.thumbnail}" /> */}
-                <S.ReviewThumbnail src="/fox.png" />
+                <S.ReviewThumbnail
+                  img={`https://storage.googleapis.com${el.thumbnail}`}
+                />
               </S.ThumbnailWrapper>
               <S.ReviewCardTitle>{el.title}</S.ReviewCardTitle>
               <S.ReviewCardNickName>{el.user.nickname}</S.ReviewCardNickName>
             </S.ReviewCard>
           ))}
         </S.ListWrapper>
+        {props.page + 10 <= props.data?.length && (
+          <S.MoreButtonWrapper onClick={props.onClickMoreButton}>
+            <S.MoreButton>More Button ⬇️</S.MoreButton>
+          </S.MoreButtonWrapper>
+        )}
       </S.Wrapper>
+      <FooterContainer />
     </>
   )
 }

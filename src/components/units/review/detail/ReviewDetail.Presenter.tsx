@@ -1,8 +1,6 @@
 import * as S from './ReviewDetail.Styles'
 import { Menu } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
-import CreateCommentContainer from '../comment/CreateComment.Container'
-import CommentListContainer from '../comment/commentList/CommentList.Container'
 import ReviewImageContainer from '../readImage/ReadImage.Container'
 import SelectWorkContainer from '../selectWork/SelectWork.Container'
 
@@ -95,7 +93,7 @@ export default function ReviewDetailPresenter(props) {
           <S.Tag>#정방향</S.Tag>
         </S.TagWrapper>
         {/* <CreateCommentContainer /> */}
-        <CommentListContainer />
+        {/* <CommentListContainer />s */}
       </S.Right>
     </S.Wrapper>
   )

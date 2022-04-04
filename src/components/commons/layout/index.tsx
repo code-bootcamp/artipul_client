@@ -12,7 +12,8 @@ const HIDDEN_FOOTER = [
   '/art/artList',
   '/aboutUs',
   '/art/artList/',
-  '/aboutUs/index.html'
+  '/aboutUs/index.html',
+  '/review/'
 ]
 
 export default function Layout(props: IPropsLayout) {
