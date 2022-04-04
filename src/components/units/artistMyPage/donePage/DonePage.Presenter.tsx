@@ -37,14 +37,14 @@ export default function DonePagePresenter(props: IDonePageProps) {
             <D.TableRowMenu>{el.tag1}</D.TableRowMenu>
             <D.TableRowMenu>{el.title}</D.TableRowMenu>
             <D.TableRowMenu>{el.deadline.slice(0, 10)}</D.TableRowMenu>
-            <D.TableRowLastMenu>
-              {el.is_soldout ? '판매완료' : '유찰'}
-            </D.TableRowLastMenu>
             <D.TableRowMenu>
+              {el.is_soldout ? '판매완료' : '유찰'}
+            </D.TableRowMenu>
+            <D.TableRowLastMenu>
               {el.price
                 .toString()
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
-            </D.TableRowMenu>
+            </D.TableRowLastMenu>
           </D.TableRow>
         ))}
         <D.PagDiv>

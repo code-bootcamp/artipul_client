@@ -2,6 +2,7 @@ import { Pagination } from 'antd'
 import * as L from './likePage.Styles'
 export default function LikePagePresenter(props) {
   const head = `https://storage.googleapis.com`
+  console.log(props.data)
   return (
     <>
       <L.Wrapper>
@@ -19,13 +20,13 @@ export default function LikePagePresenter(props) {
             </L.MapDiv>
           ))}
         </L.MapWrapper>
-        <div>
+        <L.PagiDiv>
           <Pagination
             current={1}
             total={props.data?.fetchLikeArt}
             onChange={props.onChange}
           />
-        </div>
+        </L.PagiDiv>
       </L.Wrapper>
     </>
   )

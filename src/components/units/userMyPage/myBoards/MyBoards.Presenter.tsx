@@ -13,7 +13,7 @@ export default function MyBoardsPresenter(props) {
                 <B.MapElImage src={`${head}${el.thumbnail}`} />
               </div>
               <B.MapElTitle>{el.title}</B.MapElTitle>
-              <B.MapElCreatedAt>{el.createdAt}</B.MapElCreatedAt>
+              <B.MapElCreatedAt>{el.createdAt.slice(0, 10)}</B.MapElCreatedAt>
             </B.MapDiv>
           ))}
         </B.MapWrapper>

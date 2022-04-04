@@ -2,6 +2,7 @@ import { Pagination } from 'antd'
 import * as B from './BoughtArtsPage.Styles'
 
 export default function BoughtArtsPagePresenter(props) {
+  console.log(props.data)
   const head = `https://storage.googleapis.com`
   return (
     <>
@@ -23,9 +24,9 @@ export default function BoughtArtsPagePresenter(props) {
             </B.TableRowMenu>
             <B.TableRowMenu>{el.tag1}</B.TableRowMenu>
             <B.TableRowMenu>{el.title}</B.TableRowMenu>
-            <B.TableRowMenu>{el.user.name}</B.TableRowMenu>
+            <B.TableRowMenu>{el.payment.user.name}</B.TableRowMenu>
             <B.TableRowMenu>{el.price}</B.TableRowMenu>
-            <B.TableRowMenu>{el.deadline}</B.TableRowMenu>
+            <B.TableRowMenu>{el.deadline.slice(0, 10)}</B.TableRowMenu>
           </B.TableRow>
         ))}
         <B.PagiDiv>

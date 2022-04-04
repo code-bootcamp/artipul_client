@@ -10,8 +10,11 @@ export const FETCH_TRANSACTION_COMPLETED_ARTS = gql`
       price
       thumbnail
       tag1
-      user {
-        name
+      payment {
+        user {
+          nickname
+          name
+        }
       }
     }
   }

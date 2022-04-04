@@ -24,6 +24,7 @@ export const MapWrapper = styled.div`
 `
 export const MapDiv = styled.div`
   margin: 0.5rem;
+  margin-bottom: 1rem;
   width: 30%;
   padding-top: 4rem;
   transition: 0.2s;
@@ -68,4 +69,8 @@ export const MapElCategory = styled.div`
 export const MapElArtist = styled.div`
   width: 100%;
   font-size: 1rem;
+`
+export const PagiDiv = styled.div`
+  margin-top: 1rem;
+  padding-top: 3rem;
 `
