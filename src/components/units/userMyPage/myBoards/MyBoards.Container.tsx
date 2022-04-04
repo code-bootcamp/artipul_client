@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client'
+import { useRouter } from 'next/router'
 import MyBoardsPresenter from './MyBoards.Presenter'
 import {
   FETCH_BOARDS_OF_MINE,
@@ -6,6 +7,7 @@ import {
 } from './MyBoards.Queries'
 
 export default function MyBoardsContainer() {
+  const router = useRouter()
   const { data, refetch } = useQuery(FETCH_BOARDS_OF_MINE, {
     variables: { page: 1 }
   })
@@ -13,11 +15,15 @@ export default function MyBoardsContainer() {
   const onChange = (page) => {
     refetch(page)
   }
+  const onClickBoardDetail = (el) => () => {
+    router.push(`/review/${el.id}`)
+  }
   return (
     <MyBoardsPresenter
       data={data}
       fetchBoardsOfMineCount={fetchBoardsOfMineCount}
       onChange={onChange}
+      onClickBoardDetail={onClickBoardDetail}
     />
   )
 }

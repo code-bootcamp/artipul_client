@@ -5,6 +5,7 @@ import ArtWorkSelectPicture from './ArtWorkSelect/ArtWorkSelectPicture'
 import ArtWorkSelectPiece from './ArtWorkSelect/ArtWorkSelectPiece'
 
 export default function ArtListPresenter(props) {
+  console.log(props.fetchArts)
   return (
     <>
       <S.ArtListWrapper>
@@ -92,6 +93,7 @@ export default function ArtListPresenter(props) {
             </S.MoreButton>
           </S.ArtListButtonBox>
         )}
+
         <FooterContainer />
       </S.ArtListWrapper>
     </>

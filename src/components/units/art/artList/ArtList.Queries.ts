@@ -10,7 +10,7 @@ export const FETCH_ARTS = gql`
       deadline
       thumbnail
       nickname
-      # is_soldout
+      is_soldout
       tag1
     }
   }

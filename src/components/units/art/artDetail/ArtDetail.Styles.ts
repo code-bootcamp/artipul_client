@@ -20,6 +20,7 @@ export const ArtDetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-right: 2rem;
 `
 
 export const ArtDetailTop = styled.div`

@@ -39,6 +39,7 @@ export const TableRow = styled.div`
 `
 export const TableRowMenu = styled.span`
   text-align: center;
+  height: 8rem;
   font-size: 1rem;
   font-weight: 400;
   color: #111111;
