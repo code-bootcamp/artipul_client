@@ -73,10 +73,11 @@ export default function ArtDetailPresenter(props) {
             <S.ArtDetailNowPriceBox>
               <S.ArtDetailNowPriceTitle>현재입찰가</S.ArtDetailNowPriceTitle>
               <S.ArtDetailNowPrice>
-                {props.data?.price
+                {/* {props.data?.price
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                원
+                원 */}
+                {props.price}
               </S.ArtDetailNowPrice>
             </S.ArtDetailNowPriceBox>
             <S.ArtDetailButtonBox>
@@ -102,6 +103,32 @@ export default function ArtDetailPresenter(props) {
             </S.ArtDetailDescriptionImageBox>
           </S.ArtDetailDescriptionBox>
         </S.ArtDetailBottom>
+        {/* <input
+          ref={props.inputRef}
+          type="text"
+          value={props.msg}
+          placeholder={props.connected ? 'Type a message...' : 'Connecting...'}
+          disabled={!props.connected}
+          onChange={(e) => {
+            props.setMsg(e.target.value)
+          }}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              props.sendMessage()
+            }
+          }}
+        />
+        <button onClick={props.sendMessage}>test</button>
+        {props.chat?.length ? (
+          props.chat.map((chat, i) => (
+            <div key={'msg_' + i}>
+              <span>{chat.user === props.user ? 'Me' : chat.user}</span>:{' '}
+              {chat.msg}
+            </div>
+          ))
+        ) : (
+          <div>No chat messages</div>
+        )} */}
       </S.ArtDetailWrapper>
       <S.ArtDetailModal
         visible={props.isModalVisible}
