@@ -13,6 +13,7 @@ export const FETCH_BOARD = gql`
         nickname
       }
       art {
+        thumbnail
         tag1
         tag2
         tag3
