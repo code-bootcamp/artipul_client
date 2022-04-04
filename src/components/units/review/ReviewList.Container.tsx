@@ -7,26 +7,22 @@ import { FETCH_BOARDS } from './ReviewList.Queries'
 export default function ReviewListContainer() {
   const router = useRouter()
   const [page, setPage] = useState(0)
-
   const { data } = useQuery(FETCH_BOARDS)
-  console.log(data)
-
-  const onClickMoreButton = () => {
-    setPage((prev) => prev + 9)
-  }
 
   const onClickDetail = (event) => {
-    router.push(`/review/${event.target.id}`)
+    router.push(`/review/${event.currentTarget.id}`)
   }
   const onClickReviewNew = () => {
     router.push('/review/new')
   }
-  const onClickReviewCard = (event) => {
-    router.push(`/review/${event.currentTarget.id}`)
+
+  const onClickMoreButton = () => {
+    setPage((prev) => prev + 10)
   }
+
   return (
     <ReviewListPresenter
-      data={data}
+      data={data?.fetchBoards.slice(0, page + 10)}
       page={page}
       onClickDetail={onClickDetail}
       onClickReviewNew={onClickReviewNew}

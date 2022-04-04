@@ -15,7 +15,7 @@ export const ArtListTop = styled.div`
   flex-direction: column;
 `
 
-export const ArtListTopTitle = styled.div`ß
+export const ArtListTopTitle = styled.div`
   width: 5.063rem;
   height: 1.5rem;
   font-family: Gotham;

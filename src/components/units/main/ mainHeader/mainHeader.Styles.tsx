@@ -1,5 +1,44 @@
 import styled from '@emotion/styled'
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { FaUser } from 'react-icons/fa'
+import { BreakPoints } from '../../../../commons/styles/media'
 
+export const Hamburger = styled(GiHamburgerMenu)`
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  display: none;
+  cursor: pointer;
+  @media ${BreakPoints.tablet} {
+    display: block;
+  }
+  @media ${BreakPoints.mobile} {
+    display: block;
+  }
+`
+export const HamburgerWrap = styled.div`
+  display: none;
+  .anticon {
+    color: #f64612;
+  }
+  color: orange;
+  @media ${BreakPoints.tablet} {
+    display: block;
+  }
+  @media ${BreakPoints.mobile} {
+    display: block;
+  }
+`
+export const User = styled(FaUser)`
+  font-size: 2rem;
+  display: none;
+  cursor: pointer;
+  @media ${BreakPoints.tablet} {
+    display: block;
+  }
+  @media ${BreakPoints.mobile} {
+    display: block;
+  }
+`
 export const WWrapper = styled.div`
   width: 120rem;
   position: absolute;
@@ -25,6 +64,12 @@ export const Body = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 2rem 5rem;
+  @media ${BreakPoints.tablet} {
+    display: none;
+  }
+  @media ${BreakPoints.mobile} {
+    display: none;
+  }
 `
 export const BodyMenu = styled.div`
   cursor: pointer;
@@ -33,12 +78,23 @@ export const BodyMenu = styled.div`
     color: orange;
   }
 `
-export const Footer = styled.div`
+export const FooterWeb = styled.div`
+  width: 100%;
   display: flex;
-  padding-right: 4.5rem;
+  @media ${BreakPoints.tablet} {
+    display: none;
+  }
+  @media ${BreakPoints.mobile} {
+    display: none;
+  }
+`
+export const Footer = styled.div`
+  width: 260px;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 300px;
+  padding-right: 2rem;
 `
 export const FooterMenu = styled.div`
   padding-left: 1rem;
