@@ -10,12 +10,6 @@ export const CREATE_BOARD = gql`
   mutation createBoard($createBoardInput: CreateBoardInput!, $artId: String!) {
     createBoard(createBoardInput: $createBoardInput, artId: $artId) {
       id
-      art {
-        id
-        user {
-          name
-        }
-      }
     }
   }
 `

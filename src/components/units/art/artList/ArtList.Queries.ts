@@ -11,7 +11,7 @@ export const FETCH_ARTS = gql`
       thumbnail
       nickname
       tag1
-      is_soldout
+      # is_soldout
     }
   }
 `

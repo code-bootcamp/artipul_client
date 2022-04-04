@@ -39,7 +39,7 @@ export default function MainHeaderContainer() {
     router.push('/art/artList')
   }
   const onClickReview = () => {
-    router.push('/')
+    router.push('/review')
   }
   const onClickMyPage = () => {
     router.push('/mypage')
