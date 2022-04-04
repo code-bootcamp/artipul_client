@@ -2,7 +2,11 @@ import { useMutation, useQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import ReviewDetailPresenter from './ReviewDetail.Presenter'
-import { DELETE_BOARD, FETCH_BOARD } from './ReviewDetail.Queries'
+import {
+  DELETE_BOARD,
+  FETCH_BOARD,
+  ADD_LIKE_BOARD
+} from './ReviewDetail.Queries'
 
 export default function ReviewDetailContainer() {
   const router = useRouter()
@@ -12,6 +16,18 @@ export default function ReviewDetailContainer() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.reviewid }
   })
+  const [addLikeBoard] = useMutation(ADD_LIKE_BOARD)
+
+  const onClickLike = async () => {
+    const result = await addLikeBoard({
+      variables: {
+        boardId: String(router.query.reviewid)
+      }
+    })
+
+    console.log(result)
+  }
+
   const onClickEdit = () => {
     router.push(`/review/${router.query.reviewid}/edit`)
   }
@@ -33,6 +49,7 @@ export default function ReviewDetailContainer() {
       onClickDelete={onClickDelete}
       isTrue={isTrue}
       handleOnClick={handleOnClick}
+      onClickLike={onClickLike}
     />
   )
 }

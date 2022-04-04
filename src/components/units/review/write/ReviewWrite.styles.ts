@@ -78,6 +78,11 @@ export const UploadBtn = styled.div`
   font-weight: bold;
 `
 
+export const SelectedArtImg = styled.img`
+  width: 21.5vw;
+  height: 21.5vw;
+`
+
 export const ImageWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -131,8 +136,8 @@ export const CustomModal = styled.div`
   position: absolute;
   left: 40%;
   right: 0%;
-  top: 40%;
-  bottom: 0%;
+  top: 30%;
+  bottom: 5%;
 
   background: #ffffff;
   box-shadow: 2px 6px 20px 3px rgba(0, 0, 0, 0.1);
@@ -203,12 +208,13 @@ export const ListRight = styled.div`
   justify-content: center;
 `
 export const ArtInfo = styled.div`
-  width: 6.5rem;
+  width: 100%;
   height: 6.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding-left: 3%;
+  cursor: pointer;
 `
 
 export const ArtTitle = styled.div`
@@ -219,7 +225,8 @@ export const ArtTitle = styled.div`
 
 export const ArtistInfo = styled.div`
   display: flex;
-  gap: 12%;
+  justify-content: left;
+  gap: 1rem;
 `
 
 export const Artist = styled.div`

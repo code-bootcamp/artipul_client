@@ -1,8 +1,9 @@
 import UploadImageContainer from '../uploadImage/UploadImage.Container'
 import * as S from './ReviewWrite.styles'
 
-export default function ReviewPreview(props) {
-  console.log(props.completedArtsData)
+export default function ReviewWriteUI(props) {
+  console.log(props.completedArtsData?.fetchTransactionCompletedArts)
+  const head = `https://storage.googleapis.com`
   return (
     <>
       {props.isOpen && (
@@ -11,104 +12,24 @@ export default function ReviewPreview(props) {
             <S.xIcon onClick={props.onClickCloseModal} />
           </S.IconWrapper>
           <S.ModalSubject>구매내역</S.ModalSubject>
-          <S.ListWrapper>
-            <S.ListLeft>
-              <S.Thumbnail src="/fox.png" />
-            </S.ListLeft>
-            <S.ListRight>
-              <S.ArtInfo>
-                <S.ArtTitle>따듯한 여우</S.ArtTitle>
-                <S.ArtistInfo>
-                  <S.Artist>작가</S.Artist>
-                  <S.ArtistName>김진아</S.ArtistName>
-                </S.ArtistInfo>
-              </S.ArtInfo>
-            </S.ListRight>
-          </S.ListWrapper>
-          <S.ListWrapper>
-            <S.ListLeft>
-              <S.Thumbnail src="/fox.png" />
-            </S.ListLeft>
-            <S.ListRight>
-              <S.ArtInfo>
-                <S.ArtTitle>따듯한 여우</S.ArtTitle>
-                <S.ArtistInfo>
-                  <S.Artist>작가</S.Artist>
-                  <S.ArtistName>김진아</S.ArtistName>
-                </S.ArtistInfo>
-              </S.ArtInfo>
-            </S.ListRight>
-          </S.ListWrapper>
-          <S.ListWrapper>
-            <S.ListLeft>
-              <S.Thumbnail src="/fox.png" />
-            </S.ListLeft>
-            <S.ListRight>
-              <S.ArtInfo>
-                <S.ArtTitle>따듯한 여우</S.ArtTitle>
-                <S.ArtistInfo>
-                  <S.Artist>작가</S.Artist>
-                  <S.ArtistName>김진아</S.ArtistName>
-                </S.ArtistInfo>
-              </S.ArtInfo>
-            </S.ListRight>
-          </S.ListWrapper>
-          <S.ListWrapper>
-            <S.ListLeft>
-              <S.Thumbnail src="/fox.png" />
-            </S.ListLeft>
-            <S.ListRight>
-              <S.ArtInfo>
-                <S.ArtTitle>따듯한 여우</S.ArtTitle>
-                <S.ArtistInfo>
-                  <S.Artist>작가</S.Artist>
-                  <S.ArtistName>김진아</S.ArtistName>
-                </S.ArtistInfo>
-              </S.ArtInfo>
-            </S.ListRight>
-          </S.ListWrapper>
-          <S.ListWrapper>
-            <S.ListLeft>
-              <S.Thumbnail src="/fox.png" />
-            </S.ListLeft>
-            <S.ListRight>
-              <S.ArtInfo>
-                <S.ArtTitle>따듯한 여우</S.ArtTitle>
-                <S.ArtistInfo>
-                  <S.Artist>작가</S.Artist>
-                  <S.ArtistName>김진아</S.ArtistName>
-                </S.ArtistInfo>
-              </S.ArtInfo>
-            </S.ListRight>
-          </S.ListWrapper>
-          <S.ListWrapper>
-            <S.ListLeft>
-              <S.Thumbnail src="/fox.png" />
-            </S.ListLeft>
-            <S.ListRight>
-              <S.ArtInfo>
-                <S.ArtTitle>따듯한 여우</S.ArtTitle>
-                <S.ArtistInfo>
-                  <S.Artist>작가</S.Artist>
-                  <S.ArtistName>김진아</S.ArtistName>
-                </S.ArtistInfo>
-              </S.ArtInfo>
-            </S.ListRight>
-          </S.ListWrapper>
-          <S.ListWrapper>
-            <S.ListLeft>
-              <S.Thumbnail src="/fox.png" />
-            </S.ListLeft>
-            <S.ListRight>
-              <S.ArtInfo>
-                <S.ArtTitle>따듯한 여우</S.ArtTitle>
-                <S.ArtistInfo>
-                  <S.Artist>작가</S.Artist>
-                  <S.ArtistName>김진아</S.ArtistName>
-                </S.ArtistInfo>
-              </S.ArtInfo>
-            </S.ListRight>
-          </S.ListWrapper>
+          {props.completedArtsData?.fetchTransactionCompletedArts.map((el) => (
+            <div key={el.id} onClick={props.onClickBought(el)}>
+              <S.ListWrapper>
+                <S.ListLeft>
+                  <S.Thumbnail src={`${head}${el.thumbnail}`} />
+                </S.ListLeft>
+                <S.ListRight>
+                  <S.ArtInfo>
+                    <S.ArtTitle>{el.title}</S.ArtTitle>
+                    <S.ArtistInfo>
+                      <S.Artist>작가</S.Artist>
+                      <S.ArtistName>{el.payment.user.name}</S.ArtistName>
+                    </S.ArtistInfo>
+                  </S.ArtInfo>
+                </S.ListRight>
+              </S.ListWrapper>
+            </div>
+          ))}
         </S.CustomModal>
       )}
 
@@ -121,34 +42,14 @@ export default function ReviewPreview(props) {
               <S.Label>01. 작품 선택</S.Label>
               <S.Guide>리뷰를 작성하고 싶은 작품을 선택해주세요.</S.Guide>
             </S.LabelGuideWrapper>
-            <S.Upload onClick={props.onClickSelectArt}>
-              <S.UploadBtn>작품 선택하기</S.UploadBtn>
-            </S.Upload>
-          </S.BodyWrapper>
-
-          <div>리뷰할 작품 선택하기</div>
-          <div>
-            {props.completedArtsData?.fetchTransactionCompledArts?.map(
-              (el, index) => (
-                <div key={el.id}>
-                  <div>
-                    <img src={el.thumbnail} />
-                  </div>
-                  <div>{el.title}</div>
-                  <div>{index + 1}</div>
-                </div>
-              )
+            {!props.isSelected ? (
+              <S.Upload onClick={props.onClickSelectArt}>
+                <S.UploadBtn>작품 선택하기</S.UploadBtn>
+              </S.Upload>
+            ) : (
+              <S.SelectedArtImg src={`${head}${props.url}`} />
             )}
-            {/* {new Array(4).fill(1).map((el, index) => (
-              <div key={el.id} style={{ border: '1px solid black' }}>
-                <div>
-                  <img src={el.thumbnail} />
-                </div>
-                <div>{el.title}</div>
-                <div>{index + 1}</div>
-              </div>
-            ))} */}
-          </div>
+          </S.BodyWrapper>
 
           <S.BodyWrapper>
             <S.LabelGuideWrapper>
@@ -217,7 +118,9 @@ export default function ReviewPreview(props) {
             >
               {props.isEdit ? '수정하기' : '리뷰 작성하기'}
             </S.SubmitButton>
-            <S.SubmitButton isSubmit={false}>작성 취소하기</S.SubmitButton>
+            <S.SubmitButton isSubmit={false} onClick={props.onClickMoveToList}>
+              작성 취소하기
+            </S.SubmitButton>
           </S.ButtonWrapper>
         </S.MainWrapper>
       </S.Wrapper>

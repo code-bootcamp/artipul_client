@@ -12,6 +12,12 @@ export const FETCH_BOARD = gql`
         name
         nickname
       }
+      art {
+        tag1
+        tag2
+        tag3
+        tag4
+      }
     }
   }
 `
@@ -26,5 +32,11 @@ export const FETCH_BOARD_IMAGES = gql`
     fetchBoardImgaes(boardId: $boardId) {
       url
     }
+  }
+`
+
+export const ADD_LIKE_BOARD = gql`
+  mutation addLikeBoard($boardId: String!) {
+    addLikeBoard(boardId: $boardId)
   }
 `
