@@ -5,7 +5,6 @@ import ReviewImageContainer from '../readImage/ReadImage.Container'
 import SelectWorkContainer from '../selectWork/SelectWork.Container'
 
 export default function ReviewDetailPresenter(props) {
-  console.log(props.data, props.profile)
   const head = `https://storage.googleapis.com`
   const menu = (
     <Menu>

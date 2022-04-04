@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client'
 import { Editor } from '@toast-ui/react-editor'
 import { useRef } from 'react'
+import { successModal, warningModal } from '../../../commons/Modal'
 import {
   CREATE_PROFILE,
   FETCH_PROFILE
@@ -21,12 +22,10 @@ export default function IntroducePageContainer() {
           }
         }
       })
-      alert('수정이 완료되었습니다.')
+      successModal('수정이 완료되었습니다.')
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
-
-    console.log(editorRef.current?.getInstance().getMarkdown())
   }
 
   return (

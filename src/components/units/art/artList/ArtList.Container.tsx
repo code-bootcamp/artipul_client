@@ -3,6 +3,7 @@ import ArtListPresenter from './ArtList.Presenter'
 import { FETCH_ARTS } from './ArtList.Queries'
 import { useLazyQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
+import { warningModal } from '../../../commons/Modal'
 
 export default function ArtListContainer() {
   const [artCategory, setArtCategory] = useState(['회화'])
@@ -56,7 +57,7 @@ export default function ArtListContainer() {
 
       setArtsData(parseTempArtsData)
     } catch (e) {
-      console.log('error:', e.message)
+      warningModal(e.message)
     }
   }
 

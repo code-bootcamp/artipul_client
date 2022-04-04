@@ -30,7 +30,7 @@ export default function AboutUsContentContainer() {
   }
 
   const { data } = useQuery(FETCH_USER)
-  console.log(data)
+
   const onCheckIsArtist = () => {
     if (data?.fetchUser.is_artist) {
       setIsArtist(true)

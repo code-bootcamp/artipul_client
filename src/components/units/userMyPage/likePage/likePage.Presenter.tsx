@@ -2,8 +2,7 @@ import { Pagination } from 'antd'
 import * as L from './likePage.Styles'
 export default function LikePagePresenter(props) {
   const head = `https://storage.googleapis.com`
-  console.log(props.data)
-  console.log(props.fetchLikeArtCount)
+
   return (
     <>
       <L.Wrapper>

@@ -2,6 +2,7 @@ import { useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useContext, useState } from 'react'
 import { GlobalContext } from '../../../../pages/_app'
+import { warningModal } from '../../commons/Modal'
 import LoginPresenter from './Login.Presenter'
 import { LOGIN } from './Login.Queries'
 
@@ -43,7 +44,7 @@ export default function LoginContainer() {
         if (setAccessToken) setAccessToken(accessToken)
         router.push('/')
       } catch (e) {
-        alert(e.message)
+        warningModal(e.message)
       }
     }
   }

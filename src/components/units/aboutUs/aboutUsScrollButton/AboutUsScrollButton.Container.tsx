@@ -2,7 +2,6 @@ import MainScrollButtonPresenter from './AboutUsScrollButton.Presenter'
 
 export default function AboutUsScrollButtonContainer(props) {
   const onClickScrollDown = async () => {
-    console.log('click')
     const { scrollTop } = props.outerDivRef.current
     const pageHeight = window.innerHeight
 

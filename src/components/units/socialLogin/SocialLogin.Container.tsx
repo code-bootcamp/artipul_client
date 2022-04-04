@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client'
 import Router, { useRouter } from 'next/router'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { successModal, warningModal } from '../../commons/Modal'
 import {
   CHECK_NICKNAME,
   PHONE_AUTH,
@@ -45,7 +46,7 @@ export default function SocialLoginContainer() {
   }
   const onClickPhoneNum = async () => {
     if (!/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/.test(phoneNum)) {
-      alert('올바른 휴대전화 형식이 아닙니다')
+      warningModal('올바른 휴대전화 형식이 아닙니다')
       return
     }
 
@@ -65,7 +66,7 @@ export default function SocialLoginContainer() {
       setMinSec(true)
       setIsCheckPhoneNum(true)
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 
@@ -81,18 +82,18 @@ export default function SocialLoginContainer() {
         setCheckPhoneAuth(result.data?.phoneAuth)
         setIsCheckPhoneNum(false)
         setMinSec(false)
-        alert('인증에 성공하셨습니다.')
+        successModal('인증에 성공하셨습니다.')
       } else {
-        alert('인증번호를 다시 확인해주세요')
+        warningModal('인증번호를 다시 확인해주세요')
       }
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 
   const onClickNicknameAuth = async () => {
     if (nickname.length < 2) {
-      alert('최소 두글자 이상입력해주세요')
+      warningModal('최소 두글자 이상입력해주세요')
       return
     }
     try {
@@ -103,10 +104,10 @@ export default function SocialLoginContainer() {
       })
       if (result.data?.checkNickname) {
         setNicknameAuth(result.data?.checkNickname)
-        alert('사용가능한 닉네임입니다.')
+        successModal('사용가능한 닉네임입니다.')
       }
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   const onClickUpdateSocialLogin = async () => {
@@ -125,7 +126,7 @@ export default function SocialLoginContainer() {
         })
         router.push('/')
       } catch (e) {
-        alert(e.message)
+        warningModal(e.message)
       }
     } else {
       try {
@@ -142,7 +143,7 @@ export default function SocialLoginContainer() {
         })
         router.push('/')
       } catch (e) {
-        alert(e.message)
+        warningModal(e.message)
       }
     }
   }

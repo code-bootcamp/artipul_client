@@ -1,5 +1,4 @@
 import { GraphQLClient, gql } from 'graphql-request'
-// import { gql } from '@apollo/client'
 
 const RESTORE_ACCESS_TOKEN = gql`
   mutation restoreAccessToken {

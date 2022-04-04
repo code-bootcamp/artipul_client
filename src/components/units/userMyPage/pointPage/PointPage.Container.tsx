@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client'
 import { useState } from 'react'
+import { warningModal } from '../../../commons/Modal'
 import { FETCH_PROFILE } from '../UserMyPage.Queries'
 import PointPagePresenter from './PointPage.Presenter'
 import {
@@ -30,7 +31,7 @@ export default function PointPageContainer() {
         }
       })
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   const onClickPayment = () => {
@@ -51,7 +52,7 @@ export default function PointPageContainer() {
           createPoint(rsp)
           refetch()
         } else {
-          alert('결제에 실패하셨습니다.')
+          warningModal('결제에 실패하셨습니다.')
         }
       }
     )

@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client'
 import { ChangeEvent, useEffect, useState } from 'react'
+import { successModal, warningModal } from '../../../commons/Modal'
 import { CREATE_PROFILE, FETCH_PROFILE } from '../UserMyPage.Queries'
 import PostPagePresenter from './PostPage.Presenter'
 
@@ -35,9 +36,9 @@ export default function PostPageContainer() {
         }
       })
       refetch()
-      alert('저장이 완료되었습니다')
+      successModal('저장이 완료되었습니다')
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   useEffect(() => {

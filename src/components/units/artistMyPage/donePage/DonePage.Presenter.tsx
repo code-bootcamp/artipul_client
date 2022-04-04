@@ -4,8 +4,7 @@ import { IDonePageProps } from './DonePage.Types'
 
 export default function DonePagePresenter(props: IDonePageProps) {
   const head = `https://storage.googleapis.com`
-  console.log(props.timeOutData?.fetchTimedOutArt[0]?.is_soldout)
-  console.log(props.fetchTimedOutArtsCount?.fetchTimedOutArtsCount)
+
   return (
     <>
       <D.Wrapper>

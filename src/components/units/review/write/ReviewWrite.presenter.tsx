@@ -2,8 +2,6 @@ import UploadImageContainer from '../uploadImage/UploadImage.Container'
 import * as S from './ReviewWrite.styles'
 
 export default function ReviewWriteUI(props) {
-  console.log(props.completedArtsData?.fetchTransactionCompletedArts)
-  console.log(props.data?.fetchBoard.art.thumbnail)
   const head = `https://storage.googleapis.com`
   return (
     <>

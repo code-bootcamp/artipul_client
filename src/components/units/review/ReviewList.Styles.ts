@@ -92,10 +92,6 @@ export const ListWrapper = styled.div`
   justify-content: space-between;
 `
 
-// ----------------------------------------------------
-// ----------------------------------------------------
-// ----------------------------------------------------
-
 export const ReviewCard = styled.div`
   width: 49.5%;
   margin-top: 1%;

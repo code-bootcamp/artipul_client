@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client'
 import { CREATE_ART, UPLOAD_ART_IMAGE } from './CreateArt.Queries'
 import { checkFileValidation } from '../../../../commons/libraries/checkFileValidation'
 import { useRouter } from 'next/router'
+import { successModal, warningModal } from '../../../commons/Modal'
 
 export default function CreateArtContainer() {
   const router = useRouter()
@@ -53,8 +54,6 @@ export default function CreateArtContainer() {
     setDeadline(deadlineDate + 'T' + event.target.value + ':00.000Z')
   }
 
-  console.log(deadline)
-
   const fileRef = useRef<HTMLInputElement>(null)
 
   const onClickImage = () => {
@@ -75,7 +74,7 @@ export default function CreateArtContainer() {
       })
       setImage_urls([result?.data?.uploadArtImage[0]])
     } catch (error) {
-      alert(error.message)
+      warningModal(error.message)
     }
   }
 
@@ -132,29 +131,14 @@ export default function CreateArtContainer() {
   const onClickSubmit = async () => {
     if (
       (title &&
-        // description &&
-        // start_price <= instant_bid - 10000 &&
-
         deadline &&
         image_urls[0] &&
         tag1 === '회화' &&
         tag2 &&
         tag3 &&
         tag4) ||
-      (title &&
-        // description &&
-        // start_price <= instant_bid - 10000 &&
-        deadline &&
-        image_urls[0] &&
-        tag1 === '조소' &&
-        tag2 &&
-        tag3) ||
-      (title &&
-        // description &&
-        // start_price <= instant_bid - 10000 &&
-        deadline &&
-        image_urls[0] &&
-        tag1 === '기타')
+      (title && deadline && image_urls[0] && tag1 === '조소' && tag2 && tag3) ||
+      (title && deadline && image_urls[0] && tag1 === '기타')
     ) {
       try {
         const result = await createArt({
@@ -172,21 +156,19 @@ export default function CreateArtContainer() {
             }
           }
         })
-        alert('등록이 완료되었습니다.')
+        successModal('등록이 완료되었습니다.')
         router.push(`/art/${result.data.createArt.id}`)
       } catch (e) {
-        alert(e.message)
+        warningModal(e.message)
       }
     } else {
-      alert('잘못입력했습니다.')
+      warningModal('잘못입력했습니다.')
     }
   }
 
   const onClickCancle = () => {
     router.push('/mypage')
   }
-
-  console.log(description)
 
   return (
     <>

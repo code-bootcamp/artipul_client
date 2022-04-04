@@ -5,7 +5,6 @@ import LoginSmallTitles from '../../../commons/div/loginSmallTitle'
 import 'antd/dist/antd.css'
 import { Pagination } from 'antd'
 export default function PointPagePresenter(props: IPointPageProps) {
-  console.log(props.data)
   return (
     <>
       <Head>
