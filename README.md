@@ -37,6 +37,7 @@
 ## 3. 기술 스택
 
 ## 4. Flow-Chart
+![image](https://user-images.githubusercontent.com/95268742/161491706-7e426049-4cae-4e1f-9d05-c2b42441cf77.png)
 
 ## 5. 프로젝트 기능 설명
 
