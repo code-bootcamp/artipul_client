@@ -35,6 +35,7 @@ export default function PostPageContainer() {
         }
       })
       refetch()
+      alert('저장이 완료되었습니다')
     } catch (e) {
       alert(e.message)
     }

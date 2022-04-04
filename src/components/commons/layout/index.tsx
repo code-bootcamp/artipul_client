@@ -10,7 +10,6 @@ const HIDDEN_HEADER = ['/', '/aboutUs', '/aboutUs/index.html', '/aboutUs/']
 const HIDDEN_FOOTER = [
   '/',
   '/art/artList',
-  '/art/artList/',
   '/aboutUs',
   '/art/artList/',
   '/aboutUs/index.html'

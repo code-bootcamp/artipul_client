@@ -6,7 +6,7 @@ export default function ArttDetailModal(props) {
       <S.ArtDetailModalRow>
         <S.ArtDetailModalTitle> 보유 포인트 : </S.ArtDetailModalTitle>
         <S.ArtDetailModalPoint>
-          ₩123
+          ₩ {props.userPoint}
           {/* ₩{props.userPoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}*/}
         </S.ArtDetailModalPoint>
       </S.ArtDetailModalRow>

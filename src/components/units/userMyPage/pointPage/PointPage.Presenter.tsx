@@ -36,8 +36,8 @@ export default function PointPagePresenter(props: IPointPageProps) {
         <LoginSmallTitles title="충전금액" />
 
         <P.MoneyWrapper>
-          <P.MoneyBox id="100" onClick={props.onClickMoney}>
-            <P.Money id="100" onClick={props.onClickMoney}>
+          <P.MoneyBox id="1000" onClick={props.onClickMoney}>
+            <P.Money id="1000" onClick={props.onClickMoney}>
               1천원
             </P.Money>
           </P.MoneyBox>

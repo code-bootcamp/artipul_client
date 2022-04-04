@@ -9,16 +9,52 @@ import {
   ADD_LIKE_ART
 } from './ArtDetail.Queries'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { io } from 'socket.io-client'
+interface IMsg {
+  user: string
+  msg: string
+}
+
+const user = 'User_' + String(new Date().getTime()).substr(-3)
 
 export default function ArtDetailContainer() {
   const router = useRouter()
-  const [instantBid] = useMutation(INSTANT_BID)
-  const [Bid] = useMutation(BID)
-  const { data } = useQuery(FETCH_ART, {
+  const { data, refetch } = useQuery(FETCH_ART, {
     variables: { artId: String(router.query.id) }
   })
+  const [price, setPrice] = useState(data?.fetchArt.price)
+  ////////////////////////////////
 
+  const [connected, setConnected] = useState<boolean>(false)
+
+  // init chat and message
+  const [chat, setChat] = useState<IMsg[]>([])
+  const [msg, setMsg] = useState<string>('')
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    const socket = io(`https://daseul.shop/${router.query.id}`)
+    socket.on('connect', () => {
+      console.log('SOCKET CONNECTED!', socket.id)
+      setConnected(true)
+    })
+    socket.on('message', (message) => {
+      console.log(message.artId)
+      if (message.artId === router.query.id) {
+        setPrice(message.price)
+      }
+    })
+  }, [])
+
+  /////////////////////////////
+
+  const [instantBid] = useMutation(INSTANT_BID)
+  const [Bid] = useMutation(BID)
+  useEffect(() => {
+    setPrice(data?.fetchArt.price)
+  }, [data])
+  console.log('price :', data?.fetchArt.price)
   const { data: dataPoint } = useQuery(FETCH_USER)
 
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -73,7 +109,9 @@ export default function ArtDetailContainer() {
             }
           })
           alert('입찰이 완료되었습니다.')
-          router.push('/mypage')
+          setIsModalVisible(false)
+          await refetch({ artId: String(router.query.id) })
+          // router.push('/mypage')
         } catch (e) {
           alert(e.message)
         }
@@ -95,7 +133,7 @@ export default function ArtDetailContainer() {
         variables: { artId: event.currentTarget.id }
       })
       try {
-        refetchLikeArts()
+        await refetchLikeArts()
         const tempFetchLikeArtId = []
         fetchLikeArts.fetchLikeArt.map((el) => {
           tempFetchLikeArtId.push(el.id)
@@ -128,6 +166,7 @@ export default function ArtDetailContainer() {
       id={router.query.id}
       is_artist={dataPoint?.fetchUser.is_artist}
       likeData={likeData}
+      price={price}
     />
   )
 }
