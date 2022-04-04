@@ -3,6 +3,7 @@ import * as S from './ReviewWrite.styles'
 
 export default function ReviewWriteUI(props) {
   console.log(props.completedArtsData?.fetchTransactionCompletedArts)
+  console.log(props.data?.fetchBoard.art.thumbnail)
   const head = `https://storage.googleapis.com`
   return (
     <>
@@ -40,15 +41,37 @@ export default function ReviewWriteUI(props) {
           <S.BodyWrapper>
             <S.LabelGuideWrapper>
               <S.Label>01. 작품 선택</S.Label>
-              <S.Guide>리뷰를 작성하고 싶은 작품을 선택해주세요.</S.Guide>
+
+              <S.Guide>
+                {props.isEdit
+                  ? '선택하신 작품입니다.'
+                  : '리뷰를 작성하고 싶은 작품을 선택해주세요.'}
+              </S.Guide>
             </S.LabelGuideWrapper>
-            {!props.isSelected ? (
+            {props.isEdit ? (
+              <>
+                <S.SelectedArtImg
+                  src={`${head}${props.data?.fetchBoard.art.thumbnail}`}
+                />
+              </>
+            ) : (
+              <>
+                {!props.isSelected ? (
+                  <S.Upload onClick={props.onClickSelectArt}>
+                    <S.UploadBtn>작품 선택하기</S.UploadBtn>
+                  </S.Upload>
+                ) : (
+                  <S.SelectedArtImg src={`${head}${props.url}`} />
+                )}
+              </>
+            )}
+            {/* {!props.isSelected ? (
               <S.Upload onClick={props.onClickSelectArt}>
                 <S.UploadBtn>작품 선택하기</S.UploadBtn>
               </S.Upload>
             ) : (
               <S.SelectedArtImg src={`${head}${props.url}`} />
-            )}
+            )} */}
           </S.BodyWrapper>
 
           <S.BodyWrapper>
