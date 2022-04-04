@@ -5,13 +5,22 @@ import ReviewDetailPresenter from './ReviewDetail.Presenter'
 import {
   DELETE_BOARD,
   FETCH_BOARD,
-  ADD_LIKE_BOARD
+  ADD_LIKE_BOARD,
+  FETCH_PROFILE,
+  FETCH_BOARD_IMAGES
 } from './ReviewDetail.Queries'
+import { useContext } from 'react'
+import { GlobalContext } from '../../../../../pages/_app'
 
 export default function ReviewDetailContainer() {
+  const { accessToken } = useContext(GlobalContext)
   const router = useRouter()
   const [isTrue, setIsTrue] = useState(false)
+  const { data: fetchBoardImages } = useQuery(FETCH_BOARD_IMAGES, {
+    variables: { boardId: router.query.reviewid }
+  })
 
+  const { data: profile } = useQuery(FETCH_PROFILE)
   const [deleteBoard] = useMutation(DELETE_BOARD)
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.reviewid }
@@ -24,19 +33,23 @@ export default function ReviewDetailContainer() {
         boardId: String(router.query.reviewid)
       }
     })
-
-    console.log(result)
   }
 
   const onClickEdit = () => {
     router.push(`/review/${router.query.reviewid}/edit`)
   }
+
   const onClickDelete = async () => {
-    await deleteBoard({
-      variables: {
-        boardId: String(router.query.reviewid)
-      }
-    })
+    try {
+      await deleteBoard({
+        variables: {
+          boardId: String(router.query.reviewid)
+        }
+      })
+      router.push('/review')
+    } catch (e) {
+      alert(e.message)
+    }
   }
   const handleOnClick = () => {
     setIsTrue((prev) => !prev)
@@ -45,11 +58,14 @@ export default function ReviewDetailContainer() {
   return (
     <ReviewDetailPresenter
       data={data}
+      profile={profile}
       onClickEdit={onClickEdit}
       onClickDelete={onClickDelete}
       isTrue={isTrue}
       handleOnClick={handleOnClick}
       onClickLike={onClickLike}
+      accessToken={accessToken}
+      fetchBoardImages={fetchBoardImages}
     />
   )
 }

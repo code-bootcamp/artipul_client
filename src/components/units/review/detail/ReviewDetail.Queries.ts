@@ -40,3 +40,14 @@ export const ADD_LIKE_BOARD = gql`
     addLikeBoard(boardId: $boardId)
   }
 `
+
+export const FETCH_PROFILE = gql`
+  query fetchProfile {
+    fetchProfile {
+      url
+      user {
+        nickname
+      }
+    }
+  }
+`
