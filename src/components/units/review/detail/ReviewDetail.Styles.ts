@@ -10,11 +10,12 @@ export const Wrapper = styled.div`
   gap: 5%;
 `
 
-export const Right = styled.div``
+export const Right = styled.div`
+  width: 100%;
+`
 export const Left = styled.div``
 
 export const HeaderWrapper = styled.div`
-  /* background-color: pink; */
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #dcdcdc;
@@ -22,7 +23,6 @@ export const HeaderWrapper = styled.div`
 `
 export const profileInfo = styled.div`
   display: flex;
-  /* flex-direction: row; */
   align-items: center;
 `
 
