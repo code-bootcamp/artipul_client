@@ -1,20 +1,23 @@
 import { useMutation, useQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
-import { ChangeEvent, useEffect, useState } from 'react'
-import { FETCH_TRANSACTION_COMPLETED_ARTS } from '../../userMyPage/boughtArtsPage/BoughtArtsPage.Queries'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { FETCH_TRANSACTION_COMPLETED_ARTS } from './ReveiwWrite.queries'
 import {
   CREATE_BOARD,
   UPDATE_BOARD,
   UPLOAD_BOARD_IMAGE
 } from './ReveiwWrite.queries'
-import ReviewPreview from './ReviewWrite.presenter'
+import ReviewWriteUI from './ReviewWrite.presenter'
 
 export default function ReviewContainer(props) {
   const router = useRouter()
+  const [isSelected, setIsSelected] = useState(false)
   const [createBoard] = useMutation(CREATE_BOARD)
   const [uploadBoardImage] = useMutation(UPLOAD_BOARD_IMAGE)
   const [updateBoard] = useMutation(UPDATE_BOARD)
   const [title, setTitle] = useState('')
+  const [artId, setArtId] = useState('')
+  const [url, setUrl] = useState('')
   const [content, setContent] = useState('')
   const [images, setImages] = useState(
     props.imagesData?.fetchBoardImgaes.length
@@ -30,6 +33,17 @@ export default function ReviewContainer(props) {
       variables: { page: 1 }
     }
   )
+  const onClickBought = (el) => () => {
+    setArtId(el.id)
+    setUrl(el.thumbnail)
+    setIsSelected(true)
+    console.log('id', el.id)
+    console.log('url', el.thumbnail)
+  }
+
+  // const { data: tags, refetch } = useQuery(FETCH_TRANSACTION_COMPLETED_ARTS, {
+  //   variables: { page: 1 }
+  // })
 
   const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value)
@@ -51,6 +65,10 @@ export default function ReviewContainer(props) {
     setIsOpen(false)
   }
 
+  const onClickMoveToList = (event) => {
+    router.push('/review')
+  }
+
   const onClickCreateBoard = async () => {
     if (!title || !content) {
       alert('빈칸을 모두 채워주세요')
@@ -59,6 +77,7 @@ export default function ReviewContainer(props) {
     try {
       const result = await createBoard({
         variables: {
+          artId,
           createBoardInput: {
             title,
             content,
@@ -101,20 +120,24 @@ export default function ReviewContainer(props) {
   }, [props.sortImages])
 
   return (
-    <ReviewPreview
+    <ReviewWriteUI
       completedArtsData={completedArtsData}
       data={props.data}
+      images={images}
       onChangeTitle={onChangeTitle}
       onChangeContent={onChangeContent}
       onClickCreateBoard={onClickCreateBoard}
-      images={images}
       uploadBoardImage={uploadBoardImage}
       onChangeFileUrls={onChangeFileUrls}
-      isEdit={props.isEdit}
       onClickUpdateBoard={onClickUpdateBoard}
       onClickSelectArt={onClickSelectArt}
       onClickCloseModal={onClickCloseModal}
+      onClickMoveToList={onClickMoveToList}
+      isEdit={props.isEdit}
       isOpen={isOpen}
+      onClickBought={onClickBought}
+      url={url}
+      isSelected={isSelected}
     />
   )
 }

@@ -4,7 +4,7 @@ import { DownOutlined } from '@ant-design/icons'
 import CreateCommentContainer from '../comment/CreateComment.Container'
 import CommentListContainer from '../comment/commentList/CommentList.Container'
 import ReviewImageContainer from '../readImage/ReadImage.Container'
-import SelectWorkContainer from '../selectWork/SelectWork.container'
+import SelectWorkContainer from '../selectWork/SelectWork.Container'
 
 export default function ReviewDetailPresenter(props) {
   const head = `https://storage.googleapis.com`
@@ -36,7 +36,7 @@ export default function ReviewDetailPresenter(props) {
             <S.nickName>{props.data?.fetchBoard.user.nickname}</S.nickName>
           </S.profileInfo>
           <S.IconInfo>
-            <S.IconWrapper>
+            <S.IconWrapper onClick={props.onClickLike}>
               <svg
                 width="20"
                 height="18"
@@ -51,20 +51,6 @@ export default function ReviewDetailPresenter(props) {
               </svg>
             </S.IconWrapper>
 
-            <S.IconWrapper>
-              <svg
-                width="20"
-                height="23"
-                viewBox="0 0 20 23"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.4611 0C18.4167 0 20 1.6675 20 3.72025C20 5.773 18.4178 7.43935 16.4611 7.43935C15.9602 7.439 15.4652 7.32756 15.0094 7.11252C14.5536 6.89748 14.1477 6.58385 13.8189 6.19275L6.83667 10.1488C6.99222 10.5674 7.07667 11.0227 7.07667 11.5C7.07667 12.1233 6.93222 12.7098 6.67333 13.2262L13.3489 17.5099C13.6478 16.9232 14.0954 16.4318 14.6437 16.0884C15.192 15.745 15.8203 15.5626 16.4611 15.5606C18.4167 15.5606 20 17.2281 20 19.2797C20 21.3325 18.4178 23 16.4611 23C14.5056 23 12.9233 21.3325 12.9233 19.2797L12.9267 19.1211L5.67111 14.4682C5.06005 14.9564 4.30972 15.2209 3.53778 15.2203C1.58333 15.2203 0 13.5528 0 11.5C0 9.44725 1.58222 7.77975 3.53889 7.77975C4.48556 7.77975 5.34556 8.17075 5.98 8.8067L13.0711 4.78975C12.9726 4.44243 12.9228 4.08224 12.9233 3.72025C12.9222 1.6675 14.5056 0 16.4611 0ZM16.4611 17.1649C15.3589 17.1649 14.4611 18.1102 14.4611 19.2809C14.4611 20.4505 15.3589 21.3958 16.4611 21.3958C17.5644 21.3958 18.4611 20.4504 18.4611 19.2797C18.4611 18.1102 17.5644 17.1649 16.4611 17.1649ZM3.53889 9.38515C2.43556 9.38515 1.53889 10.3305 1.53889 11.5C1.53889 12.6695 2.43556 13.616 3.53889 13.616C4.64111 13.616 5.53889 12.6695 5.53889 11.5C5.53889 10.3305 4.64111 9.384 3.53889 9.384V9.38515ZM16.4611 1.60425C15.3589 1.60425 14.4611 2.54955 14.4611 3.72025C14.4611 4.8898 15.3589 5.8351 16.4611 5.8351C17.5644 5.8351 18.4611 4.8898 18.4611 3.7191C18.4611 2.54955 17.5644 1.60425 16.4611 1.60425Z"
-                  fill="black"
-                />
-              </svg>
-            </S.IconWrapper>
             <S.IconWrapper onClick={props.handleOnClick} isTrue={props.isTrue}>
               <S.DropDown overlay={menu} trigger={['click']}>
                 <a
@@ -102,30 +88,15 @@ export default function ReviewDetailPresenter(props) {
           <S.ReviewContent>{props.data?.fetchBoard.content}</S.ReviewContent>
         </S.BodyWrapper>
         <S.TagWrapper>
+          <S.Tag>#{props.data?.fetchBoard.art.tag1}</S.Tag>
           <S.Tag>#회화</S.Tag>
           <S.Tag>#인물</S.Tag>
           <S.Tag>#소</S.Tag>
           <S.Tag>#정방향</S.Tag>
         </S.TagWrapper>
-        <CreateCommentContainer />
+        {/* <CreateCommentContainer /> */}
         <CommentListContainer />
       </S.Right>
     </S.Wrapper>
-    // <>
-    //   <div>상세페이지</div>
-    //   {/* <div>작성자의 닉네임: {props.data?.fetchBoard.user.nickname}</div> */}
-    //   {/* <div>제목: {props.data?.fetchBoard.title}</div> */}
-    //   <div>내용: {props.data?.fetchBoard.content}</div>
-    //   <div style={{ width: '200px', height: '200px' }}>
-    //     <img
-    //       style={{ width: '100%', height: '100%' }}
-    //       src={`${head}${props.data?.fetchBoard.thumbnail}`}
-    //     />
-    //   </div>
-    //   <div>
-    //     <button onClick={props.onClickEdit}>수정하러가기</button>
-    //     <button onClick={props.onClickDelete}>삭제하기</button>
-    //   </div>
-    // </>
   )
 }

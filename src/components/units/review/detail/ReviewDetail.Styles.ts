@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Dropdown } from 'antd'
 
 export const Wrapper = styled.div`
-  width: 90%;
+  width: 100%;
   height: 90%;
   border: none;
   padding: 8% 8% 8% 8%;

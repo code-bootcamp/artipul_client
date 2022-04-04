@@ -1,15 +1,39 @@
+import * as S from './ReviewList.Styles'
+
 export default function ReviewListPresenter(props) {
   console.log(props.data)
   return (
     <>
-      <div>리뷰 리스트</div>
-      {props.data?.fetchBoards.map((el) => (
-        <div key={el.id} onClick={props.onClickDetail}>
-          <div>이미지넣고</div>
-          <div>제목넣고</div>
-          <div>날짜정도?</div>
-        </div>
-      ))}
+      <S.Wrapper>
+        <S.TopInfo>
+          <S.TopTitle>Review</S.TopTitle>
+          <S.PageInfo>
+            가치있는 작품을 마주한
+            <br />
+            당신의 후기를 기다립니다.
+          </S.PageInfo>
+        </S.TopInfo>
+        <S.ButtonWrapper>
+          <S.ButtonInfo>
+            아티풀에서 작가와 마주한 후기가 고객분들을 기다리고 있습니다.
+          </S.ButtonInfo>
+          <S.WriteButton onClick={props.onClickReviewNew}>
+            후기 작성하기
+          </S.WriteButton>
+        </S.ButtonWrapper>
+        <S.ListWrapper>
+          {props.data?.fetchBoards.map((el) => (
+            <S.ReviewCard key={el.id} onClick={props.onClickDetail}>
+              <S.ThumbnailWrapper>
+                {/* <S.ReviewThumbnail src="${el.thumbnail}" /> */}
+                <S.ReviewThumbnail src="/fox.png" />
+              </S.ThumbnailWrapper>
+              <S.ReviewCardTitle>{el.title}</S.ReviewCardTitle>
+              <S.ReviewCardNickName>{el.user.nickname}</S.ReviewCardNickName>
+            </S.ReviewCard>
+          ))}
+        </S.ListWrapper>
+      </S.Wrapper>
     </>
   )
 }

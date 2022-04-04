@@ -1,4 +1,4 @@
-import * as S from './SelectWork.styles'
+import * as S from './SelectWork.Styles'
 
 export default function SelectWorkUI() {
   return (
