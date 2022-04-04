@@ -3,12 +3,13 @@ import styled from '@emotion/styled'
 export const ArtWorkCardWrapper = styled.div`
   width: 26.875rem;
   height: 45.5rem;
+  margin-right: ${(props) => Number(props.index) % 3 !== 0 && '2.9rem'};
   margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   :hover .image {
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
   &:hover article {
     opacity: 1;

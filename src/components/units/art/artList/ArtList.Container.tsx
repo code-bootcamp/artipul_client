@@ -1,34 +1,15 @@
 import { useEffect, useState } from 'react'
 import ArtListPresenter from './ArtList.Presenter'
-import {
-  FETCH_ARTS,
-  FETCH_LIKE_ART,
-  ADD_LIKE_ART,
-  FETCH_USER
-} from './ArtList.Queries'
-import { useLazyQuery, useMutation, useQuery } from '@apollo/client'
+import { FETCH_ARTS } from './ArtList.Queries'
+import { useLazyQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
 
 export default function ArtListContainer() {
   const [artCategory, setArtCategory] = useState(['회화'])
   const [page, setPage] = useState(0)
-  const { data: fetchLikeArts, refetch: refetchLikeArts } =
-    useQuery(FETCH_LIKE_ART)
   const [fetchArts] = useLazyQuery(FETCH_ARTS)
-  const [addLikeArt] = useMutation(ADD_LIKE_ART)
-  const [likeData, setLikeData] = useState([])
-  const { data: userData } = useQuery(FETCH_USER)
   const [artsData, setArtsData] = useState([])
   const router = useRouter()
-
-  useEffect(() => {
-    if (
-      userData?.fetchUser?.is_artist &&
-      userData?.fetchUser?.is_artist !== undefined
-    ) {
-      checkUser()
-    }
-  }, [userData])
 
   useEffect(() => {
     getArtsData()
@@ -50,10 +31,6 @@ export default function ArtListContainer() {
       const mn = date.getMinutes().toString().padStart(2, '0')
       const nowDate = `${yyyy}-${mm}-${dd} ${tt}:${mn}:00:000Z`
       for (let i = 0; i < fetchArtsData.data.fetchArts.length; i++) {
-        console.log(
-          fetchArtsData.data.fetchArts[i].deadline > nowDate &&
-            !fetchArtsData.data.fetchArts[i].is_soldout
-        )
         if (
           fetchArtsData.data.fetchArts[i].deadline > nowDate &&
           !fetchArtsData.data.fetchArts[i].is_soldout
@@ -80,14 +57,6 @@ export default function ArtListContainer() {
       setArtsData(parseTempArtsData)
     } catch (e) {
       console.log('error:', e.message)
-    }
-  }
-
-  const checkUser = async () => {
-    try {
-      await refetchLikeArts()
-    } catch (e) {
-      console.log(e.message)
     }
   }
 
@@ -132,31 +101,6 @@ export default function ArtListContainer() {
     }
   }
 
-  const onClickLike = async (event) => {
-    if (event.stopPropagation) {
-      event.stopPropagation()
-    }
-    event.cancelBubble = true
-    try {
-      await addLikeArt({
-        variables: { artId: event.currentTarget.id }
-      })
-      try {
-        await refetchLikeArts()
-        const tempFetchLikeArtId = []
-        fetchLikeArts.fetchLikeArt.map((el) => {
-          tempFetchLikeArtId.push(el.id)
-        })
-        setLikeData(tempFetchLikeArtId)
-      } catch (e) {
-        alert(e.message)
-      }
-    } catch (e) {
-      alert(e.message)
-    }
-    // console.log(event.currentTarget.id)
-  }
-
   const onClickArtWorkCard = (event) => {
     router.push(`/art/${event.currentTarget.id}`)
   }
@@ -168,13 +112,10 @@ export default function ArtListContainer() {
         onClickArtCategory={onClickArtCategory}
         data={artsData.slice(0, page + 9)}
         page={page}
-        is_artist={userData?.fetchUser.is_artist}
-        likeData={likeData}
         onClickMoreButton={onClickMoreButton}
         onChangeSelect1={onChangeSelect1}
         onChangeSelect2={onChangeSelect2}
         onChangeSelect3={onChangeSelect3}
-        onClickLike={onClickLike}
         onClickArtWorkCard={onClickArtWorkCard}
       />
     </>

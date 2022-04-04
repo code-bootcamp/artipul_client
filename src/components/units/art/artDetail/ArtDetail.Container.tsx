@@ -9,14 +9,8 @@ import {
   ADD_LIKE_ART
 } from './ArtDetail.Queries'
 import { useRouter } from 'next/router'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { io } from 'socket.io-client'
-interface IMsg {
-  user: string
-  msg: string
-}
-
-const user = 'User_' + String(new Date().getTime()).substr(-3)
 
 export default function ArtDetailContainer() {
   const router = useRouter()
@@ -24,45 +18,47 @@ export default function ArtDetailContainer() {
     variables: { artId: String(router.query.id) }
   })
   const [price, setPrice] = useState(data?.fetchArt.price)
-  ////////////////////////////////
-
-  const [connected, setConnected] = useState<boolean>(false)
-
-  // init chat and message
-  const [chat, setChat] = useState<IMsg[]>([])
-  const [msg, setMsg] = useState<string>('')
-  const inputRef = useRef(null)
-
-  useEffect(() => {
-    const socket = io(`https://daseul.shop/${router.query.id}`)
-    socket.on('connect', () => {
-      console.log('SOCKET CONNECTED!', socket.id)
-      setConnected(true)
-    })
-    socket.on('message', (message) => {
-      console.log(message.artId)
-      if (message.artId === router.query.id) {
-        setPrice(message.price)
-      }
-    })
-  }, [])
-
-  /////////////////////////////
+  const { data: fetchLikeArts, refetch: refetchLikeArts } =
+    useQuery(FETCH_LIKE_ART)
 
   const [instantBid] = useMutation(INSTANT_BID)
   const [Bid] = useMutation(BID)
   useEffect(() => {
     setPrice(data?.fetchArt.price)
   }, [data])
-  console.log('price :', data?.fetchArt.price)
   const { data: dataPoint } = useQuery(FETCH_USER)
 
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [buyPrice, setBuyPrice] = useState(1)
-  const { data: fetchLikeArts, refetch: refetchLikeArts } =
-    useQuery(FETCH_LIKE_ART)
   const [addLikeArt] = useMutation(ADD_LIKE_ART)
   const [likeData, setLikeData] = useState([])
+
+  ////////////////////////////////
+
+  useEffect(() => {
+    const socket = io(`https://daseul.shop/${router.query.id}`)
+    // socket.on('connect', () => {
+    //   console.log('SOCKET CONNECTED!', socket.id)
+    // })
+    socket.on('message', (message) => {
+      if (message.artId === router.query.id) {
+        setPrice(message.price)
+      }
+    })
+  }, [])
+  /////////////////////////////
+
+  useEffect(() => {
+    onFetchLikeArt()
+  }, [fetchLikeArts])
+
+  const onFetchLikeArt = () => {
+    const tempFetchLikeArtId = []
+    fetchLikeArts?.fetchLikeArt.map((el) => {
+      tempFetchLikeArtId.push(el.id)
+    })
+    setLikeData(tempFetchLikeArtId)
+  }
 
   const onClickInstanceBid = async () => {
     if (dataPoint?.fetchUser.point < data?.fetchArt.instant_bid) {
@@ -98,22 +94,24 @@ export default function ArtDetailContainer() {
   }
 
   const handleOk = async () => {
-    console.log(buyPrice, dataPoint?.fetchUser.point)
     if (buyPrice <= dataPoint?.fetchUser.point) {
       if (buyPrice > data?.fetchArt.price) {
-        try {
-          await Bid({
-            variables: {
-              artId: String(router.query.id),
-              bid_price: Number(buyPrice)
-            }
-          })
-          alert('입찰이 완료되었습니다.')
-          setIsModalVisible(false)
-          await refetch({ artId: String(router.query.id) })
-          // router.push('/mypage')
-        } catch (e) {
-          alert(e.message)
+        if (buyPrice < data?.fetchArt.instant_bid) {
+          try {
+            await Bid({
+              variables: {
+                artId: String(router.query.id),
+                bid_price: Number(buyPrice)
+              }
+            })
+            setIsModalVisible(false)
+            alert('입찰이 완료되었습니다.')
+            await refetch({ artId: String(router.query.id) })
+          } catch (e) {
+            alert(e.message)
+          }
+        } else {
+          alert('입찰금액이 즉시 구매가보다 높거나 같습니다!')
         }
       } else {
         alert('입찰금액을 더 높게 입력하세요!')
@@ -124,21 +122,12 @@ export default function ArtDetailContainer() {
   }
 
   const onClickLike = async (event) => {
-    if (event.stopPropagation) {
-      event.stopPropagation()
-    }
-    event.cancelBubble = true
     try {
       await addLikeArt({
         variables: { artId: event.currentTarget.id }
       })
       try {
-        await refetchLikeArts()
-        const tempFetchLikeArtId = []
-        fetchLikeArts.fetchLikeArt.map((el) => {
-          tempFetchLikeArtId.push(el.id)
-        })
-        setLikeData(tempFetchLikeArtId)
+        refetchLikeArts()
       } catch (e) {
         alert(e.message)
       }

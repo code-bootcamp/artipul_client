@@ -1,25 +1,13 @@
 import * as S from './ArtWorkCardStyled'
-import { FaRegHeart, FaHeart } from 'react-icons/fa'
 
 export default function ArtWorkCard(props) {
-  console.log(props.likeData)
-
   return (
-    <S.ArtWorkCardWrapper id={props.el.id} onClick={props.onClickArtWorkCard}>
+    <S.ArtWorkCardWrapper
+      index={props.index}
+      id={props.el.id}
+      onClick={props.onClickArtWorkCard}
+    >
       <S.ArtWorkImageBox>
-        {!props.is_artist && props.is_artist !== undefined && (
-          <S.ArtWorkLikeButton
-            onClick={props.onClickLike}
-            value={props.likeData?.includes(props.el.id)}
-            id={props.el.id}
-          >
-            {props.likeData.includes(props.el.id) ? (
-              <FaHeart />
-            ) : (
-              <FaRegHeart />
-            )}
-          </S.ArtWorkLikeButton>
-        )}
         <S.ArtWorkImage className="image" image={props.el.thumbnail} />
       </S.ArtWorkImageBox>
       <S.ArtWorkCardTime>

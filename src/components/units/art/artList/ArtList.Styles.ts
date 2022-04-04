@@ -85,7 +85,7 @@ export const ArtListContent = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 1.625rem;
   /* -webkit-scrollbar {
