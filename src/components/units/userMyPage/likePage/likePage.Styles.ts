@@ -25,7 +25,7 @@ export const MapWrapper = styled.div`
 export const MapDiv = styled.div`
   margin: 0.5rem;
   margin-bottom: 1rem;
-  width: 30%;
+  width: 33%;
   padding-top: 4rem;
   transition: 0.2s;
   cursor: pointer;

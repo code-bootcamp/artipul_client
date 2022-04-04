@@ -3,6 +3,7 @@ import * as L from './likePage.Styles'
 export default function LikePagePresenter(props) {
   const head = `https://storage.googleapis.com`
   console.log(props.data)
+  console.log(props.fetchLikeArtCount)
   return (
     <>
       <L.Wrapper>
@@ -13,7 +14,7 @@ export default function LikePagePresenter(props) {
               <L.MapElImageDiv>
                 <L.MapElImage src={`${head}${el.thumbnail}`} />
               </L.MapElImageDiv>
-              <L.MapDeadLine>{el.deadline}</L.MapDeadLine>
+              <L.MapDeadLine>{el.deadline.slice(0, 16)}</L.MapDeadLine>
               <L.MapElCategory>{el.tag1}</L.MapElCategory>
               <L.MapElTitle>{el.title}</L.MapElTitle>
               <L.MapElArtist>{el.user.name}</L.MapElArtist>

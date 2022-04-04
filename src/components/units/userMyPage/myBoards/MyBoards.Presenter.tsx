@@ -7,8 +7,8 @@ export default function MyBoardsPresenter(props) {
       <B.Wrapper>
         <B.Header>작성한 리뷰</B.Header>
         <B.MapWrapper>
-          {props.data?.fetchBoardsOfMine.map((el, index) => (
-            <B.MapDiv key={index}>
+          {props.data?.fetchBoardsOfMine.map((el) => (
+            <B.MapDiv key={el.id} onClick={props.onClickBoardDetail(el)}>
               <div>
                 <B.MapElImage src={`${head}${el.thumbnail}`} />
               </div>
