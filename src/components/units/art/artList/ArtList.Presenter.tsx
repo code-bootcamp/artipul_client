@@ -5,7 +5,6 @@ import ArtWorkSelectPicture from './ArtWorkSelect/ArtWorkSelectPicture'
 import ArtWorkSelectPiece from './ArtWorkSelect/ArtWorkSelectPiece'
 
 export default function ArtListPresenter(props) {
-  console.log(props.fetchArts)
   return (
     <>
       <S.ArtListWrapper>
@@ -78,11 +77,8 @@ export default function ArtListPresenter(props) {
             <ArtWorkCard
               key={index}
               el={el}
-              index={index}
+              index={index + 1}
               onClickArtWorkCard={props.onClickArtWorkCard}
-              onClickLike={props.onClickLike}
-              is_artist={props.is_artist}
-              likeData={props.likeData}
             />
           ))}
         </S.ArtListContent>

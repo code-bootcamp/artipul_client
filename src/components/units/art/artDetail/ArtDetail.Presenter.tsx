@@ -20,10 +20,10 @@ export default function ArtDetailPresenter(props) {
               {!props.is_artist && props.is_artist !== undefined && (
                 <S.ArtWorkLikeButton
                   onClick={props.onClickLike}
-                  value={props.likeDate?.includes(props.id)}
+                  value={props.likeData?.includes(props.id)}
                   id={props.id}
                 >
-                  {props.likeDate?.includes(props.el.id) ? (
+                  {props.likeData?.includes(props.id) ? (
                     <FaHeart />
                   ) : (
                     <FaRegHeart />
@@ -72,13 +72,7 @@ export default function ArtDetailPresenter(props) {
             </S.ArtDetailPriceTimeBox>
             <S.ArtDetailNowPriceBox>
               <S.ArtDetailNowPriceTitle>현재입찰가</S.ArtDetailNowPriceTitle>
-              <S.ArtDetailNowPrice>
-                {/* {props.data?.price
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                원 */}
-                {props.price}
-              </S.ArtDetailNowPrice>
+              <S.ArtDetailNowPrice>{props.price} 원</S.ArtDetailNowPrice>
             </S.ArtDetailNowPriceBox>
             <S.ArtDetailButtonBox>
               <S.ArtDetailAuctionButton onClick={props.onClickAcution}>
@@ -103,32 +97,6 @@ export default function ArtDetailPresenter(props) {
             </S.ArtDetailDescriptionImageBox>
           </S.ArtDetailDescriptionBox>
         </S.ArtDetailBottom>
-        {/* <input
-          ref={props.inputRef}
-          type="text"
-          value={props.msg}
-          placeholder={props.connected ? 'Type a message...' : 'Connecting...'}
-          disabled={!props.connected}
-          onChange={(e) => {
-            props.setMsg(e.target.value)
-          }}
-          onKeyPress={(e) => {
-            if (e.key === 'Enter') {
-              props.sendMessage()
-            }
-          }}
-        />
-        <button onClick={props.sendMessage}>test</button>
-        {props.chat?.length ? (
-          props.chat.map((chat, i) => (
-            <div key={'msg_' + i}>
-              <span>{chat.user === props.user ? 'Me' : chat.user}</span>:{' '}
-              {chat.msg}
-            </div>
-          ))
-        ) : (
-          <div>No chat messages</div>
-        )} */}
       </S.ArtDetailWrapper>
       <S.ArtDetailModal
         visible={props.isModalVisible}

@@ -15,7 +15,6 @@ export default function ArttDetailModal(props) {
         <S.ArtDetailModalInput
           onChange={props.onChangeBuyPrice}
           type="number"
-          defaultValue={props.price + 1}
           min={props.price + 1}
         />
       </S.ArtDetailModalRow>
