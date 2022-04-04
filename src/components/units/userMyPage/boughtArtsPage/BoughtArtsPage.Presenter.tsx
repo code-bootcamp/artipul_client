@@ -2,8 +2,6 @@ import { Pagination } from 'antd'
 import * as B from './BoughtArtsPage.Styles'
 
 export default function BoughtArtsPagePresenter(props) {
-  console.log('내가 구매한', props.data)
-  console.log('개수', props.fetchSoldoutArtsCount)
   const head = `https://storage.googleapis.com`
   return (
     <>

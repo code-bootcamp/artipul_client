@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useRef, useState } from 'react'
+import { warningModal } from '../../commons/Modal'
 import UserMyPagePresenter from './UserMyPage.Presenter'
 import {
   CREATE_PROFILE,
@@ -42,7 +43,7 @@ export default function UserMyPageContainer() {
       })
       setClickImage(false)
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 
@@ -56,7 +57,7 @@ export default function UserMyPageContainer() {
       })
       setUrl(result.data?.uploadArtImage)
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   const onClickReviewNew = () => {

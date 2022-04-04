@@ -1,8 +1,6 @@
 import { Pagination } from 'antd'
 import * as A from './AuctioningPage.Styles'
 export default function AuctioningPagePresenter(props) {
-  console.log(props.data)
-  console.log(props.fetchAuctionArtsCount)
   const head = `https://storage.googleapis.com`
   return (
     <>

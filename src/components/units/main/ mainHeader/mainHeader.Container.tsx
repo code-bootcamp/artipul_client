@@ -2,6 +2,7 @@ import { useMutation, useQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { GlobalContext } from '../../../../../pages/_app'
+import { warningModal } from '../../../commons/Modal'
 import { LOGOUT } from '../../../units/login/Login.Queries'
 import { FETCH_PROFILE } from '../../../units/userMyPage/UserMyPage.Queries'
 import MainHeaderPresenter from './mainHeader.Presenter'
@@ -24,7 +25,7 @@ export default function MainHeaderContainer() {
       await logout()
       window.location.reload()
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 

@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic'
 const ViewerC = dynamic(() => import('./Viewr'), { ssr: false })
 
 export default function ArtistIntroducePresenter(props) {
-  console.log(props.profileData)
   const head = `https://storage.googleapis.com`
 
   return (

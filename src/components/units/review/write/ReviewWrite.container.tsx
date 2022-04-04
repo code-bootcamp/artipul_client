@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { warningModal } from '../../../commons/Modal'
 import { FETCH_TRANSACTION_COMPLETED_ARTS } from './ReveiwWrite.queries'
 import {
   CREATE_BOARD,
@@ -37,13 +38,7 @@ export default function ReviewContainer(props) {
     setArtId(el.id)
     setUrl(el.thumbnail)
     setIsSelected(true)
-    console.log('id', el.id)
-    console.log('url', el.thumbnail)
   }
-
-  // const { data: tags, refetch } = useQuery(FETCH_TRANSACTION_COMPLETED_ARTS, {
-  //   variables: { page: 1 }
-  // })
 
   const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value)
@@ -71,7 +66,7 @@ export default function ReviewContainer(props) {
 
   const onClickCreateBoard = async () => {
     if (!title || !content) {
-      alert('빈칸을 모두 채워주세요')
+      warningModal('빈칸을 모두 채워주세요')
       return
     }
     try {
@@ -87,13 +82,13 @@ export default function ReviewContainer(props) {
       })
       router.push(`/review/${result.data?.createBoard.id}`)
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 
   const onClickUpdateBoard = async () => {
     if (!title || !content) {
-      alert('빈칸을 모두 채워주세요')
+      warningModal('빈칸을 모두 채워주세요')
       return
     }
     try {
@@ -109,7 +104,7 @@ export default function ReviewContainer(props) {
       })
       router.push(`/review/${result.data?.updateBoard.id}`)
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 

@@ -1,6 +1,7 @@
 import { useLazyQuery, useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useState } from 'react'
+import { successModal, warningModal } from '../../commons/Modal'
 import { PHONE_AUTH, SEND_PHONE_TOKEN } from '../createUser/CreateUser.Queries'
 import { FETCH_USER_EMAIL, RESET_USER_PASSWORD } from '../login/Login.Queries'
 import FindUserPresenter from './FindUser.Presenter'
@@ -24,7 +25,7 @@ export default function FindUserContainer() {
 
   const onClickPhoneAuth = async () => {
     if (!/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/.test(phoneNum)) {
-      alert('휴대전화 형식이 아닙니다')
+      warningModal('휴대전화 형식이 아닙니다')
       return
     }
     try {
@@ -34,7 +35,7 @@ export default function FindUserContainer() {
         }
       })
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 
@@ -47,9 +48,9 @@ export default function FindUserContainer() {
         }
       })
       setPhoneCheck(true)
-      alert('인증에 성공하셨습니다.')
+      successModal('인증에 성공하셨습니다.')
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   const onClickAuth2 = async () => {
@@ -61,9 +62,9 @@ export default function FindUserContainer() {
         }
       })
       setPasswordCheck(true)
-      alert('인증에 성공하셨습니다.')
+      successModal('인증에 성공하셨습니다.')
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   const onChangeToken = (e: ChangeEvent<HTMLInputElement>) => {
@@ -88,11 +89,11 @@ export default function FindUserContainer() {
 
   const onClickReset = async () => {
     if (!email || !password || !check) {
-      alert('빈칸을 모두 입력하세요')
+      warningModal('빈칸을 모두 입력하세요')
       return
     }
     if (password !== check) {
-      alert('비밀번호를 다시 확인해주세요')
+      warningModal('비밀번호를 다시 확인해주세요')
       return
     }
     if (password === check) {
@@ -105,7 +106,7 @@ export default function FindUserContainer() {
         })
         router.push('/login')
       } catch (e) {
-        alert(e.message)
+        warningModal(e.message)
       }
     }
   }

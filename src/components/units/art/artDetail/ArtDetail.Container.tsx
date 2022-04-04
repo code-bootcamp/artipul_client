@@ -11,6 +11,7 @@ import {
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { io } from 'socket.io-client'
+import { successModal, warningModal } from '../../../commons/Modal'
 
 export default function ArtDetailContainer() {
   const router = useRouter()
@@ -33,20 +34,15 @@ export default function ArtDetailContainer() {
   const [addLikeArt] = useMutation(ADD_LIKE_ART)
   const [likeData, setLikeData] = useState([])
 
-  ////////////////////////////////
-
   useEffect(() => {
     const socket = io(`https://daseul.shop/${router.query.id}`)
-    // socket.on('connect', () => {
-    //   console.log('SOCKET CONNECTED!', socket.id)
-    // })
+
     socket.on('message', (message) => {
       if (message.artId === router.query.id) {
         setPrice(message.price)
       }
     })
   }, [])
-  /////////////////////////////
 
   useEffect(() => {
     onFetchLikeArt()
@@ -62,7 +58,7 @@ export default function ArtDetailContainer() {
 
   const onClickInstanceBid = async () => {
     if (dataPoint?.fetchUser.point < data?.fetchArt.instant_bid) {
-      alert('포인트가 부족합니다!')
+      warningModal('포인트가 부족합니다!')
     } else {
       try {
         await instantBid({
@@ -72,10 +68,10 @@ export default function ArtDetailContainer() {
             artistEmail: data?.fetchArt.user.email
           }
         })
-        alert('구매가 완료되었습니다.')
+        successModal('구매가 완료되었습니다.')
         router.push('/mypage')
       } catch (e) {
-        alert(e.message)
+        warningModal(e.message)
       }
     }
   }
@@ -105,19 +101,19 @@ export default function ArtDetailContainer() {
               }
             })
             setIsModalVisible(false)
-            alert('입찰이 완료되었습니다.')
+            successModal('입찰이 완료되었습니다.')
             await refetch({ artId: String(router.query.id) })
           } catch (e) {
-            alert(e.message)
+            warningModal(e.message)
           }
         } else {
-          alert('입찰금액이 즉시 구매가보다 높거나 같습니다!')
+          warningModal('입찰금액이 즉시 구매가보다 높거나 같습니다!')
         }
       } else {
-        alert('입찰금액을 더 높게 입력하세요!')
+        warningModal('입찰금액을 더 높게 입력하세요!')
       }
     } else {
-      alert('포인트가 부족합니다.')
+      warningModal('포인트가 부족합니다.')
     }
   }
 
@@ -129,10 +125,10 @@ export default function ArtDetailContainer() {
       try {
         refetchLikeArts()
       } catch (e) {
-        alert(e.message)
+        warningModal(e.message)
       }
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 

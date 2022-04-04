@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { GlobalContext } from '../../../../../pages/_app'
 import { LOGOUT } from '../../../units/login/Login.Queries'
 import { FETCH_PROFILE } from '../../../units/userMyPage/UserMyPage.Queries'
+import { warningModal } from '../../Modal'
 import HeaderPresenter from './Header.Presenter'
 
 export default function HeaderContainer() {
@@ -24,7 +25,7 @@ export default function HeaderContainer() {
       await logout()
       window.location.reload()
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 

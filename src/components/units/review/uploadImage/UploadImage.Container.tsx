@@ -1,4 +1,5 @@
 import { ChangeEvent, useRef } from 'react'
+import { warningModal } from '../../../commons/Modal'
 import * as S from './UploadImage.Styles'
 
 export default function UploadImageContainer(props) {
@@ -14,7 +15,7 @@ export default function UploadImageContainer(props) {
       const result = await props.uploadBoardImage({ variables: { files } })
       props.onChangeFileUrls(result.data?.uploadBoardImage[0], props.index)
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   return (

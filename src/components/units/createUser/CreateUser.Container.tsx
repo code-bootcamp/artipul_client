@@ -12,6 +12,7 @@ import {
 import { ICreateIsArtist, ICreateUserDataProps } from './CreateUser.Types'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import { successModal, warningModal } from '../../commons/Modal'
 
 export default function CreateUserContainer(props: ICreateIsArtist) {
   const router = useRouter()
@@ -65,7 +66,7 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       })
       router.push('/login')
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 
@@ -91,7 +92,7 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       setIsCheckPhoneNum(true)
       setWarningPhone('')
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   const onClickPhoneAuth = async () => {
@@ -107,12 +108,12 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
         setWarningPhone('')
         setIsCheckPhoneNum(false)
         setMinSec(false)
-        alert('인증에 성공하셨습니다.')
+        successModal('인증에 성공하셨습니다.')
       } else {
-        alert('인증번호를 다시 확인해주세요')
+        warningModal('인증번호를 다시 확인해주세요')
       }
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 
@@ -130,10 +131,10 @@ export default function CreateUserContainer(props: ICreateIsArtist) {
       if (result.data?.checkNickname) {
         setNicknameAuth(result.data?.checkNickname)
         setWarningNickname('')
-        alert('사용가능한 닉네임입니다.')
+        successModal('사용가능한 닉네임입니다.')
       }
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 

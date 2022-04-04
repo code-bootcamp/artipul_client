@@ -25,6 +25,7 @@ import 'reactjs-crontab/dist/index.css'
 import { gql } from '@apollo/client'
 import { GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
+import { warningModal } from '../src/components/commons/Modal'
 
 interface IGlobalContext {
   accessToken?: string
@@ -73,7 +74,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   })
 
   const client = new ApolloClient({
-    link: ApolloLink.from([errorLink, uploadLink as unknown as ApolloLink]), // link: 다른 기능을 연결해주겠다는 의미
+    link: ApolloLink.from([errorLink, uploadLink as unknown as ApolloLink]),
     cache: new InMemoryCache()
   })
 
@@ -87,19 +88,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     try {
       const graphqlClient_1 = new GraphQLClient('https://daseul.shop/graphql')
       await graphqlClient_1.request(CHECK_TIMEDOUT_AND_PROCESS)
-      console.log('굳')
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
 
   const tasks = [
     {
       fn: timeToDeadline,
-      // this is the function which is triggered based on the config
+
       id: '1',
-      config: '* * * * *', // runs at every minutes
-      name: '' // optional
+      config: '* * * * *',
+      name: ''
     }
   ]
 
@@ -110,9 +110,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Crontab
           tasks={tasks}
           timeZone="Asia/Seoul"
-          // 'UTC', 'local, or 'YOUR PREFERRED TIMEZONE'
           dashboard={{ hidden: true }}
-          // if true, dashboard is hidden
         />
         <Layout>
           <Component {...pageProps} />
@@ -123,5 +121,3 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp
-
-//15bc09bf-ad38-4858-bbad-68d83ad931de

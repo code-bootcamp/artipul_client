@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { ComponentType, useContext, useEffect } from 'react'
 import { GlobalContext } from '../../../../pages/_app'
 import { getAccessToken } from '../../../commons/libraries/refreshAccessToken'
+import { warningModal } from '../Modal'
 
 export const withAuth =
   (Component: ComponentType) =>
@@ -14,7 +15,7 @@ export const withAuth =
         if (!accessToken) {
           const newAccessToken = await getAccessToken()
           if (!newAccessToken) {
-            alert('로그인이 필요한 페이지입니다.')
+            warningModal('로그인이 필요한 페이지입니다.')
             router.push('/login')
           }
         }

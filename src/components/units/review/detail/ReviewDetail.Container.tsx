@@ -11,6 +11,7 @@ import {
 } from './ReviewDetail.Queries'
 import { useContext } from 'react'
 import { GlobalContext } from '../../../../../pages/_app'
+import { warningModal } from '../../../commons/Modal'
 
 export default function ReviewDetailContainer() {
   const { accessToken } = useContext(GlobalContext)
@@ -48,7 +49,7 @@ export default function ReviewDetailContainer() {
       })
       router.push('/review')
     } catch (e) {
-      alert(e.message)
+      warningModal(e.message)
     }
   }
   const handleOnClick = () => {
