@@ -23,11 +23,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'Gotham';
+    src: url('https://fonts.cdnfonts.com/css/gotham');
+    font-weight: 400;
     font-style: normal;
-    font-weight: 700;
-    src: local('Gotham'),
-      url('https://fonts.cdnfonts.com/s/14898/Gotham-Bold.woff%27')
-        format('woff');
   }
 
   .swiper-horizontal > .swiper-pagination-bullets,
