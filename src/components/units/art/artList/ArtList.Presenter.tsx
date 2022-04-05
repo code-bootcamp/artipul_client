@@ -85,7 +85,7 @@ export default function ArtListPresenter(props) {
             <S.ArtNoData>해당 조건에 알맞는 작품이 없습니다.</S.ArtNoData>
           )}
         </S.ArtListContent>
-        {props.page + 9 < props.data?.length && (
+        {props.page + 9 < props.artsData?.length && (
           <S.ArtListButtonBox>
             <S.MoreButton onClick={props.onClickMoreButton}>
               MORE ⬇️

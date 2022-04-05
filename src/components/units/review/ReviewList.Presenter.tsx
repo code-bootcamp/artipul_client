@@ -2,6 +2,7 @@ import FooterContainer from '../../commons/layout/footer/Footer.Container'
 import * as S from './ReviewList.Styles'
 
 export default function ReviewListPresenter(props) {
+  console.log(props.page + 10, props.data?.length)
   return (
     <>
       <S.Wrapper>
@@ -34,7 +35,7 @@ export default function ReviewListPresenter(props) {
             </S.ReviewCard>
           ))}
         </S.ListWrapper>
-        {props.page + 10 <= props.data?.length && (
+        {props.page + 10 < props.reviewData?.length && (
           <S.MoreButtonWrapper onClick={props.onClickMoreButton}>
             <S.MoreButton>More Button ⬇️</S.MoreButton>
           </S.MoreButtonWrapper>

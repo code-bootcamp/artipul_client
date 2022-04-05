@@ -113,7 +113,7 @@ export default function PointPagePresenter(props: IPointPageProps) {
         ))}
         <P.PagiDiv>
           <Pagination
-            defaultCurrent={1}
+            current={props.page}
             total={props.fetchHistoryCount?.fetchHitoryCount}
             onChange={props.onChangePage}
           />

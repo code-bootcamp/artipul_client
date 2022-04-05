@@ -15,11 +15,14 @@ export default function PointPageContainer() {
   const { data, refetch } = useQuery(FETCH_HISTORY, { variables: { page: 1 } })
   const { data: fetchHistoryCount } = useQuery(FETCH_HISTORY_COUNT)
   const { data: fetchProfileData } = useQuery(FETCH_PROFILE)
+  const [page, setPage] = useState(1)
+
   const onClickMoney = (e) => {
     setAmount(e.target.id)
   }
   const onChangePage = (page) => {
     refetch({ page })
+    setPage(page)
   }
 
   const createPoint = async (rsp: any) => {
@@ -63,6 +66,7 @@ export default function PointPageContainer() {
       onClickMoney={onClickMoney}
       onClickPayment={onClickPayment}
       data={data}
+      page={page}
       fetchProfileData={fetchProfileData}
       amount={amount}
       onChangePage={onChangePage}
