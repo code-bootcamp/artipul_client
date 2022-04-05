@@ -123,6 +123,7 @@ export const AboutUsContentBottomCategoryButton = styled.div`
     color: #f64612;
   }
   color: ${(props) => (props.map === props.id ? '#f64612' : '#aaa')};
+  cursor: pointer;
 `
 
 export const AboutUsContentBottomImage = styled.div`
