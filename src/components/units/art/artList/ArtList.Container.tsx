@@ -57,7 +57,7 @@ export default function ArtListContainer() {
 
       setArtsData(parseTempArtsData)
     } catch (e) {
-      warningModal(e.message)
+      setArtsData([])
     }
   }
 
@@ -112,6 +112,7 @@ export default function ArtListContainer() {
         artCategory={artCategory}
         onClickArtCategory={onClickArtCategory}
         data={artsData.slice(0, page + 9)}
+        artsData={artsData}
         page={page}
         onClickMoreButton={onClickMoreButton}
         onChangeSelect1={onChangeSelect1}

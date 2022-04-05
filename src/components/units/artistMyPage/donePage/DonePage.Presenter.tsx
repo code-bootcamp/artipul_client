@@ -48,7 +48,7 @@ export default function DonePagePresenter(props: IDonePageProps) {
         ))}
         <D.PagDiv>
           <Pagination
-            current={1}
+            current={props.page}
             total={props.fetchTimedOutArtsCount?.fetchTimedOutArtsCount}
             onChange={props.onChange}
           />

@@ -22,8 +22,8 @@ export default function LikePagePresenter(props) {
         </L.MapWrapper>
         <L.PagiDiv>
           <Pagination
-            current={1}
-            total={props.data?.fetchLikeArt}
+            current={props.current}
+            total={props.fetchLikeArtCount?.fetchLikeArtCount}
             onChange={props.onChange}
           />
         </L.PagiDiv>

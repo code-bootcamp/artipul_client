@@ -59,7 +59,9 @@ export default function MyPageLeft(props: IMyPageLeftProps) {
           src={
             props.url
               ? `${head}${props.url}`
-              : `${head}${props.data?.fetchProfile.url}`
+              : props.data?.fetchProfile?.url
+              ? `${head}${props.data?.fetchProfile.url}`
+              : `/basic.png`
           }
         />
         <input

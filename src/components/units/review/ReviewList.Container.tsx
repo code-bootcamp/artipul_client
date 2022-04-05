@@ -23,6 +23,7 @@ export default function ReviewListContainer() {
   return (
     <ReviewListPresenter
       data={data?.fetchBoards.slice(0, page + 10)}
+      reviewData={data?.fetchBoards}
       page={page}
       onClickDetail={onClickDetail}
       onClickReviewNew={onClickReviewNew}

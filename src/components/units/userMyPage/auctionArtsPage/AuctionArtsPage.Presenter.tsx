@@ -36,7 +36,7 @@ export default function AuctionArtsPagePresenter(props: IAuctionArtsProps) {
         ))}
 
         <A.Paginations
-          defaultCurrent={1}
+          current={props.page}
           total={props.fetchEngageCount?.fetchEngageCount}
           onChange={props.onChangePage}
         />

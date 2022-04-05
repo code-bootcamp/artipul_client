@@ -19,7 +19,7 @@ export default function MyBoardsPresenter(props) {
         </B.MapWrapper>
         <B.PagiDiv>
           <Pagination
-            current={1}
+            current={props.page}
             total={props.fetchBoardsOfMineCount?.fetchBoardsOfMineCount}
             onChange={props.onChange}
           />

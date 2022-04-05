@@ -142,6 +142,7 @@ export const Section4ContentSubTitle = styled.div`
   letter-spacing: -1.12px;
   text-align: left;
   color: #fff;
+  opacity: ${(props) => (props.id === props.page ? '1' : '0.3')};
 `
 
 export const Section4ContentRight = styled.div`
@@ -154,10 +155,6 @@ export const Section4ContentRight = styled.div`
 export const Section4ScrollBox = styled.div`
   width: 56.5rem;
   height: 71.25rem;
-  overflow-y: scroll;
-  -webkit-scrollbar: {
-    display: block;
-  }
 `
 
 export const Section4ContentRightTitle = styled.div`
@@ -218,4 +215,8 @@ export const Section4Footer = styled.div`
   background-color: white;
   width: 100%;
   height: 16.875rem;
+`
+
+export const Section4ContentBox = styled.div`
+  display: ${(props) => (props.id === props.page ? 'block' : 'none')};
 `

@@ -26,6 +26,8 @@ export default function ReviewDetailContainer() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.reviewid }
   })
+
+  console.log(data)
   const [addLikeBoard] = useMutation(ADD_LIKE_BOARD)
 
   const onClickLike = async () => {

@@ -73,6 +73,7 @@ export const ArtListCategoryTopButton = styled.div`
   :hover {
     color: #f64612;
   }
+  cursor: pointer;
 `
 
 export const ArtListCategorySelectBox = styled.div`
@@ -115,4 +116,14 @@ export const MoreButton = styled.div`
   line-height: normal;
   letter-spacing: normal;
   text-align: left;
+  cursor: pointer;
+`
+
+export const ArtNoData = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
 `

@@ -30,7 +30,7 @@ export default function BoughtArtsPagePresenter(props) {
         ))}
         <B.PagiDiv>
           <Pagination
-            current={1}
+            current={props.page}
             total={props.fetchSoldoutArtsCount?.fetchSoldoutArtsCount}
             onChange={props.onChange}
           />

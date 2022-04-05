@@ -34,7 +34,7 @@ export default function AuctioningPagePresenter(props) {
         ))}
         <A.PagDiv>
           <Pagination
-            current={1}
+            current={props.page}
             total={props.fetchAuctionArtsCount?.fetchAuctionArtsCount}
             onChange={props.onChange}
           />
