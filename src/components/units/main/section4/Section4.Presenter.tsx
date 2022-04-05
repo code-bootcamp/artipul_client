@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import FooterPresenter from '../../../commons/layout/footer/Footer.Presenter'
 import * as S from './Section4.Styles'
 export default function Section4Presenter() {
+  const [page, setPage] = useState('1')
+
+  const onClickPage = (event) => {
+    setPage(event.currentTarget.id)
+  }
+
   return (
     <>
       <S.Section4Wrapper>
@@ -64,67 +71,85 @@ export default function Section4Presenter() {
               작가를 기다리고 있습니다.
             </S.Section4ContentTitle>
             <S.Section4ContentSubTitleBox>
-              <S.Section4ContentSubTitle>
+              <S.Section4ContentSubTitle
+                onClick={onClickPage}
+                page={page}
+                id="1"
+              >
                 아티클 기획의도
               </S.Section4ContentSubTitle>
-              <S.Section4ContentSubTitle>
+              <S.Section4ContentSubTitle
+                onClick={onClickPage}
+                page={page}
+                id="2"
+              >
                 서비스 이용방법
               </S.Section4ContentSubTitle>
-              <S.Section4ContentSubTitle>
+              <S.Section4ContentSubTitle
+                onClick={onClickPage}
+                page={page}
+                id="3"
+              >
                 서비스 이용후기
               </S.Section4ContentSubTitle>
             </S.Section4ContentSubTitleBox>
           </S.Section4ContentLeft>
           <S.Section4ContentRight>
             <S.Section4ScrollBox>
-              <S.Section4ContentRightTitle>
-                아티클은 신예 작가들을 지원하고 발단 되었습니다.
-              </S.Section4ContentRightTitle>
-              <S.Section4ContentRightContentBox
-                style={{ marginBottom: '12.5rem' }}
-              >
-                <S.Section4ContentRightImage image="/main_bottom01.png" />
-                <S.Section4ContentRightSubTitle>
-                  이달의 신예 작가가 말하는 아티클
-                </S.Section4ContentRightSubTitle>
-                <S.Section4ContentRightContent>
-                  신춘문예와 각종 문예지로 등단 5년 내외 신예작가들의 작품을
-                  묶은 책. 신예작가라 해서 연령대가 반드시 젊은 것은 아니지만,
-                  짧은 연조만큼 순수하고 풋풋하며 열린 가능성의 다양한 여백을
-                  보여주고 있어 독자들은 폭넓은 스펙트럼을 가진 소설들을 만나 볼
-                  수 있다.
-                </S.Section4ContentRightContent>
-              </S.Section4ContentRightContentBox>
-
-              <S.Section4ContentRightContentBox
-                style={{ marginBottom: '12.5rem' }}
-              >
-                <S.Section4ContentRightImage image="/brands-people-0uw3Ojx-4Cw-unsplash.png" />
-                <S.Section4ContentRightSubTitle>
-                  이달의 신예 작가가 말하는 아티클
-                </S.Section4ContentRightSubTitle>
-                <S.Section4ContentRightContent>
-                  신춘문예와 각종 문예지로 등단 5년 내외 신예작가들의 작품을
-                  묶은 책. 신예작가라 해서 연령대가 반드시 젊은 것은 아니지만,
-                  짧은 연조만큼 순수하고 풋풋하며 열린 가능성의 다양한 여백을
-                  보여주고 있어 독자들은 폭넓은 스펙트럼을 가진 소설들을 만나 볼
-                  수 있다.
-                </S.Section4ContentRightContent>
-              </S.Section4ContentRightContentBox>
-
-              <S.Section4ContentRightContentBox>
-                <S.Section4ContentRightImage image="/ellen-qin-bxLhqZIp2LI-unsplash.png" />
-                <S.Section4ContentRightSubTitle>
-                  이달의 신예 작가가 말하는 아티클
-                </S.Section4ContentRightSubTitle>
-                <S.Section4ContentRightContent>
-                  신춘문예와 각종 문예지로 등단 5년 내외 신예작가들의 작품을
-                  묶은 책. 신예작가라 해서 연령대가 반드시 젊은 것은 아니지만,
-                  짧은 연조만큼 순수하고 풋풋하며 열린 가능성의 다양한 여백을
-                  보여주고 있어 독자들은 폭넓은 스펙트럼을 가진 소설들을 만나 볼
-                  수 있다.
-                </S.Section4ContentRightContent>
-              </S.Section4ContentRightContentBox>
+              <S.Section4ContentBox page={page} id="1">
+                <S.Section4ContentRightTitle>
+                  아티클은 신예 작가들을 지원하고 발단 되었습니다.
+                </S.Section4ContentRightTitle>
+                <S.Section4ContentRightContentBox>
+                  <S.Section4ContentRightImage image="/main_bottom01.png" />
+                  <S.Section4ContentRightSubTitle>
+                    이달의 신예 작가가 말하는 아티클
+                  </S.Section4ContentRightSubTitle>
+                  <S.Section4ContentRightContent>
+                    신춘문예와 각종 문예지로 등단 5년 내외 신예작가들의 작품을
+                    묶은 책. 신예작가라 해서 연령대가 반드시 젊은 것은 아니지만,
+                    짧은 연조만큼 순수하고 풋풋하며 열린 가능성의 다양한 여백을
+                    보여주고 있어 독자들은 폭넓은 스펙트럼을 가진 소설들을 만나
+                    볼 수 있다.
+                  </S.Section4ContentRightContent>
+                </S.Section4ContentRightContentBox>
+              </S.Section4ContentBox>
+              <S.Section4ContentBox page={page} id="2">
+                <S.Section4ContentRightTitle>
+                  아티클은 신예 작가들을 지원하고 발단 되었습니다.
+                </S.Section4ContentRightTitle>
+                <S.Section4ContentRightContentBox>
+                  <S.Section4ContentRightImage image="/brands-people-0uw3Ojx-4Cw-unsplash.png" />
+                  <S.Section4ContentRightSubTitle>
+                    이달의 신예 작가가 말하는 아티클
+                  </S.Section4ContentRightSubTitle>
+                  <S.Section4ContentRightContent>
+                    신춘문예와 각종 문예지로 등단 5년 내외 신예작가들의 작품을
+                    묶은 책. 신예작가라 해서 연령대가 반드시 젊은 것은 아니지만,
+                    짧은 연조만큼 순수하고 풋풋하며 열린 가능성의 다양한 여백을
+                    보여주고 있어 독자들은 폭넓은 스펙트럼을 가진 소설들을 만나
+                    볼 수 있다.
+                  </S.Section4ContentRightContent>
+                </S.Section4ContentRightContentBox>
+              </S.Section4ContentBox>
+              <S.Section4ContentBox page={page} id="3">
+                <S.Section4ContentRightTitle>
+                  아티클은 신예 작가들을 지원하고 발단 되었습니다.
+                </S.Section4ContentRightTitle>
+                <S.Section4ContentRightContentBox>
+                  <S.Section4ContentRightImage image="/ellen-qin-bxLhqZIp2LI-unsplash.png" />
+                  <S.Section4ContentRightSubTitle>
+                    이달의 신예 작가가 말하는 아티클
+                  </S.Section4ContentRightSubTitle>
+                  <S.Section4ContentRightContent>
+                    신춘문예와 각종 문예지로 등단 5년 내외 신예작가들의 작품을
+                    묶은 책. 신예작가라 해서 연령대가 반드시 젊은 것은 아니지만,
+                    짧은 연조만큼 순수하고 풋풋하며 열린 가능성의 다양한 여백을
+                    보여주고 있어 독자들은 폭넓은 스펙트럼을 가진 소설들을 만나
+                    볼 수 있다.
+                  </S.Section4ContentRightContent>
+                </S.Section4ContentRightContentBox>
+              </S.Section4ContentBox>
             </S.Section4ScrollBox>
           </S.Section4ContentRight>
         </S.Section4Content>

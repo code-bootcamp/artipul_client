@@ -60,6 +60,7 @@ export default function UserMyPageContainer() {
       warningModal(e.message)
     }
   }
+
   const onClickReviewNew = () => {
     router.push('/review/new')
   }

@@ -30,7 +30,7 @@ export default function MainContainer() {
           })
         } else {
           await outerDivRef.current?.scrollTo({
-            top: scrollTop + 200,
+            top: scrollTop + 350,
             left: 0,
             behavior: 'smooth'
           })
@@ -56,7 +56,7 @@ export default function MainContainer() {
           })
         } else if (
           scrollTop >= pageHeight * 3 &&
-          scrollTop <= pageHeight * 3 + 200
+          scrollTop <= pageHeight * 3 + 350
         ) {
           outerDivRef.current?.scrollTo({
             top: pageHeight * 2,
@@ -65,7 +65,7 @@ export default function MainContainer() {
           })
         } else {
           await outerDivRef.current?.scrollTo({
-            top: scrollTop - 200,
+            top: scrollTop - 350,
             left: 0,
             behavior: 'smooth'
           })

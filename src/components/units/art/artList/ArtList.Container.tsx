@@ -57,7 +57,7 @@ export default function ArtListContainer() {
 
       setArtsData(parseTempArtsData)
     } catch (e) {
-      warningModal(e.message)
+      setArtsData([])
     }
   }
 

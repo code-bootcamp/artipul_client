@@ -30,7 +30,9 @@ export default function ReviewDetailPresenter(props) {
               src={
                 props.url
                   ? `${head}${props.url}`
-                  : `${head}${props.profile?.fetchProfile.url}`
+                  : props.data?.fetchProfile?.url
+                  ? `${head}${props.profile?.fetchProfile.url}`
+                  : `/basic.png`
               }
             />
             <S.nickName>{props.data?.fetchBoard.user.nickname}</S.nickName>

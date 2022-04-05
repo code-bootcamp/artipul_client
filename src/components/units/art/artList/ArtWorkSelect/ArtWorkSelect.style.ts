@@ -17,6 +17,7 @@ export const Select2Word = styled.select`
   background-color: ${(props) => (props.artCategory ? '#f64612' : '#fff')};
   border: ${(props) =>
     props.artCategory ? '1px solid #f64612' : '1px solid #111'};
+  cursor: pointer;
 `
 
 export const Select3Word = styled.select`
@@ -29,6 +30,7 @@ export const Select3Word = styled.select`
   background-color: ${(props) => (props.artCategory ? '#f64612' : '#fff')};
   border: ${(props) =>
     props.artCategory ? '1px solid #f64612' : '1px solid #111'};
+  cursor: pointer;
 `
 
 export const Select4Word = styled.select`
@@ -41,4 +43,5 @@ export const Select4Word = styled.select`
   background-color: ${(props) => (props.artCategory ? '#f64612' : '#fff')};
   border: ${(props) =>
     props.artCategory ? '1px solid #f64612' : '1px solid #111'};
+  cursor: pointer;
 `

@@ -31,7 +31,7 @@ export default function MainScrollButtonContainer(props) {
       })
     } else {
       await props.outerDivRef.current?.scrollTo({
-        top: scrollTop + 400,
+        top: scrollTop + 350,
         left: 0,
         behavior: 'smooth'
       })
