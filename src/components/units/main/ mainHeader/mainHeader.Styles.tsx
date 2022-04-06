@@ -41,9 +41,6 @@ export const User = styled(FaUser)`
 `
 export const WWrapper = styled.div`
   width: 100%;
-  position: absolute;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.5);
 `
 export const Wrapper = styled.div`
   width: 100%;

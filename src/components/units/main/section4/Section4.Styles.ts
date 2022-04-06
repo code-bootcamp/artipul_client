@@ -143,6 +143,7 @@ export const Section4ContentSubTitle = styled.div`
   text-align: left;
   color: #fff;
   opacity: ${(props) => (props.id === props.page ? '1' : '0.3')};
+  cursor: pointer;
 `
 
 export const Section4ContentRight = styled.div`

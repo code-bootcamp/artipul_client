@@ -1,6 +1,32 @@
-import * as H from './mainHeader.Styles'
+import * as H from '../../../commons/layout/header/Header.Styles'
 import { IHeaderProps } from './mainHeader.Types'
-export default function MainHeaderPresenter(props: IHeaderProps) {
+import { Menu, Dropdown } from 'antd'
+import { DownOutlined } from '@ant-design/icons'
+export default function HeaderPresenter(props: IHeaderProps) {
+  const { SubMenu } = Menu
+  const menu = (
+    <Menu>
+      <Menu.Item onClick={props.onClickAboutus}>ABOUT US</Menu.Item>
+      <Menu.Item onClick={props.onClickStore}>STORE</Menu.Item>
+      <Menu.Item onClick={props.onClickReview}>REVIEW</Menu.Item>
+      <Menu.Item onClick={props.onClickMyPage}>MYPAGE</Menu.Item>
+
+      <Menu.ItemGroup title="">
+        {props.accessToken ? (
+          <>
+            <Menu.Item>{props.data?.fetchProfile.user?.nickname} 님</Menu.Item>
+            <Menu.Item onClick={props.onClickLogout}>로그아웃</Menu.Item>
+          </>
+        ) : (
+          <>
+            <Menu.Item onClick={props.onClickSelectUser}>회원가입</Menu.Item>
+            <Menu.Item onClick={props.onClickLogin}>로그인</Menu.Item>
+          </>
+        )}
+      </Menu.ItemGroup>
+    </Menu>
+  )
+
   return (
     <>
       <H.WWrapper>
@@ -15,18 +41,44 @@ export default function MainHeaderPresenter(props: IHeaderProps) {
           <H.Footer>
             {props.accessToken ? (
               <>
-                <div>{props.data?.fetchProfile.user?.nickname} 님 </div>
-                <H.FooterMenu onClick={props.onClickLogout}>
-                  로그아웃
-                </H.FooterMenu>
+                <H.FooterWeb>
+                  <div>{props.data?.fetchProfile.user?.nickname} 님</div>
+                  <H.FooterMenu onClick={props.onClickLogout}>
+                    로그아웃
+                  </H.FooterMenu>
+                </H.FooterWeb>
+                <H.HamburgerWrap>
+                  <Dropdown overlay={menu}>
+                    <a
+                      className="ant-dropdown-link"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      <DownOutlined />
+                    </a>
+                  </Dropdown>
+                </H.HamburgerWrap>
               </>
             ) : (
               <>
-                <H.FooterMenu onClick={props.onClickSelectUser}>
-                  회원가입
-                </H.FooterMenu>
-                <H.FooterSpan> | </H.FooterSpan>
-                <H.FooterMenu onClick={props.onClickLogin}>로그인</H.FooterMenu>
+                <H.FooterWeb>
+                  <H.FooterMenu onClick={props.onClickSelectUser}>
+                    회원가입
+                  </H.FooterMenu>
+                  <H.FooterSpan> | </H.FooterSpan>
+                  <H.FooterMenu onClick={props.onClickLogin}>
+                    로그인
+                  </H.FooterMenu>
+                </H.FooterWeb>
+                <H.HamburgerWrap>
+                  <Dropdown overlay={menu}>
+                    <a
+                      className="ant-dropdown-link"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      <DownOutlined />
+                    </a>
+                  </Dropdown>
+                </H.HamburgerWrap>
               </>
             )}
           </H.Footer>
