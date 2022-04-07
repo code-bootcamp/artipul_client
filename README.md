@@ -36,6 +36,9 @@
 
 ## 3. 기술 스택
 
+![스크린샷 2022-04-07 오후 3 21 12](https://user-images.githubusercontent.com/95268742/162133316-c81e5631-dc19-4285-b24d-1a4a7087b915.png)
+
+
 ## 4. Flow-Chart
 ![image](https://user-images.githubusercontent.com/95268742/161491706-7e426049-4cae-4e1f-9d05-c2b42441cf77.png)
 
