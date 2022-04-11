@@ -83,7 +83,11 @@ graphql:  " v16.2.0 "
 ```
 ## 8. env 
 > 소셜로그인(Google, Kakao) : Client ID, Client secret, Client callback
+> 
 > Iamport : IMP key, IMP secret
+> 
 > GCP : Storage bucket, Storage key filename, Storage projet ID
+> 
 > Token : Access token, Refresh token
+> 
 > NHN Cloud : SMS app key, SMS x secret key, SMS sender
