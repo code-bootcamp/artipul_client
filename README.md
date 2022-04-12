@@ -40,17 +40,31 @@
 ## 4. Flow-Chart
 ![image](https://user-images.githubusercontent.com/95268742/161491706-7e426049-4cae-4e1f-9d05-c2b42441cf77.png)
 
-## 5. 프로젝트 기능 설명
+## 5. 시연 화연
 
 렌딩 페이지
 
+![랜딩페이지완](https://user-images.githubusercontent.com/95268742/162945772-3ac24802-17b6-417c-9384-d3430ce00ac9.gif)
+
+
 About Us 페이지
+
+![Aboutus완](https://user-images.githubusercontent.com/95268742/162944489-ec3487ae-65c6-4dcd-94e9-c822e0a8f48e.gif)
+
 
 로그인 페이지
 
+![로그인(미대생)완](https://user-images.githubusercontent.com/95268742/162945984-5eb21ec4-28af-406c-8935-e00cc2dfa3ff.gif)
+
+
 소셜 로그인
 
+![소셜로그인(일반유저)완](https://user-images.githubusercontent.com/95268742/162946408-e46e80ea-e15f-4559-8021-d458fa14fb74.gif)
+
+
 회원가입 페이지
+
+![미대생회원가입완](https://user-images.githubusercontent.com/95268742/162945274-76e4e0d6-87a8-42c4-a828-85e2f59dc064.gif)
 
 회원정보 찾기 페이지
 
