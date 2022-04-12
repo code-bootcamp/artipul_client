@@ -1,8 +1,6 @@
 # 아티풀(Artipul)
   * 미대생들의 작품을 쉽게 구매할 수 있는 플랫폼 사이트
 
-## 기술 스택
-
 
 ## 1. 프로젝트 소개
    프로젝트 동기
@@ -36,46 +34,70 @@
 
 ## 3. 기술 스택
 
+![스크린샷 2022-04-07 오후 3 21 12](https://user-images.githubusercontent.com/95268742/162133316-c81e5631-dc19-4285-b24d-1a4a7087b915.png)
+
+
 ## 4. Flow-Chart
 ![image](https://user-images.githubusercontent.com/95268742/161491706-7e426049-4cae-4e1f-9d05-c2b42441cf77.png)
 
 ## 5. 프로젝트 기능 설명
 
-메인 페이지
+렌딩 페이지
 
-상품 리스트 페이지
-
-상품 상세 페이지
-
-작가 소개 페이지
-
-후기 리스트 페이지
-
-후기 상세 페이지
-
-후기 등록 페이지
-
-회원가입 페이지
+About Us 페이지
 
 로그인 페이지
 
+소셜 로그인
+
+회원가입 페이지
+
+회원정보 찾기 페이지
+
+일반유저 마이페이지
+
 미대생 마이페이지
 
-구매자 마이페이지
+작품 리스트 페이지
+
+작품 등록 페이지
+
+작품 상세 페이지
+
+리뷰 리스트 페이지
+
+리뷰 등록 페이지
+
+리뷰 상세 페이지
+
+리뷰 수정 페이지
+
+
 
 ## 6. 프로젝트 팀원 역할 분담
 | 이름 | 역할 | 담당 부분 |
 | ------ | ------ | ------ |
-| 변재준 | 팀장, 프론트엔드 | 1.  <br/>2. |
-| 최다슬 | 백엔드 | 1. |
-| 김진아 | 프론트엔드 | 1. |
-| 이재후 | 백엔드 | 1. |
-| 김재현 | 프론트엔드 | 1. |
+| 변재준 | 팀장, 프론트엔드 | 1. 프로젝트기획 <br/>2. Docker 세팅 <br/> 3. Front-end 배포 <br/> 4. Team Issue 관리 <br/> 5. LoginPage <br/> 6. SignUp Page <br/> 7. User Mypage <br/> 8. Artist Mypage <br/> 9. 결제대행 오픈API(아임포트) <br/> 10. 다음포스트 코드와 카카오맵 <br/> 11. Web Editor(Toast UI) <br/> 12. 권한분기 설정 <br/> 13. CustomHook|
+| 최다슬 | 백엔드 | 1. ERD 디자인 <br/> 2. Back-end 배포 <br/> 3. Flow-Chart 제작 <br/> 4. API Docs 제작 <br/> 5. 결제API(아임포트) <br/> 6. Search Engine <br/> 7. Board CRUD API <br/> 8. MyPage CRUD API|
+| 김진아 | 프론트엔드 | 1. Notion rhksfl <br/> 2. 회의록 작성 <br/> 3. Review Page <br/> 4. Data Work <br/> 5. 발표자료 작성|
+| 이재후 | 백엔드 | 1. Docker 세팅 <br/> 2. Trouble Shooter <br/> 3. Test 환경 배포 <br/> 4. API Docs 제작 <br/> 5. Sign up, Sign in API <br/> 6. Social Login <br/> 7. 경매 API (Socket) <br/> 8. Art CRUD API |
+| 김재현 | 프론트엔드 | 1. GitHub 관리 <br/> 2. Trouble Shooter <br/> 3. MainPage <br/> 4. About Us Page <br/> 5. Art Page <br/> 6. Auction Page <br/> 7. 실시간 양방향 소통(Socket) |
 
 ## 7. 버전
 ```sh
-node
+node:  " v16.13.1 "
+next:  " v12.0.7 "
+react:  " v17.0.2 "
+graphql:  " v16.2.0 "
 
-next
 ```
 ## 8. env 
+> 소셜로그인(Google, Kakao) : Client ID, Client secret, Client callback
+> 
+> Iamport : IMP key, IMP secret
+> 
+> GCP : Storage bucket, Storage key filename, Storage projet ID
+> 
+> Token : Access token, Refresh token
+> 
+> NHN Cloud : SMS app key, SMS x secret key, SMS sender
