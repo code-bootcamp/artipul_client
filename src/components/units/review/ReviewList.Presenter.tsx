@@ -2,7 +2,6 @@ import FooterContainer from '../../commons/layout/footer/Footer.Container'
 import * as S from './ReviewList.Styles'
 
 export default function ReviewListPresenter(props) {
-  console.log(props.page + 10, props.data?.length)
   return (
     <>
       <S.Wrapper>

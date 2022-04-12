@@ -13,7 +13,6 @@ export default function LikePageContainer() {
     refetch({ page })
   }
 
-  console.log(fetchLikeArtCount)
   return (
     <LikePagePresenter
       data={data}
