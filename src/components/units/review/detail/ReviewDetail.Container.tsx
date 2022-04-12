@@ -27,7 +27,6 @@ export default function ReviewDetailContainer() {
     variables: { boardId: router.query.reviewid }
   })
 
-  console.log(data)
   const [addLikeBoard] = useMutation(ADD_LIKE_BOARD)
 
   const onClickLike = async () => {
