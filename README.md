@@ -73,33 +73,46 @@ About Us 페이지
 
 일반유저 마이페이지
  - 포인트 충전
+ 
 ![포인트 충전완](https://user-images.githubusercontent.com/95268742/163152481-2cb0d591-5abc-44a7-a85e-5efe7428d6c4.gif)
 
  - 참여중인 경매
+ 
 ![마이페이지(참여중인 경매)ㅇ](https://user-images.githubusercontent.com/95268742/163166653-25db1000-ef26-4940-8c7f-45fe577059dd.gif)
 
 
  - 찜한 작품들
+ 
 ![마이페이지(찜한 작품들)완](https://user-images.githubusercontent.com/95268742/163164849-dfc5f0a9-5edb-4b98-9941-be8b92938aff.gif)
 
 
 
  - 배송지 설정
+ 
 ![배송지 등록](https://user-images.githubusercontent.com/95268742/163159214-68c0d611-ed9f-4e68-9e38-661631b366df.gif)
 
 
  - 구매한 작품들
+
 ![마이페이지(구매한 작품들)완](https://user-images.githubusercontent.com/95268742/163165175-2564191d-4885-4d1d-a186-5407ea3391cd.gif)
 
 
 미대생 마이페이지
  - 작가 소개
 
+![작가소개완](https://user-images.githubusercontent.com/95268742/163170496-fd2dbb30-5bfe-42d7-a3a8-f22239d95d08.gif)
+
 
  - 경매중인 작품
 
+https://user-images.githubusercontent.com/95268742/163170527-49a49f2b-b0f0-4ff8-aaee-361b639f25d3.mov
+
 
  - 거래완료된 작품
+
+https://user-images.githubusercontent.com/95268742/163170623-1cba27b6-bd99-455f-94d6-f2f4afcfd6da.mov
+
+
 
 
 작품 리스트 페이지
