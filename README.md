@@ -76,6 +76,7 @@ About Us 페이지
 ![포인트 충전완](https://user-images.githubusercontent.com/95268742/163152481-2cb0d591-5abc-44a7-a85e-5efe7428d6c4.gif)
 
  - 참여중인 경매
+![마이페이지(참여중인 경매)ㅇ](https://user-images.githubusercontent.com/95268742/163166653-25db1000-ef26-4940-8c7f-45fe577059dd.gif)
 
 
  - 찜한 작품들
@@ -87,14 +88,18 @@ About Us 페이지
 ![배송지 등록](https://user-images.githubusercontent.com/95268742/163159214-68c0d611-ed9f-4e68-9e38-661631b366df.gif)
 
 
- - 작성한 리뷰
-
-
  - 구매한 작품들
 ![마이페이지(구매한 작품들)완](https://user-images.githubusercontent.com/95268742/163165175-2564191d-4885-4d1d-a186-5407ea3391cd.gif)
 
 
 미대생 마이페이지
+ - 작가 소개
+
+
+ - 경매중인 작품
+
+
+ - 거래완료된 작품
 
 
 작품 리스트 페이지
@@ -105,16 +110,14 @@ About Us 페이지
 ![작가-작품등록](https://user-images.githubusercontent.com/95268742/163164033-d087ee71-88f2-4256-9153-f360c8a09d0c.gif)
 
 
-리뷰 리스트 페이지
+
+리뷰 등록 및 상세 페이지
+![리뷰작성완](https://user-images.githubusercontent.com/95268742/163168127-59c8a0eb-1915-4cb2-8b05-775858ce61f3.gif)
 
 
-리뷰 등록 페이지
 
-
-리뷰 상세 페이지
-
-
-리뷰 수정 페이지
+일반인 마이페이지 작성한 리뷰 및 리뷰 수정, 삭제
+![리뷰 수정 및 삭제ㅁ](https://user-images.githubusercontent.com/95268742/163168485-e50cbdf9-affe-4013-bbb3-312ecf99229d.gif)
 
 
 
