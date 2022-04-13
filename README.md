@@ -105,12 +105,14 @@ About Us 페이지
 
  - 경매중인 작품
 
-https://user-images.githubusercontent.com/95268742/163170527-49a49f2b-b0f0-4ff8-aaee-361b639f25d3.mov
+![경매중인 작품완](https://user-images.githubusercontent.com/95268742/163170895-654e88ae-60fb-42da-b2e8-252c0541aae5.gif)
+
 
 
  - 거래완료된 작품
 
-https://user-images.githubusercontent.com/95268742/163170623-1cba27b6-bd99-455f-94d6-f2f4afcfd6da.mov
+![거래완료된 작품ㅇ](https://user-images.githubusercontent.com/95268742/163170926-3b79c652-00a3-4d77-8c94-9aa9b284cb58.gif)
+
 
 
 
