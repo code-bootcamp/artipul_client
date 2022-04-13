@@ -24,7 +24,11 @@ export default function AuctioningPagePresenter(props) {
             <A.TableRowMenu>{el.title}</A.TableRowMenu>
             <A.TableRowMenu>{el.deadline.slice(0, 10)}</A.TableRowMenu>
             <A.TableRowMenu>{el.instant_bid}</A.TableRowMenu>
-            <A.TableRowMenu>{el.price}</A.TableRowMenu>
+            <A.TableRowMenu>
+              {el.price
+                .toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+            </A.TableRowMenu>
             <A.TableRowLastMenu>
               <A.DetailButton onClick={props.onClickDetail(el)}>
                 상세보기

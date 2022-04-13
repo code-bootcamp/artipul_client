@@ -96,9 +96,17 @@ export default function PointPagePresenter(props: IPointPageProps) {
               <>
                 <P.TableRowMenu>{el.createdAt.slice(0, 10)}</P.TableRowMenu>
                 <P.TableRowMenu>출금</P.TableRowMenu>
-                <P.TableRowMenu>{el.point}</P.TableRowMenu>
+                <P.TableRowMenu>
+                  {el.point
+                    .toString()
+                    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                </P.TableRowMenu>
                 <P.TableRowMenu></P.TableRowMenu>
-                <P.TableRowMenu>{el.balance}</P.TableRowMenu>
+                <P.TableRowMenu>
+                  {el.balance
+                    .toString()
+                    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                </P.TableRowMenu>
               </>
             ) : (
               <>
