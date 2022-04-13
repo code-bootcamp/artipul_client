@@ -24,7 +24,11 @@ export default function BoughtArtsPagePresenter(props) {
             <B.TableRowMenu>{el.tag1}</B.TableRowMenu>
             <B.TableRowMenu>{el.title}</B.TableRowMenu>
             <B.TableRowMenu>{el.payment.user.name}</B.TableRowMenu>
-            <B.TableRowMenu>{el.price}</B.TableRowMenu>
+            <B.TableRowMenu>
+              {el.price
+                .toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+            </B.TableRowMenu>
             <B.TableRowMenu>{el.deadline.slice(0, 10)}</B.TableRowMenu>
           </B.TableRow>
         ))}

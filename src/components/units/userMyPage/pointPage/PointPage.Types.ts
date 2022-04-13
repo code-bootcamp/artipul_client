@@ -8,4 +8,5 @@ export interface IPointPageProps {
   fetchProfileData: any
   fetchHistoryCount: any
   amount: string
+  page: number
 }
