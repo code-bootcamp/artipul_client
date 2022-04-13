@@ -114,9 +114,6 @@ About Us 페이지
 ![거래완료된 작품ㅇ](https://user-images.githubusercontent.com/95268742/163170926-3b79c652-00a3-4d77-8c94-9aa9b284cb58.gif)
 
 
-
-
-
 작품 리스트 페이지
 ![작품리스트 및 즉시구매](https://user-images.githubusercontent.com/95268742/163159450-6650f961-adc1-4d21-8ab5-6ae82a570284.gif)
 
