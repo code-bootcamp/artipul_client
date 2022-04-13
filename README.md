@@ -68,6 +68,9 @@ About Us 페이지
 
 회원정보 찾기 페이지
 
+![회원정보 찾기](https://user-images.githubusercontent.com/95268742/163155482-1eaea1db-dfda-4553-8b23-80128e252186.png)
+
+
 일반유저 마이페이지
  - 포인트 충전
 ![포인트 충전완](https://user-images.githubusercontent.com/95268742/163152481-2cb0d591-5abc-44a7-a85e-5efe7428d6c4.gif)
@@ -76,30 +79,40 @@ About Us 페이지
 
 
  - 찜한 작품들
+![마이페이지(찜한 작품들)완](https://user-images.githubusercontent.com/95268742/163164849-dfc5f0a9-5edb-4b98-9941-be8b92938aff.gif)
+
 
 
  - 배송지 설정
+![배송지 등록](https://user-images.githubusercontent.com/95268742/163159214-68c0d611-ed9f-4e68-9e38-661631b366df.gif)
 
 
  - 작성한 리뷰
 
 
  - 구매한 작품들
+![마이페이지(구매한 작품들)완](https://user-images.githubusercontent.com/95268742/163165175-2564191d-4885-4d1d-a186-5407ea3391cd.gif)
 
 
 미대생 마이페이지
 
+
 작품 리스트 페이지
+![작품리스트 및 즉시구매](https://user-images.githubusercontent.com/95268742/163159450-6650f961-adc1-4d21-8ab5-6ae82a570284.gif)
 
-작품 등록 페이지
 
-작품 상세 페이지
+작품 등록 페이지 및 상세 페이지
+![작가-작품등록](https://user-images.githubusercontent.com/95268742/163164033-d087ee71-88f2-4256-9153-f360c8a09d0c.gif)
+
 
 리뷰 리스트 페이지
 
+
 리뷰 등록 페이지
 
+
 리뷰 상세 페이지
+
 
 리뷰 수정 페이지
 
@@ -108,9 +121,9 @@ About Us 페이지
 ## 6. 프로젝트 팀원 역할 분담
 | 이름 | 역할 | 담당 부분 |
 | ------ | ------ | ------ |
-| 변재준 | 팀장, 프론트엔드 | 1. 프로젝트기획 <br/>2. Docker 세팅 <br/> 3. Front-end 배포 <br/> 4. Team Issue 관리 <br/> 5. LoginPage <br/> 6. SignUp Page <br/> 7. User Mypage <br/> 8. Artist Mypage <br/> 9. 결제대행 오픈API(아임포트) <br/> 10. 다음포스트 코드와 카카오맵 <br/> 11. Web Editor(Toast UI) <br/> 12. 권한분기 설정 <br/> 13. CustomHook|
-| 최다슬 | 백엔드 | 1. ERD 디자인 <br/> 2. Back-end 배포 <br/> 3. Flow-Chart 제작 <br/> 4. API Docs 제작 <br/> 5. 결제API(아임포트) <br/> 6. Search Engine <br/> 7. Board CRUD API <br/> 8. MyPage CRUD API|
-| 김진아 | 프론트엔드 | 1. Notion rhksfl <br/> 2. 회의록 작성 <br/> 3. Review Page <br/> 4. Data Work <br/> 5. 발표자료 작성|
+| 변재준 | 팀장, 프론트엔드 | 1. 프로젝트기획 <br/>2. Docker 세팅 <br/> 3. Front-end 배포 <br/> 4. Team Issue 관리 <br/> 5. LoginPage <br/> 6. SignUp Page <br/> 7. User Mypage <br/> 8. Artist Mypage <br/> 9. 결제대행 오픈API(아임포트) <br/> 10. 다음포스트 코드와 카카오맵 <br/> 11. Web Editor(Toast UI) <br/> 12. 권한분기 설정 <br/> 13. CustomHook <br/> 14. 발표자료 작성 <br/> 15. Read.me 작성|
+| 최다슬 | 백엔드 | 1. ERD 디자인 <br/> 2. Back-end 배포 <br/> 3. Flow-Chart 제작 <br/> 4. API Docs 제작 <br/> 5. 결제API(아임포트) <br/> 6. Search Engine <br/> 7. Board CRUD API <br/> 8. MyPage CRUD API <br/> 9. 발표자료 작성 <br/> 10. 기획서 작성|
+| 김진아 | 프론트엔드 | 1. Notion rhksfl <br/> 2. 회의록 작성 <br/> 3. Review Page <br/> 4. Data Work |
 | 이재후 | 백엔드 | 1. Docker 세팅 <br/> 2. Trouble Shooter <br/> 3. Test 환경 배포 <br/> 4. API Docs 제작 <br/> 5. Sign up, Sign in API <br/> 6. Social Login <br/> 7. 경매 API (Socket) <br/> 8. Art CRUD API |
 | 김재현 | 프론트엔드 | 1. GitHub 관리 <br/> 2. Trouble Shooter <br/> 3. MainPage <br/> 4. About Us Page <br/> 5. Art Page <br/> 6. Auction Page <br/> 7. 실시간 양방향 소통(Socket) |
 
