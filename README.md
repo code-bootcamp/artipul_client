@@ -1,8 +1,6 @@
 # 아티풀(Artipul)
   * 미대생들의 작품을 쉽게 구매할 수 있는 플랫폼 사이트
 
-## 기술 스택
-
 
 ## 1. 프로젝트 소개
    프로젝트 동기
@@ -36,46 +34,129 @@
 
 ## 3. 기술 스택
 
+![스크린샷 2022-04-07 오후 3 21 12](https://user-images.githubusercontent.com/95268742/162133316-c81e5631-dc19-4285-b24d-1a4a7087b915.png)
+
+
 ## 4. Flow-Chart
 ![image](https://user-images.githubusercontent.com/95268742/161491706-7e426049-4cae-4e1f-9d05-c2b42441cf77.png)
 
-## 5. 프로젝트 기능 설명
+## 5. 시연 화연
 
-메인 페이지
+렌딩 페이지
 
-상품 리스트 페이지
+![랜딩페이지완](https://user-images.githubusercontent.com/95268742/162945772-3ac24802-17b6-417c-9384-d3430ce00ac9.gif)
 
-상품 상세 페이지
 
-작가 소개 페이지
+About Us 페이지
 
-후기 리스트 페이지
+![Aboutus완](https://user-images.githubusercontent.com/95268742/162944489-ec3487ae-65c6-4dcd-94e9-c822e0a8f48e.gif)
 
-후기 상세 페이지
-
-후기 등록 페이지
-
-회원가입 페이지
 
 로그인 페이지
 
-미대생 마이페이지
+![로그인(미대생)완](https://user-images.githubusercontent.com/95268742/162945984-5eb21ec4-28af-406c-8935-e00cc2dfa3ff.gif)
 
-구매자 마이페이지
+
+소셜 로그인
+
+![소셜로그인(일반유저)완](https://user-images.githubusercontent.com/95268742/162946408-e46e80ea-e15f-4559-8021-d458fa14fb74.gif)
+
+
+회원가입 페이지
+
+![미대생회원가입완](https://user-images.githubusercontent.com/95268742/162945274-76e4e0d6-87a8-42c4-a828-85e2f59dc064.gif)
+
+회원정보 찾기 페이지
+
+![회원정보 찾기](https://user-images.githubusercontent.com/95268742/163155482-1eaea1db-dfda-4553-8b23-80128e252186.png)
+
+
+일반유저 마이페이지
+ - 포인트 충전
+ 
+![포인트 충전완](https://user-images.githubusercontent.com/95268742/163152481-2cb0d591-5abc-44a7-a85e-5efe7428d6c4.gif)
+
+ - 참여중인 경매
+ 
+![마이페이지(참여중인 경매)ㅇ](https://user-images.githubusercontent.com/95268742/163166653-25db1000-ef26-4940-8c7f-45fe577059dd.gif)
+
+
+ - 찜한 작품들
+ 
+![마이페이지(찜한 작품들)완](https://user-images.githubusercontent.com/95268742/163164849-dfc5f0a9-5edb-4b98-9941-be8b92938aff.gif)
+
+
+
+ - 배송지 설정
+ 
+![배송지 등록](https://user-images.githubusercontent.com/95268742/163159214-68c0d611-ed9f-4e68-9e38-661631b366df.gif)
+
+
+ - 구매한 작품들
+
+![마이페이지(구매한 작품들)완](https://user-images.githubusercontent.com/95268742/163165175-2564191d-4885-4d1d-a186-5407ea3391cd.gif)
+
+
+미대생 마이페이지
+ - 작가 소개
+
+![작가소개완](https://user-images.githubusercontent.com/95268742/163170496-fd2dbb30-5bfe-42d7-a3a8-f22239d95d08.gif)
+
+
+ - 경매중인 작품
+
+![경매중인 작품완](https://user-images.githubusercontent.com/95268742/163170895-654e88ae-60fb-42da-b2e8-252c0541aae5.gif)
+
+
+
+ - 거래완료된 작품
+
+![거래완료된 작품ㅇ](https://user-images.githubusercontent.com/95268742/163170926-3b79c652-00a3-4d77-8c94-9aa9b284cb58.gif)
+
+
+작품 리스트 페이지
+![작품리스트 및 즉시구매](https://user-images.githubusercontent.com/95268742/163159450-6650f961-adc1-4d21-8ab5-6ae82a570284.gif)
+
+
+작품 등록 페이지 및 상세 페이지
+![작가-작품등록](https://user-images.githubusercontent.com/95268742/163164033-d087ee71-88f2-4256-9153-f360c8a09d0c.gif)
+
+
+
+리뷰 등록 및 상세 페이지
+![리뷰작성완](https://user-images.githubusercontent.com/95268742/163168127-59c8a0eb-1915-4cb2-8b05-775858ce61f3.gif)
+
+
+
+일반인 마이페이지 작성한 리뷰 및 리뷰 수정, 삭제
+![리뷰 수정 및 삭제ㅁ](https://user-images.githubusercontent.com/95268742/163168485-e50cbdf9-affe-4013-bbb3-312ecf99229d.gif)
+
+
 
 ## 6. 프로젝트 팀원 역할 분담
 | 이름 | 역할 | 담당 부분 |
 | ------ | ------ | ------ |
-| 변재준 | 팀장, 프론트엔드 | 1.  <br/>2. |
-| 최다슬 | 백엔드 | 1. |
-| 김진아 | 프론트엔드 | 1. |
-| 이재후 | 백엔드 | 1. |
-| 김재현 | 프론트엔드 | 1. |
+| 변재준 | 팀장, 프론트엔드 | 1. 프로젝트기획 <br/>2. Docker 세팅 <br/> 3. Front-end 배포 <br/> 4. Team Issue 관리 <br/> 5. LoginPage <br/> 6. SignUp Page <br/> 7. User Mypage <br/> 8. Artist Mypage <br/> 9. 결제대행 오픈API(아임포트) <br/> 10. 다음포스트 코드와 카카오맵 <br/> 11. Web Editor(Toast UI) <br/> 12. 권한분기 설정 <br/> 13. CustomHook <br/> 14. 발표자료 작성 <br/> 15. Read.me 작성|
+| 최다슬 | 백엔드 | 1. ERD 디자인 <br/> 2. Back-end 배포 <br/> 3. Flow-Chart 제작 <br/> 4. API Docs 제작 <br/> 5. 결제API(아임포트) <br/> 6. Search Engine <br/> 7. Board CRUD API <br/> 8. MyPage CRUD API <br/> 9. 발표자료 작성 <br/> 10. 기획서 작성|
+| 김진아 | 프론트엔드 | 1. Notion rhksfl <br/> 2. 회의록 작성 <br/> 3. Review Page <br/> 4. Data Work |
+| 이재후 | 백엔드 | 1. Docker 세팅 <br/> 2. Trouble Shooter <br/> 3. Test 환경 배포 <br/> 4. API Docs 제작 <br/> 5. Sign up, Sign in API <br/> 6. Social Login <br/> 7. 경매 API (Socket) <br/> 8. Art CRUD API |
+| 김재현 | 프론트엔드 | 1. GitHub 관리 <br/> 2. Trouble Shooter <br/> 3. MainPage <br/> 4. About Us Page <br/> 5. Art Page <br/> 6. Auction Page <br/> 7. 실시간 양방향 소통(Socket) |
 
 ## 7. 버전
 ```sh
-node
+node:  " v16.13.1 "
+next:  " v12.0.7 "
+react:  " v17.0.2 "
+graphql:  " v16.2.0 "
 
-next
 ```
 ## 8. env 
+> 소셜로그인(Google, Kakao) : Client ID, Client secret, Client callback
+> 
+> Iamport : IMP key, IMP secret
+> 
+> GCP : Storage bucket, Storage key filename, Storage projet ID
+> 
+> Token : Access token, Refresh token
+> 
+> NHN Cloud : SMS app key, SMS x secret key, SMS sender
